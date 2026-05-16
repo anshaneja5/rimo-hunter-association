@@ -9,7 +9,8 @@
     "lint": "next lint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "fetch-stats": "tsx scripts/fetch-stats.ts"
+    "fetch-stats": "tsx scripts/fetch-stats.ts",
+    "mock-data": "tsx scripts/mock-data.ts"
   },
   "dependencies": {
     "@octokit/graphql": "^8.1.1",
