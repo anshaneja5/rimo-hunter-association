@@ -2,7 +2,7 @@ name: Refresh stats
 
 on:
   schedule:
-    - cron: '0 * * * *'   # hourly, top of every hour UTC
+    - cron: '0 */6 * * *'   # every 6h (00:00, 06:00, 12:00, 18:00 UTC) — fits Actions free tier on private repos
   workflow_dispatch:
 
 permissions:
