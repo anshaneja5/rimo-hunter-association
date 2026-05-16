@@ -1,10 +1,11 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { loadMembers, loadStats, findMember } from '@/lib/loadData';
 import type { MembersFile, StatsFile, Period, TierLetter } from '@/lib/types';
 import { PeriodToggle } from '@/components/PeriodToggle';
 import { LeaderboardTable } from '@/components/LeaderboardTable';
+import { HunterSearch } from '@/components/HunterSearch';
 import { useT } from '@/components/I18nProvider';
 
 const TIERS: TierLetter[] = ['S', 'A', 'B', 'C', 'D', 'E'];
@@ -22,9 +23,32 @@ export default function LeaderboardPage() {
   const [period, setPeriod] = useState<Period>('weekly');
   const [members, setMembers] = useState<MembersFile | null>(null);
   const [stats, setStats] = useState<StatsFile | null>(null);
+  const [search, setSearch] = useState('');
+  const [autoFocus, setAutoFocus] = useState(false);
 
   useEffect(() => { loadMembers().then(setMembers); }, []);
   useEffect(() => { loadStats(period).then(setStats); }, [period]);
+
+  // Auto-focus search if hash is #search (from nav)
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash === '#search') setAutoFocus(true);
+  }, []);
+
+  const rows = useMemo(() => {
+    if (!members || !stats) return [];
+    return stats.rankings
+      .map((r) => ({ member: findMember(members.members, r.login)!, ranking: r }))
+      .filter((r) => r.member);
+  }, [members, stats]);
+
+  const filteredRows = useMemo(() => {
+    if (!search) return rows;
+    const s = search.toLowerCase().replace(/^@/, '');
+    return rows.filter((r) =>
+      r.member.login.toLowerCase().includes(s) ||
+      (r.member.name ?? '').toLowerCase().includes(s),
+    );
+  }, [rows, search]);
 
   if (!members || !stats) {
     return (
@@ -35,10 +59,6 @@ export default function LeaderboardPage() {
   }
 
   const maxXp = stats.rankings[0]?.xp ?? 1;
-  const rows = stats.rankings
-    .map((r) => ({ member: findMember(members.members, r.login)!, ranking: r }))
-    .filter((r) => r.member);
-
   const tierCounts: Record<TierLetter, number> = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0 };
   for (const r of stats.rankings) tierCounts[r.tier]++;
 
@@ -85,12 +105,36 @@ export default function LeaderboardPage() {
         </div>
       </div>
 
+      {/* SEARCH */}
+      <div id="search">
+        <HunterSearch
+          value={search}
+          onChange={setSearch}
+          autoFocusOnMount={autoFocus}
+          resultCount={filteredRows.length}
+          totalCount={rows.length}
+        />
+      </div>
+
       {/* Period toggle */}
       <section className="flex justify-center">
         <PeriodToggle value={period} onChange={setPeriod} />
       </section>
 
-      <LeaderboardTable rows={rows} maxXp={maxXp} />
+      {filteredRows.length > 0 ? (
+        <LeaderboardTable rows={filteredRows} maxXp={maxXp} />
+      ) : (
+        <div className="glass rounded-2xl py-12 text-center">
+          <svg width="40" height="40" viewBox="0 0 40 40" className="text-zinc-600 mx-auto mb-4">
+            <circle cx="17" cy="17" r="12" stroke="currentColor" strokeWidth="1.5" fill="none" />
+            <line x1="26" y1="26" x2="36" y2="36" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+          <div className="font-display uppercase tracking-[0.25em] text-sm text-zinc-400">
+            {t('leaderboard.search.empty')}
+          </div>
+          <div className="font-mono text-xs text-zinc-500 mt-2">"{search}"</div>
+        </div>
+      )}
     </motion.div>
   );
 }

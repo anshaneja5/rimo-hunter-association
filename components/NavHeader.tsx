@@ -13,7 +13,19 @@ export function NavHeader() {
           <span className="text-neon-cyan">Hunter</span>{' '}
           <span className="hidden sm:inline">{t('nav.logo.suffix')}</span>
         </Link>
-        <div className="flex items-center gap-3 md:gap-6 text-xs md:text-sm font-display uppercase tracking-widest">
+        <div className="flex items-center gap-3 md:gap-5 text-xs md:text-sm font-display uppercase tracking-widest">
+          <Link
+            href="/leaderboard/#search"
+            className="hover:text-neon-purple transition-colors flex items-center gap-1.5"
+            aria-label={t('nav.search')}
+            title={t('nav.search')}
+          >
+            <svg width="15" height="15" viewBox="0 0 15 15" className="opacity-80">
+              <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.4" fill="none" />
+              <line x1="9.6" y1="9.6" x2="13" y2="13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+            </svg>
+            <span className="hidden md:inline">{t('nav.search')}</span>
+          </Link>
           <Link href="/leaderboard/" className="hover:text-neon-purple transition-colors whitespace-nowrap">{t('nav.ladder')}</Link>
           <Link href="/legends/" className="hover:text-neon-purple transition-colors whitespace-nowrap">{t('nav.legends')}</Link>
           <LocaleToggle />

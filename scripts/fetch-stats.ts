@@ -239,14 +239,40 @@ async function main() {
     rankHistory.byLogin[r.login] = rankHistory.byLogin[r.login].slice(-52); // keep last 52 weeks
   }
 
-  // Update MVPs file: snapshot at week boundary completion
+  // Update MVPs file. We snapshot:
+  //   - Current week's #1 (so legends has content immediately; gets overwritten through the week)
+  //   - Previous week's #1 (closed-week record, only added if missing)
+  //   - Current month's #1 (overwritten through the month; finalised when the next month starts)
+  // Also: prune any entry whose login is no longer in the current member set (catches removed
+  // bots, deleted accounts, mock-data residue, etc).
   const mvps = await readJson<MVPsFile>(path.join(DATA_DIR, 'mvps.json'), { weekly: [], monthly: [] });
+  const validLogins = new Set(memberMap.keys());
+
+  // --- current week snapshot
+  const currentWeekKeyForMvp = weekStart.toISOString();
+  const currentWeekTop = weeklyStats.rankings[0];
+  if (currentWeekTop) {
+    const existing = mvps.weekly.find((m) => m.weekStart === currentWeekKeyForMvp);
+    if (existing) {
+      existing.login = currentWeekTop.login;
+      existing.xp = currentWeekTop.xp;
+      existing.snapshot = currentWeekTop.breakdown;
+    } else {
+      mvps.weekly.unshift({
+        weekStart: currentWeekKeyForMvp,
+        login: currentWeekTop.login,
+        xp: currentWeekTop.xp,
+        snapshot: currentWeekTop.breakdown,
+      });
+    }
+  }
+
+  // --- previous-completed-week snapshot (from rank history if we have it)
   const completedWeekStart = new Date(weekStart.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString();
   if (!mvps.weekly.find((m) => m.weekStart === completedWeekStart)) {
-    const prevWeekData = rankHistory.byLogin;
     let bestLogin: string | null = null;
     let bestXp = -1;
-    for (const [login, hist] of Object.entries(prevWeekData)) {
+    for (const [login, hist] of Object.entries(rankHistory.byLogin)) {
       const h = hist.find((x) => x.weekStart === completedWeekStart);
       if (h && h.xp > bestXp) {
         bestXp = h.xp;
@@ -257,17 +283,33 @@ async function main() {
       mvps.weekly.unshift({ weekStart: completedWeekStart, login: bestLogin, xp: bestXp, snapshot: EMPTY_BREAKDOWN });
     }
   }
+
+  // --- current month snapshot
   const currentMonthKey = jstMonthStart(now).toISOString().slice(0, 7);
-  const top = monthlyStats.rankings[0];
-  if (top) {
+  const monthTop = monthlyStats.rankings[0];
+  if (monthTop) {
     const existing = mvps.monthly.find((m) => m.month === currentMonthKey);
     if (existing) {
-      existing.login = top.login;
-      existing.xp = top.xp;
-      existing.snapshot = top.breakdown;
+      existing.login = monthTop.login;
+      existing.xp = monthTop.xp;
+      existing.snapshot = monthTop.breakdown;
     } else {
-      mvps.monthly.unshift({ month: currentMonthKey, login: top.login, xp: top.xp, snapshot: top.breakdown });
+      mvps.monthly.unshift({ month: currentMonthKey, login: monthTop.login, xp: monthTop.xp, snapshot: monthTop.breakdown });
     }
+  }
+
+  // --- prune entries pointing at logins no longer on the ladder (bots, removed members, mock residue)
+  const beforeWeekly = mvps.weekly.length;
+  const beforeMonthly = mvps.monthly.length;
+  mvps.weekly = mvps.weekly.filter((m) => validLogins.has(m.login));
+  mvps.monthly = mvps.monthly.filter((m) => validLogins.has(m.login));
+  if (beforeWeekly !== mvps.weekly.length || beforeMonthly !== mvps.monthly.length) {
+    console.log(`[fetch-stats] pruned mvps: weekly ${beforeWeekly} -> ${mvps.weekly.length}, monthly ${beforeMonthly} -> ${mvps.monthly.length}`);
+  }
+
+  // --- prune rank-history entries for logins no longer on the ladder
+  for (const login of Object.keys(rankHistory.byLogin)) {
+    if (!validLogins.has(login)) delete rankHistory.byLogin[login];
   }
 
   // Write all files

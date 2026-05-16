@@ -35,6 +35,11 @@ export const translations = {
     'leaderboard.col.xp': 'XP',
     'leaderboard.col.activity': 'Activity',
     'leaderboard.col.badges': 'Badges',
+    'leaderboard.search.placeholder': 'Search hunters by name or @login...',
+    'leaderboard.search.empty': 'No hunters match',
+    'leaderboard.search.results': 'matches',
+
+    'nav.search': 'Search',
 
     'hunter.allTimeRank': 'All-time rank',
     'hunter.statBreakdown': 'Stat breakdown (all-time)',
@@ -112,6 +117,11 @@ export const translations = {
     'leaderboard.col.xp': '経験値',
     'leaderboard.col.activity': '活動',
     'leaderboard.col.badges': 'バッジ',
+    'leaderboard.search.placeholder': '名前または @ユーザー名 で検索...',
+    'leaderboard.search.empty': '該当するハンターが見つかりません',
+    'leaderboard.search.results': '件',
+
+    'nav.search': '検索',
 
     'hunter.allTimeRank': '通算ランク',
     'hunter.statBreakdown': 'ステータス内訳（通算）',
