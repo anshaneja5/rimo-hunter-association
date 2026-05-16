@@ -70,6 +70,43 @@ function sparkline(events: RawActivityEvent[], windowStart: Date, windowEnd: Dat
   return buckets;
 }
 
+/**
+ * Compute current + longest commit-day streaks (JST calendar days) from a user's events.
+ * `currentStreak` is lenient: counts back from today, falling back to yesterday as the
+ * start so a streak isn't unfairly broken just because the day hasn't ended.
+ */
+function computeStreaks(events: RawActivityEvent[], now: Date): { currentStreak: number; longestStreak: number } {
+  const dayKeys = new Set<string>();
+  for (const e of events) {
+    if (e.type !== 'commits') continue;
+    dayKeys.add(jstDayStart(new Date(e.occurredAt)).toISOString());
+  }
+  if (dayKeys.size === 0) return { currentStreak: 0, longestStreak: 0 };
+
+  const oneDayMs = 86400000;
+  // longest: walk sorted keys, count consecutive
+  const sorted = [...dayKeys].sort();
+  let longest = 0, run = 0, prev = -Infinity;
+  for (const k of sorted) {
+    const t = new Date(k).getTime();
+    run = t - prev === oneDayMs ? run + 1 : 1;
+    if (run > longest) longest = run;
+    prev = t;
+  }
+
+  // current: from today's JST day-start, walk back. If today isn't in the set, try yesterday.
+  const todayMs = jstDayStart(now).getTime();
+  let cursor = todayMs;
+  if (!dayKeys.has(new Date(cursor).toISOString())) cursor -= oneDayMs;
+  let current = 0;
+  while (dayKeys.has(new Date(cursor).toISOString())) {
+    current++;
+    cursor -= oneDayMs;
+  }
+
+  return { currentStreak: current, longestStreak: longest };
+}
+
 async function buildStatsFile(
   period: Period,
   windowStart: Date | null,
@@ -115,6 +152,8 @@ async function buildStatsFile(
       previousWeekTier: previousWeekTiers.get(r.login),
       currentWeekTier: period === 'weekly' ? r.tier : currentWeekTiersForBadges.get(r.login),
     });
+    // Streaks always derive from ALL events (lifetime view), regardless of the period window
+    const { currentStreak, longestStreak } = computeStreaks(ev.all, now);
     return {
       login: r.login,
       xp: r.xp,
@@ -123,6 +162,8 @@ async function buildStatsFile(
       breakdown,
       badges,
       sparkline: sparkline(ev.windowed, sparklineStart, windowEnd, dayCount),
+      currentStreak,
+      longestStreak,
     };
   });
 

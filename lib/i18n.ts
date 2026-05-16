@@ -40,6 +40,7 @@ export const translations = {
     'leaderboard.search.results': 'matches',
 
     'nav.search': 'Search',
+    'nav.compare': 'VS',
 
     'hunter.allTimeRank': 'All-time rank',
     'hunter.statBreakdown': 'Stat breakdown (all-time)',
@@ -122,6 +123,7 @@ export const translations = {
     'leaderboard.search.results': '件',
 
     'nav.search': '検索',
+    'nav.compare': '対戦',
 
     'hunter.allTimeRank': '通算ランク',
     'hunter.statBreakdown': 'ステータス内訳（通算）',

@@ -51,6 +51,10 @@ export interface RankingEntry {
   breakdown: Breakdown;
   badges: BadgeId[];
   sparkline: number[];
+  /** Consecutive JST-day commit streak ending today (or yesterday). Optional for backward compat. */
+  currentStreak?: number;
+  /** Longest commit streak observed in the trailing 12 months. Optional for backward compat. */
+  longestStreak?: number;
 }
 
 export interface StatsFile {
