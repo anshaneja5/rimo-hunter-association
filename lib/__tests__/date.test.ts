@@ -54,10 +54,20 @@ describe('jstDayStart and jstDayEnd', () => {
 });
 
 describe('daysBetweenInclusive', () => {
-  it('returns the number of JST calendar days between two dates inclusive', () => {
-    const start = new Date('2026-05-10T15:00:00Z'); // Mon JST
-    const end = new Date('2026-05-16T14:59:59.999Z'); // Sun JST
+  it('counts JST calendar days inclusive across a full week (Mon-Sun)', () => {
+    const start = new Date('2026-05-10T15:00:00Z'); // Mon 00:00 JST
+    const end = new Date('2026-05-17T14:59:59.999Z'); // Sun 23:59:59.999 JST
     expect(daysBetweenInclusive(start, end)).toBe(7);
+  });
+
+  it('returns 1 for same JST day (jstDayStart to jstDayEnd)', () => {
+    const ref = new Date('2026-05-16T05:00:00Z');
+    expect(daysBetweenInclusive(jstDayStart(ref), jstDayEnd(ref))).toBe(1);
+  });
+
+  it('returns 7 for jstWeekStart to jstWeekEnd', () => {
+    const ref = new Date('2026-05-16T05:00:00Z');
+    expect(daysBetweenInclusive(jstWeekStart(ref), jstWeekEnd(ref))).toBe(7);
   });
 });
 

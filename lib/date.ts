@@ -44,8 +44,11 @@ export function jstMonthEnd(date: Date): Date {
 }
 
 export function daysBetweenInclusive(start: Date, end: Date): number {
-  const ms = end.getTime() - start.getTime();
-  return Math.round(ms / (24 * 60 * 60 * 1000) + 1);
+  const sJst = new Date(start.getTime() + JST_OFFSET_MS);
+  const eJst = new Date(end.getTime() + JST_OFFSET_MS);
+  const sDay = Date.UTC(sJst.getUTCFullYear(), sJst.getUTCMonth(), sJst.getUTCDate());
+  const eDay = Date.UTC(eJst.getUTCFullYear(), eJst.getUTCMonth(), eJst.getUTCDate());
+  return (eDay - sDay) / 86400000 + 1;
 }
 
 export function isWithinWindow(iso: string, start: Date, end: Date): boolean {
