@@ -1,0 +1,42 @@
+name: Refresh stats
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # hourly, top of every hour UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci --legacy-peer-deps
+
+      - name: Fetch stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.STATS_PAT }}
+          GITHUB_ORG: rimoapp
+        run: npm run fetch-stats
+
+      - name: Commit refreshed data
+        run: |
+          if [[ -z "$(git status --porcelain public/data/)" ]]; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/
+          git commit -m "chore(data): refresh stats $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
