@@ -150,35 +150,53 @@ async function main() {
       memberMap.set(login, { login, name: null, avatarUrl: `https://github.com/${login}.png`, bio: null, htmlUrl: `https://github.com/${login}` });
     }
   }
-  for (const login of override.exclude) memberMap.delete(login);
-  const members = [...memberMap.values()];
-  console.log(`[fetch-stats] ${members.length} members after overrides`);
+  // Note: override.exclude is applied again after union with event actors below.
+  // We keep memberMap mutable here and defer the final members array until after event collection.
 
-  // Fetch 1 year of events per member. "All-time" badges are approximated from the trailing
-  // 12 months — GitHub's contributionsCollection caps at 1 year per query and the extra cost
-  // of multi-year pagination isn't worth it for a fun project.
+  // Fetch 1 year of events by iterating repos (bypasses per-user privacy settings on contributionsCollection)
   const yearAgo = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
-  const eventsByLogin = new Map<string, RawActivityEvent[]>();
-  let fetchFailures = 0;
 
-  for (const m of members) {
+  const repos = await gh.fetchOrgRepos(ORG);
+  console.log(`[fetch-stats] ${repos.length} repos in ${ORG}`);
+
+  const eventsByLogin = new Map<string, RawActivityEvent[]>();
+  let repoFailures = 0;
+  let totalEvents = 0;
+  for (const r of repos) {
     try {
-      const events = await gh.fetchContributions(m.login, yearAgo.toISOString(), now.toISOString());
-      eventsByLogin.set(m.login, events);
-      console.log(`[fetch-stats] ${m.login}: ${events.length} events`);
+      const events = await gh.fetchRepoActivity(ORG, r.name, yearAgo.toISOString(), now.toISOString());
+      for (const e of events) {
+        if (!e.actor) continue;
+        if (!eventsByLogin.has(e.actor)) eventsByLogin.set(e.actor, []);
+        eventsByLogin.get(e.actor)!.push(e);
+      }
+      totalEvents += events.length;
+      console.log(`[fetch-stats] ${r.name}: ${events.length} events`);
     } catch (err) {
-      fetchFailures++;
-      console.error(`[fetch-stats] failed for ${m.login}, skipping:`, err);
+      repoFailures++;
+      console.error(`[fetch-stats] repo ${r.name} failed:`, err);
     }
   }
+  console.log(`[fetch-stats] Total events captured: ${totalEvents}`);
 
-  if (eventsByLogin.size === 0 && members.length > 0) {
-    console.error(`[fetch-stats] ALL ${members.length} member fetches failed — refusing to overwrite stale JSON`);
+  if (eventsByLogin.size === 0 && repos.length > 0) {
+    console.error(`[fetch-stats] ALL repo fetches yielded no events — refusing to overwrite stale JSON`);
     process.exit(1);
   }
-  if (fetchFailures > 0) {
-    console.warn(`[fetch-stats] continuing with ${eventsByLogin.size}/${members.length} successful fetches`);
+  if (repoFailures > 0) {
+    console.warn(`[fetch-stats] ${repoFailures} repo(s) failed; continuing with partial data`);
   }
+
+  // Union: org members + anyone with events (covers outside collaborators)
+  for (const login of eventsByLogin.keys()) {
+    if (!memberMap.has(login)) {
+      memberMap.set(login, { login, name: null, avatarUrl: `https://github.com/${login}.png`, bio: null, htmlUrl: `https://github.com/${login}` });
+    }
+  }
+  // Re-apply excludes so override.exclude still suppresses actors found via events
+  for (const login of override.exclude) memberMap.delete(login);
+  const members = [...memberMap.values()];
+  console.log(`[fetch-stats] ${members.length} members after overrides + event actors`);
 
   // Compute "all org merges this week" for first-blood badge
   const weekStart = jstWeekStart(now);

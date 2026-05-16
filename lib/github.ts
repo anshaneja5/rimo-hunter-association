@@ -1,9 +1,15 @@
 import { graphql } from '@octokit/graphql';
 import type { RawActivityEvent, MemberProfile } from './types';
 
+export interface RepoSummary {
+  name: string;
+  isArchived: boolean;
+}
+
 interface GhClient {
   fetchOrgMembers(org: string): Promise<MemberProfile[]>;
-  fetchContributions(login: string, fromIso: string, toIso: string): Promise<RawActivityEvent[]>;
+  fetchOrgRepos(org: string): Promise<RepoSummary[]>;
+  fetchRepoActivity(org: string, repo: string, fromIso: string, toIso: string): Promise<RawActivityEvent[]>;
 }
 
 export function createGithubClient(token: string): GhClient {
@@ -42,88 +48,216 @@ export function createGithubClient(token: string): GhClient {
     return members;
   }
 
-  async function fetchContributions(login: string, fromIso: string, toIso: string): Promise<RawActivityEvent[]> {
-    const events: RawActivityEvent[] = [];
-    const data: any = await gql(
-      `query($login: String!, $from: DateTime!, $to: DateTime!) {
-         user(login: $login) {
-           contributionsCollection(from: $from, to: $to) {
-             commitContributionsByRepository(maxRepositories: 100) {
-               repository { owner { login } name }
-               contributions(first: 100) { nodes { occurredAt commitCount } }
-             }
-             pullRequestContributions(first: 100) {
-               nodes {
-                 occurredAt
-                 pullRequest { merged mergedAt repository { owner { login } name } }
-               }
-             }
-             pullRequestReviewContributions(first: 100) {
-               nodes { occurredAt pullRequestReview { state pullRequest { repository { owner { login } name } } } }
-             }
-             issueContributions(first: 100) {
-               nodes { occurredAt issue { repository { owner { login } name } } }
+  async function fetchOrgRepos(org: string): Promise<RepoSummary[]> {
+    const repos: RepoSummary[] = [];
+    let cursor: string | null = null;
+    do {
+      const data: any = await gql(
+        `query($org: String!, $cursor: String) {
+           organization(login: $org) {
+             repositories(first: 100, after: $cursor, isArchived: false) {
+               pageInfo { hasNextPage endCursor }
+               nodes { name isArchived }
              }
            }
-         }
-       }`,
-      { login, from: fromIso, to: toIso },
-    );
+         }`,
+        { org, cursor },
+      );
+      const conn = data.organization.repositories;
+      for (const r of conn.nodes) {
+        repos.push({ name: r.name, isArchived: r.isArchived });
+      }
+      cursor = conn.pageInfo.hasNextPage ? conn.pageInfo.endCursor : null;
+    } while (cursor);
+    return repos;
+  }
 
-    const cc = data.user.contributionsCollection;
+  async function fetchRepoActivity(
+    org: string,
+    repo: string,
+    fromIso: string,
+    toIso: string,
+  ): Promise<RawActivityEvent[]> {
+    const events: RawActivityEvent[] = [];
 
-    for (const repo of cc.commitContributionsByRepository) {
-      for (const node of repo.contributions.nodes) {
-        for (let i = 0; i < node.commitCount; i++) {
+    // (a) Commits via default branch history
+    try {
+      let cursor: string | null = null;
+      do {
+        const data: any = await gql(
+          `query($owner: String!, $repo: String!, $since: GitTimestamp!, $until: GitTimestamp!, $cursor: String) {
+             repository(owner: $owner, name: $repo) {
+               defaultBranchRef {
+                 target {
+                   ... on Commit {
+                     history(since: $since, until: $until, first: 100, after: $cursor) {
+                       pageInfo { hasNextPage endCursor }
+                       nodes {
+                         committedDate
+                         author { user { login } }
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+           }`,
+          { owner: org, repo, since: fromIso, until: toIso, cursor },
+        );
+        const ref = data.repository.defaultBranchRef;
+        if (!ref || !ref.target || !ref.target.history) {
+          break; // empty repo or no default branch
+        }
+        const history = ref.target.history;
+        for (const node of history.nodes) {
+          const login = node.author?.user?.login;
+          if (!login) continue;
           events.push({
             type: 'commits',
-            repoOwner: repo.repository.owner.login,
-            repoName: repo.repository.name,
-            occurredAt: node.occurredAt,
+            actor: login,
+            repoOwner: org,
+            repoName: repo,
+            occurredAt: node.committedDate,
           });
         }
-      }
+        cursor = history.pageInfo.hasNextPage ? history.pageInfo.endCursor : null;
+      } while (cursor);
+    } catch (err) {
+      console.error(`[github] commits query failed for ${org}/${repo}:`, err);
     }
 
-    for (const node of cc.pullRequestContributions.nodes) {
-      const pr = node.pullRequest;
-      events.push({
-        type: 'prsOpened',
-        repoOwner: pr.repository.owner.login,
-        repoName: pr.repository.name,
-        occurredAt: node.occurredAt,
-      });
-      if (pr.merged && pr.mergedAt && pr.mergedAt >= fromIso && pr.mergedAt <= toIso) {
-        events.push({
-          type: 'prsMerged',
-          repoOwner: pr.repository.owner.login,
-          repoName: pr.repository.name,
-          occurredAt: pr.mergedAt,
-        });
-      }
+    // (b) Pull requests with their reviews
+    try {
+      let cursor: string | null = null;
+      let stop = false;
+      do {
+        const data: any = await gql(
+          `query($owner: String!, $repo: String!, $cursor: String) {
+             repository(owner: $owner, name: $repo) {
+               pullRequests(first: 50, orderBy: { field: UPDATED_AT, direction: DESC }, after: $cursor) {
+                 pageInfo { hasNextPage endCursor }
+                 nodes {
+                   createdAt updatedAt mergedAt merged
+                   author { login }
+                   reviews(first: 50) {
+                     nodes { submittedAt author { login } }
+                   }
+                 }
+               }
+             }
+           }`,
+          { owner: org, repo, cursor },
+        );
+        const conn = data.repository.pullRequests;
+        for (const pr of conn.nodes) {
+          if (pr.updatedAt < fromIso) {
+            stop = true;
+            break;
+          }
+          const authorLogin = pr.author?.login;
+          if (authorLogin) {
+            if (pr.createdAt >= fromIso && pr.createdAt <= toIso) {
+              events.push({
+                type: 'prsOpened',
+                actor: authorLogin,
+                repoOwner: org,
+                repoName: repo,
+                occurredAt: pr.createdAt,
+              });
+            }
+            if (pr.merged && pr.mergedAt && pr.mergedAt >= fromIso && pr.mergedAt <= toIso) {
+              events.push({
+                type: 'prsMerged',
+                actor: authorLogin,
+                repoOwner: org,
+                repoName: repo,
+                occurredAt: pr.mergedAt,
+              });
+            }
+          }
+          for (const review of pr.reviews.nodes) {
+            const reviewLogin = review.author?.login;
+            if (!reviewLogin) continue;
+            if (review.submittedAt >= fromIso && review.submittedAt <= toIso) {
+              events.push({
+                type: 'reviews',
+                actor: reviewLogin,
+                repoOwner: org,
+                repoName: repo,
+                occurredAt: review.submittedAt,
+              });
+            }
+          }
+        }
+        cursor = !stop && conn.pageInfo.hasNextPage ? conn.pageInfo.endCursor : null;
+      } while (cursor && !stop);
+    } catch (err) {
+      console.error(`[github] pull requests query failed for ${org}/${repo}:`, err);
     }
 
-    for (const node of cc.pullRequestReviewContributions.nodes) {
-      const r = node.pullRequestReview;
-      events.push({
-        type: 'reviews',
-        repoOwner: r.pullRequest.repository.owner.login,
-        repoName: r.pullRequest.repository.name,
-        occurredAt: node.occurredAt,
-      });
-    }
-
-    for (const node of cc.issueContributions.nodes) {
-      events.push({
-        type: 'issuesOpened',
-        repoOwner: node.issue.repository.owner.login,
-        repoName: node.issue.repository.name,
-        occurredAt: node.occurredAt,
-      });
+    // (c) Issues with labels and close timeline
+    try {
+      let cursor: string | null = null;
+      let stop = false;
+      do {
+        const data: any = await gql(
+          `query($owner: String!, $repo: String!, $cursor: String) {
+             repository(owner: $owner, name: $repo) {
+               issues(first: 50, orderBy: { field: UPDATED_AT, direction: DESC }, after: $cursor) {
+                 pageInfo { hasNextPage endCursor }
+                 nodes {
+                   createdAt updatedAt closedAt closed
+                   author { login }
+                   labels(first: 10) { nodes { name } }
+                   timelineItems(itemTypes: [CLOSED_EVENT], last: 1) {
+                     nodes { ... on ClosedEvent { actor { login } createdAt } }
+                   }
+                 }
+               }
+             }
+           }`,
+          { owner: org, repo, cursor },
+        );
+        const conn = data.repository.issues;
+        for (const issue of conn.nodes) {
+          if (issue.updatedAt < fromIso) {
+            stop = true;
+            break;
+          }
+          const authorLogin = issue.author?.login;
+          if (authorLogin && issue.createdAt >= fromIso && issue.createdAt <= toIso) {
+            events.push({
+              type: 'issuesOpened',
+              actor: authorLogin,
+              repoOwner: org,
+              repoName: repo,
+              occurredAt: issue.createdAt,
+            });
+          }
+          if (issue.closed && issue.closedAt && issue.closedAt >= fromIso && issue.closedAt <= toIso) {
+            const closedEvents = issue.timelineItems?.nodes ?? [];
+            const closedEvent = closedEvents[closedEvents.length - 1];
+            const closerLogin = closedEvent?.actor?.login ?? authorLogin;
+            if (closerLogin) {
+              events.push({
+                type: 'issuesClosed',
+                actor: closerLogin,
+                repoOwner: org,
+                repoName: repo,
+                occurredAt: issue.closedAt,
+                meta: { labels: (issue.labels?.nodes ?? []).map((l: any) => l.name) },
+              });
+            }
+          }
+        }
+        cursor = !stop && conn.pageInfo.hasNextPage ? conn.pageInfo.endCursor : null;
+      } while (cursor && !stop);
+    } catch (err) {
+      console.error(`[github] issues query failed for ${org}/${repo}:`, err);
     }
 
     return events;
   }
 
-  return { fetchOrgMembers, fetchContributions };
+  return { fetchOrgMembers, fetchOrgRepos, fetchRepoActivity };
 }

@@ -23,6 +23,7 @@ export interface Breakdown {
 
 export interface RawActivityEvent {
   type: keyof Breakdown | 'badge-source';
+  actor?: string;       // GitHub login of who performed the action
   repoOwner: string;
   repoName: string;
   occurredAt: string; // ISO 8601
