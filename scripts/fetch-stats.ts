@@ -1,5 +1,18 @@
 import { writeFile, readFile, mkdir } from 'node:fs/promises';
+import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
+
+// Load .env locally if present. In CI, env vars are set by the GitHub Actions runner.
+const envPath = path.resolve(process.cwd(), '.env');
+if (existsSync(envPath)) {
+  for (const line of readFileSync(envPath, 'utf8').split('\n')) {
+    const m = line.match(/^\s*([A-Z_][A-Z0-9_]*)\s*=\s*(.*?)\s*$/);
+    if (m && !process.env[m[1]]) {
+      process.env[m[1]] = m[2].replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
+    }
+  }
+}
+
 import { createGithubClient } from '../lib/github';
 import { computeXp, assignTiers } from '../lib/scoring';
 import { computeBadges } from '../lib/badges';
