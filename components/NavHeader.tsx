@@ -27,6 +27,10 @@ export function NavHeader() {
             <span className="hidden md:inline">{t('nav.search')}</span>
           </Link>
           <Link href="/leaderboard/" className="hover:text-neon-purple transition-colors whitespace-nowrap">{t('nav.ladder')}</Link>
+          <Link href="/rising/" className="hover:text-neon-purple transition-colors whitespace-nowrap flex items-center gap-1">
+            <span className="text-orange-400 text-sm">🔥</span>
+            <span className="hidden sm:inline">{t('nav.rising')}</span>
+          </Link>
           <Link href="/compare/" className="hover:text-neon-purple transition-colors whitespace-nowrap">{t('nav.compare')}</Link>
           <Link href="/legends/" className="hover:text-neon-purple transition-colors whitespace-nowrap">{t('nav.legends')}</Link>
           <LocaleToggle />

@@ -41,6 +41,18 @@ export const translations = {
 
     'nav.search': 'Search',
     'nav.compare': 'VS',
+    'nav.rising': 'Rising',
+
+    'rising.title.1': 'On',
+    'rising.title.2': 'Fire',
+    'rising.subtitle': 'Who is heating up right now',
+    'rising.onFire.title': 'On Fire',
+    'rising.onFire.subtitle': 'Longest active commit streaks',
+    'rising.rising.title': 'Rising Stars',
+    'rising.rising.subtitle': 'Biggest weekly surge vs typical pace',
+    'rising.empty': 'No one qualifies yet — check back after the next refresh.',
+    'rising.streak.suffix': 'days',
+    'rising.streak.peak': 'peak',
 
     'hunter.allTimeRank': 'All-time rank',
     'hunter.statBreakdown': 'Stat breakdown (all-time)',
@@ -124,6 +136,18 @@ export const translations = {
 
     'nav.search': '検索',
     'nav.compare': '対戦',
+    'nav.rising': '上昇中',
+
+    'rising.title.1': '燃え',
+    'rising.title.2': 'てる',
+    'rising.subtitle': '今、勢いに乗っているハンター',
+    'rising.onFire.title': '炎上中',
+    'rising.onFire.subtitle': '最長連続コミット',
+    'rising.rising.title': 'ライジングスター',
+    'rising.rising.subtitle': '今週、平均ペースを大きく上回るハンター',
+    'rising.empty': 'まだ該当者なし — 次回更新をお待ちください。',
+    'rising.streak.suffix': '日',
+    'rising.streak.peak': '最長',
 
     'hunter.allTimeRank': '通算ランク',
     'hunter.statBreakdown': 'ステータス内訳（通算）',

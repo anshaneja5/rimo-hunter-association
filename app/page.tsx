@@ -7,7 +7,6 @@ import type { MembersFile, StatsFile, Period } from '@/lib/types';
 import { PeriodToggle } from '@/components/PeriodToggle';
 import { MVPSpotlight } from '@/components/MVPSpotlight';
 import { HunterCard } from '@/components/HunterCard';
-import { HighlightWidgets } from '@/components/HighlightWidgets';
 import { CursorGlow } from '@/components/CursorGlow';
 import { useT } from '@/components/I18nProvider';
 
@@ -16,16 +15,9 @@ export default function Home() {
   const [period, setPeriod] = useState<Period>('weekly');
   const [members, setMembers] = useState<MembersFile | null>(null);
   const [stats, setStats] = useState<StatsFile | null>(null);
-  const [allTimeStats, setAllTimeStats] = useState<StatsFile | null>(null);
-  const [weeklyStats, setWeeklyStats] = useState<StatsFile | null>(null);
 
   useEffect(() => { loadMembers().then(setMembers); }, []);
   useEffect(() => { loadStats(period).then(setStats); }, [period]);
-  // Always load all-time + weekly for the highlight widgets (regardless of selected period)
-  useEffect(() => {
-    loadStats('all').then(setAllTimeStats);
-    loadStats('weekly').then(setWeeklyStats);
-  }, []);
 
   if (!members || !stats) {
     return (
@@ -107,13 +99,6 @@ export default function Home() {
         {mvp && mvpMember && (
           <section>
             <MVPSpotlight member={mvpMember} ranking={mvp} label={`#1 · ${periodLabel}`} />
-          </section>
-        )}
-
-        {/* Highlight widgets — On Fire + Rising Stars */}
-        {members && allTimeStats && weeklyStats && (
-          <section>
-            <HighlightWidgets members={members} allTimeStats={allTimeStats} weeklyStats={weeklyStats} />
           </section>
         )}
 
