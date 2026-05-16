@@ -43,18 +43,19 @@ export function HunterCard({ member, ranking, maxXp, size = 'md' }: {
   const t = useT();
   const avatarSize = size === 'lg' ? 'h-32 w-32' : 'h-20 w-20';
 
-  // 3D tilt on hover
+  // 3D tilt on hover (disabled on touch — tilt during scroll feels broken)
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useSpring(useTransform(y, [-50, 50], [6, -6]), { stiffness: 200, damping: 18 });
   const rotateY = useSpring(useTransform(x, [-50, 50], [-6, 6]), { stiffness: 200, damping: 18 });
 
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+  function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
+    if (e.pointerType !== 'mouse') return; // skip touch / pen
     const rect = e.currentTarget.getBoundingClientRect();
     x.set(e.clientX - rect.left - rect.width / 2);
     y.set(e.clientY - rect.top - rect.height / 2);
   }
-  function handleMouseLeave() {
+  function handlePointerLeave() {
     x.set(0);
     y.set(0);
   }
@@ -67,9 +68,9 @@ export function HunterCard({ member, ranking, maxXp, size = 'md' }: {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       style={{ rotateX, rotateY, transformPerspective: 1000 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="group glass rounded-2xl p-6 relative overflow-hidden tilt-hover"
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      className="group glass rounded-2xl p-5 md:p-6 relative overflow-hidden tilt-hover"
     >
       {/* Tier-tinted radial wash on the card */}
       <div className={`absolute inset-0 bg-gradient-to-br ${TIER_BG_TINT[ranking.tier]} via-transparent to-transparent pointer-events-none`} />

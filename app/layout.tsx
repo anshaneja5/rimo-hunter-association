@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <I18nProvider>
           <ParticleBackground />
           <NavHeader />
-          <main className="max-w-7xl mx-auto px-6 py-12 relative" style={{ zIndex: 3 }}>{children}</main>
+          <main className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-12 relative" style={{ zIndex: 3 }}>{children}</main>
           <SiteFooter />
         </I18nProvider>
       </body>

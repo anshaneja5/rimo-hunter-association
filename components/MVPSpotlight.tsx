@@ -42,7 +42,7 @@ export function MVPSpotlight({ member, ranking, label }: {
       initial={{ opacity: 0, scale: 0.96, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="relative glass glass-strong rounded-3xl p-8 md:p-14 overflow-hidden corner-brackets scan-sweep"
+      className="relative glass glass-strong rounded-2xl md:rounded-3xl p-6 md:p-14 overflow-hidden corner-brackets scan-sweep"
     >
       <span className="bracket-bl" />
       <span className="bracket-br" />
@@ -67,12 +67,12 @@ export function MVPSpotlight({ member, ranking, label }: {
         <span>MVP</span>
       </div>
 
-      <div className="relative flex flex-col md:flex-row items-center md:items-start gap-10 pt-6">
+      <div className="relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 pt-8">
         {/* Avatar wrapped in rotating magic circle */}
         <div className="relative flex-shrink-0">
           <MagicCircle
-            size={340}
-            className="absolute -inset-12 opacity-70"
+            size={280}
+            className="absolute -inset-8 md:-inset-12 opacity-70 hidden sm:block"
             color={ranking.tier === 'S' ? '#fbbf24' : '#a855f7'}
             accentColor="#22d3ee"
           />
@@ -84,7 +84,7 @@ export function MVPSpotlight({ member, ranking, label }: {
             <img
               src={member.avatarUrl}
               alt={member.login}
-              className={`relative h-44 w-44 md:h-52 md:w-52 rounded-full ring-4 ${TIER_BORDER[ranking.tier]} ${TIER_SHADOW[ranking.tier]}`}
+              className={`relative h-32 w-32 md:h-44 md:w-44 lg:h-52 lg:w-52 rounded-full ring-4 ${TIER_BORDER[ranking.tier]} ${TIER_SHADOW[ranking.tier]}`}
             />
             {/* Holographic sheen overlay */}
             <div className="absolute inset-0 rounded-full pointer-events-none mix-blend-overlay opacity-40"
@@ -94,12 +94,12 @@ export function MVPSpotlight({ member, ranking, label }: {
           </motion.div>
         </div>
 
-        <div className="relative flex-1 text-center md:text-left">
-          <div className="text-xs uppercase tracking-[0.35em] text-neon-cyan mb-3 font-mono">{label}</div>
-          <h2 className="font-display font-black text-5xl md:text-7xl mb-2 leading-none holo-text">
+        <div className="relative flex-1 text-center md:text-left min-w-0 w-full">
+          <div className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-neon-cyan mb-3 font-mono">{label}</div>
+          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl mb-2 leading-none holo-text break-words">
             {member.name ?? member.login}
           </h2>
-          <div className="text-zinc-400 mb-5 font-mono text-sm">@{member.login}</div>
+          <div className="text-zinc-400 mb-5 font-mono text-xs md:text-sm truncate">@{member.login}</div>
 
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-6">
             <RankBadge tier={ranking.tier} size="lg" showLabel />

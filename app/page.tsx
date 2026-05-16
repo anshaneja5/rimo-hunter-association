@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <>
       <CursorGlow />
-      <div className="space-y-14">
+      <div className="space-y-8 md:space-y-14">
 
         {/* HERO */}
         <motion.section
@@ -70,23 +70,23 @@ export default function Home() {
             <div className="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-neon-cyan" />
           </div>
 
-          <h1 className="font-display font-black text-6xl md:text-8xl tracking-[0.08em] mb-4 leading-[0.95]">
+          <h1 className="font-display font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-[0.08em] mb-4 leading-[0.95]">
             <span className="block text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]">{t('landing.heading.1')}</span>
-            <span className="block holo-text text-7xl md:text-9xl my-1">{t('landing.heading.2')}</span>
+            <span className="block holo-text text-5xl sm:text-6xl md:text-8xl lg:text-9xl my-1">{t('landing.heading.2')}</span>
             <span className="block text-neon-cyan drop-shadow-glow-b">{t('landing.heading.3')}</span>
           </h1>
-          <p className="text-zinc-400 tracking-[0.3em] text-xs md:text-sm uppercase font-mono max-w-2xl mx-auto">
+          <p className="text-zinc-400 tracking-[0.2em] md:tracking-[0.3em] text-[10px] md:text-sm uppercase font-mono max-w-2xl mx-auto px-2">
             {t('landing.subtitle')}
           </p>
 
           {/* Live stats strip */}
-          <div className="mt-8 flex items-center justify-center gap-6 md:gap-10 text-zinc-500 font-mono text-xs uppercase tracking-widest">
+          <div className="mt-6 md:mt-8 flex items-center justify-center gap-4 md:gap-10 text-zinc-500 font-mono text-[10px] md:text-xs uppercase tracking-widest flex-wrap">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399] animate-pulse" />
               <span>Live</span>
             </div>
             <div><span className="text-white font-bold">{totalHunters}</span> Hunters</div>
-            <div className="hidden md:block"><span className="text-rank-s font-bold">S</span> · <span className="text-rank-a font-bold">A</span> · <span className="text-rank-b font-bold">B</span> · <span className="text-rank-c font-bold">C</span> · <span className="text-rank-d font-bold">D</span> · <span className="text-rank-e font-bold">E</span></div>
+            <div className="hidden sm:block"><span className="text-rank-s font-bold">S</span> · <span className="text-rank-a font-bold">A</span> · <span className="text-rank-b font-bold">B</span> · <span className="text-rank-c font-bold">C</span> · <span className="text-rank-d font-bold">D</span> · <span className="text-rank-e font-bold">E</span></div>
           </div>
         </motion.section>
 
@@ -104,12 +104,12 @@ export default function Home() {
 
         {/* TOP 10 */}
         <section>
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-3">
-              <span className="font-display text-2xl uppercase tracking-[0.2em]">{t('landing.top10')}</span>
-              <span className="h-px flex-1 bg-gradient-to-r from-neon-purple/40 to-transparent w-24" />
+          <div className="flex items-center justify-between mb-4 md:mb-6 gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <span className="font-display text-lg md:text-2xl uppercase tracking-[0.2em] whitespace-nowrap">{t('landing.top10')}</span>
+              <span className="h-px flex-1 bg-gradient-to-r from-neon-purple/40 to-transparent w-12 md:w-24" />
             </div>
-            <Link href="/leaderboard/" className="text-xs font-display uppercase tracking-[0.3em] text-neon-cyan hover:text-neon-purple transition-colors">
+            <Link href="/leaderboard/" className="text-[10px] md:text-xs font-display uppercase tracking-[0.3em] text-neon-cyan hover:text-neon-purple transition-colors whitespace-nowrap">
               {t('landing.viewLadder')}
             </Link>
           </div>
