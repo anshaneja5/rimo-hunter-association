@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
+      <body className="min-h-screen vignette">
         <I18nProvider>
           <ParticleBackground />
           <NavHeader />
-          <main className="max-w-7xl mx-auto px-6 py-12">{children}</main>
+          <main className="max-w-7xl mx-auto px-6 py-12 relative" style={{ zIndex: 3 }}>{children}</main>
           <SiteFooter />
         </I18nProvider>
       </body>

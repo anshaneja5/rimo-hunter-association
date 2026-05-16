@@ -2,7 +2,33 @@
 import { motion } from 'framer-motion';
 import type { MemberProfile, RankingEntry } from '@/lib/types';
 import { RankBadge } from './RankBadge';
+import { MagicCircle } from './MagicCircle';
 import { useT } from './I18nProvider';
+
+const TIER_BORDER: Record<RankingEntry['tier'], string> = {
+  S: 'ring-rank-s',
+  A: 'ring-rank-a',
+  B: 'ring-rank-b',
+  C: 'ring-rank-c',
+  D: 'ring-rank-d',
+  E: 'ring-rank-e',
+};
+const TIER_SHADOW: Record<RankingEntry['tier'], string> = {
+  S: 'shadow-glow-s',
+  A: 'shadow-glow-a',
+  B: 'shadow-glow-b',
+  C: 'shadow-glow-c',
+  D: 'shadow-glow-d',
+  E: 'shadow-glow-e',
+};
+const TIER_TINT: Record<RankingEntry['tier'], string> = {
+  S: 'from-rank-s/20',
+  A: 'from-rank-a/20',
+  B: 'from-rank-b/20',
+  C: 'from-rank-c/20',
+  D: 'from-rank-d/15',
+  E: 'from-rank-e/15',
+};
 
 export function MVPSpotlight({ member, ranking, label }: {
   member: MemberProfile;
@@ -10,37 +36,80 @@ export function MVPSpotlight({ member, ranking, label }: {
   label: string;
 }) {
   const t = useT();
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="relative glass rounded-3xl p-8 md:p-12 overflow-hidden"
+      initial={{ opacity: 0, scale: 0.96, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className="relative glass glass-strong rounded-3xl p-8 md:p-14 overflow-hidden corner-brackets scan-sweep"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-neon-purple/20 via-transparent to-neon-cyan/20 pointer-events-none" />
-      <div className="absolute -top-8 -right-8 font-display text-[280px] leading-none opacity-10 select-none">
+      <span className="bracket-bl" />
+      <span className="bracket-br" />
+
+      {/* Tier-tinted radial wash */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${TIER_TINT[ranking.tier]} via-transparent to-neon-cyan/10 pointer-events-none`} />
+
+      {/* Diagonal striped overlay for that mecha-cockpit vibe */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage: 'repeating-linear-gradient(45deg, transparent 0 12px, rgba(255,255,255,0.6) 12px 13px)',
+        }} />
+
+      {/* Massive tier letter watermark */}
+      <div className="absolute -top-12 -right-6 font-display text-[300px] leading-none opacity-[0.07] select-none pointer-events-none">
         {ranking.tier}
       </div>
-      <div className="relative flex flex-col md:flex-row items-center md:items-start gap-8">
-        <motion.img
-          src={member.avatarUrl}
-          alt={member.login}
-          className="h-40 w-40 rounded-full ring-4 ring-neon-purple shadow-glow-a"
-          animate={{ y: [0, -6, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <div>
-          <div className="text-xs uppercase tracking-[0.3em] text-neon-cyan mb-2">{label}</div>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mb-2">{member.name ?? member.login}</h2>
-          <div className="text-zinc-400 mb-4">@{member.login}</div>
-          <div className="flex flex-wrap items-center gap-4 mb-4">
+
+      {/* MVP crown badge — top-left */}
+      <div className="absolute top-5 left-6 flex items-center gap-2 font-display text-xs uppercase tracking-[0.35em] text-neon-cyan/80">
+        <span className="text-rank-s text-base">♛</span>
+        <span>MVP</span>
+      </div>
+
+      <div className="relative flex flex-col md:flex-row items-center md:items-start gap-10 pt-6">
+        {/* Avatar wrapped in rotating magic circle */}
+        <div className="relative flex-shrink-0">
+          <MagicCircle
+            size={340}
+            className="absolute -inset-12 opacity-70"
+            color={ranking.tier === 'S' ? '#fbbf24' : '#a855f7'}
+            accentColor="#22d3ee"
+          />
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative"
+          >
+            <img
+              src={member.avatarUrl}
+              alt={member.login}
+              className={`relative h-44 w-44 md:h-52 md:w-52 rounded-full ring-4 ${TIER_BORDER[ranking.tier]} ${TIER_SHADOW[ranking.tier]}`}
+            />
+            {/* Holographic sheen overlay */}
+            <div className="absolute inset-0 rounded-full pointer-events-none mix-blend-overlay opacity-40"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 35%, transparent 65%, rgba(34,211,238,0.3) 100%)',
+              }} />
+          </motion.div>
+        </div>
+
+        <div className="relative flex-1 text-center md:text-left">
+          <div className="text-xs uppercase tracking-[0.35em] text-neon-cyan mb-3 font-mono">{label}</div>
+          <h2 className="font-display font-black text-5xl md:text-7xl mb-2 leading-none holo-text">
+            {member.name ?? member.login}
+          </h2>
+          <div className="text-zinc-400 mb-5 font-mono text-sm">@{member.login}</div>
+
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-6">
             <RankBadge tier={ranking.tier} size="lg" showLabel />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            <Stat label={t('stat.prsMerged')} value={ranking.breakdown.prsMerged} />
-            <Stat label={t('stat.commits')} value={ranking.breakdown.commits} />
-            <Stat label={t('stat.reviews')} value={ranking.breakdown.reviews} />
-            <Stat label={t('stat.xp')} value={Math.round(ranking.xp)} />
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 text-sm">
+            <Stat label={t('stat.prsMerged')} value={ranking.breakdown.prsMerged} accent="text-rank-s" />
+            <Stat label={t('stat.commits')} value={ranking.breakdown.commits} accent="text-neon-purple" />
+            <Stat label={t('stat.reviews')} value={ranking.breakdown.reviews} accent="text-neon-cyan" />
+            <Stat label={t('stat.xp')} value={Math.round(ranking.xp)} accent="text-white" highlight />
           </div>
         </div>
       </div>
@@ -48,11 +117,13 @@ export function MVPSpotlight({ member, ranking, label }: {
   );
 }
 
-function Stat({ label, value }: { label: string; value: number }) {
+function Stat({ label, value, accent, highlight }: { label: string; value: number; accent: string; highlight?: boolean }) {
   return (
-    <div>
-      <div className="font-display text-3xl">{value}</div>
-      <div className="text-xs uppercase tracking-widest text-zinc-500">{label}</div>
+    <div className={`glass rounded-xl px-3 py-3 text-center md:text-left ${highlight ? 'ring-1 ring-neon-purple/50' : ''}`}>
+      <div className={`font-mono font-bold text-2xl md:text-3xl ${accent} leading-none`}>
+        {value.toLocaleString()}
+      </div>
+      <div className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 mt-2 font-display">{label}</div>
     </div>
   );
 }

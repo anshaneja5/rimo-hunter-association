@@ -22,6 +22,11 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     if (stored === 'en' || stored === 'ja') setLocaleState(stored);
   }, []);
 
+  // Keep <html lang> in sync so CSS like html[lang='ja'] .font-display picks the JP display font
+  useEffect(() => {
+    if (typeof document !== 'undefined') document.documentElement.lang = locale;
+  }, [locale]);
+
   const setLocale = (l: Locale) => {
     setLocaleState(l);
     if (typeof window !== 'undefined') localStorage.setItem('locale', l);
