@@ -7,7 +7,7 @@ import { XPBar } from './XPBar';
 import { StatRadial } from './StatRadial';
 import { RankHistoryChart } from './RankHistoryChart';
 import { MagicCircle } from './MagicCircle';
-import type { MemberProfile, RankingEntry, TierLetter } from '@/lib/types';
+import type { MemberProfile, RankingEntry, TierLetter, Breakdown } from '@/lib/types';
 
 interface Props {
   member: MemberProfile;
@@ -17,6 +17,7 @@ interface Props {
   daily?: RankingEntry;
   history: Array<{ weekStart: string; tier: TierLetter; xp: number }>;
   maxXp: { all: number; weekly: number; monthly: number; daily: number };
+  orgMax?: Breakdown;
 }
 
 const TIER_RING: Record<TierLetter, string> = {
@@ -46,7 +47,7 @@ const TIER_ACCENT: Record<TierLetter, string> = {
   E: 'text-rank-e',
 };
 
-export function HunterProfileView({ member, allTime, weekly, monthly, daily, history, maxXp }: Props) {
+export function HunterProfileView({ member, allTime, weekly, monthly, daily, history, maxXp, orgMax }: Props) {
   const t = useT();
   const tier: TierLetter = allTime?.tier ?? 'E';
   const isTopTier = tier === 'S' || tier === 'A';
@@ -137,11 +138,12 @@ export function HunterProfileView({ member, allTime, weekly, monthly, daily, his
       {/* CHARTS */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         <div className="glass rounded-2xl p-5 md:p-6 relative overflow-hidden">
-          <h2 className="font-display uppercase tracking-[0.25em] text-xs md:text-sm text-zinc-400 mb-4 flex items-center gap-2">
+          <h2 className="font-display uppercase tracking-[0.25em] text-xs md:text-sm text-zinc-400 mb-1 flex items-center gap-2">
             <span className="w-1 h-3 bg-neon-purple rounded-full" />
-            {t('hunter.statBreakdown')}
+            Stat profile
           </h2>
-          {allTime && <StatRadial breakdown={allTime.breakdown} />}
+          <p className="text-[10px] text-zinc-500 mb-3 font-mono">% of org leader per metric</p>
+          {allTime && <StatRadial breakdown={allTime.breakdown} orgMax={orgMax} tier={tier} />}
         </div>
         <div className="glass rounded-2xl p-5 md:p-6 relative overflow-hidden">
           <h2 className="font-display uppercase tracking-[0.25em] text-xs md:text-sm text-zinc-400 mb-4 flex items-center gap-2">
