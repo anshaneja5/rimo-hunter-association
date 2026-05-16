@@ -1,27 +1,27 @@
+'use client';
 import type { BadgeId } from '@/lib/types';
+import { useT } from './I18nProvider';
 
-const BADGE_META: Record<BadgeId, { emoji: string; label: string; desc: string }> = {
-  'first-blood':     { emoji: '🩸', label: 'First Blood',     desc: 'First merged PR of the week' },
-  'bug-slayer':      { emoji: '🐛', label: 'Bug Slayer',      desc: '10+ bug issues closed' },
-  'code-monk':       { emoji: '🧘', label: 'Code Monk',       desc: '100+ commits in a month' },
-  'reviewer-sensei': { emoji: '🥋', label: 'Reviewer Sensei', desc: '50+ reviews submitted' },
-  'streak-lord':     { emoji: '🔥', label: 'Streak Lord',     desc: '7+ day commit streak' },
-  'ghost':           { emoji: '👻', label: 'Ghost',           desc: 'No activity in 14 days' },
-  'awakening':       { emoji: '⚡', label: 'Awakening',       desc: 'Jumped 2+ tiers this week' },
+const BADGE_EMOJI: Record<BadgeId, string> = {
+  'first-blood':     '🩸',
+  'bug-slayer':      '🐛',
+  'code-monk':       '🧘',
+  'reviewer-sensei': '🥋',
+  'streak-lord':     '🔥',
+  'ghost':           '👻',
+  'awakening':       '⚡',
 };
 
 export function BadgeChip({ id, size = 'md' }: { id: BadgeId; size?: 'sm' | 'md' }) {
-  const meta = BADGE_META[id];
+  const t = useT();
   const sizes = size === 'sm' ? 'text-xs px-2 py-1' : 'text-sm px-3 py-1.5';
   return (
     <span
-      title={meta.desc}
+      title={t(`badge.${id}.desc` as const)}
       className={`inline-flex items-center gap-1 rounded-full glass border border-neon-purple/30 ${sizes}`}
     >
-      <span>{meta.emoji}</span>
-      <span className="font-display tracking-wider uppercase">{meta.label}</span>
+      <span>{BADGE_EMOJI[id]}</span>
+      <span className="font-display tracking-wider uppercase">{t(`badge.${id}.label` as const)}</span>
     </span>
   );
 }
-
-export { BADGE_META };

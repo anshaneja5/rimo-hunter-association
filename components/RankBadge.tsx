@@ -1,13 +1,6 @@
+'use client';
 import type { TierLetter } from '@/lib/types';
-
-const TIER_LABEL: Record<TierLetter, string> = {
-  S: 'Shadow Monarch',
-  A: 'Awakened',
-  B: 'Elite Hunter',
-  C: 'Hunter',
-  D: 'Apprentice',
-  E: 'Aspirant',
-};
+import { useT } from './I18nProvider';
 
 const TIER_STYLES: Record<TierLetter, string> = {
   S: 'bg-rank-s/20 text-rank-s shadow-glow-s ring-1 ring-rank-s/60 bg-[linear-gradient(110deg,transparent_30%,rgba(251,191,36,0.4)_50%,transparent_70%)] bg-[length:200%_100%] animate-shimmer',
@@ -23,6 +16,7 @@ export function RankBadge({ tier, size = 'md', showLabel = false }: {
   size?: 'sm' | 'md' | 'lg';
   showLabel?: boolean;
 }) {
+  const t = useT();
   const sizes = {
     sm: 'h-7 w-7 text-sm',
     md: 'h-10 w-10 text-lg',
@@ -30,16 +24,12 @@ export function RankBadge({ tier, size = 'md', showLabel = false }: {
   };
   return (
     <div className="inline-flex items-center gap-2">
-      <div
-        className={`font-display font-bold rounded-md flex items-center justify-center ${sizes[size]} ${TIER_STYLES[tier]}`}
-      >
+      <div className={`font-display font-bold rounded-md flex items-center justify-center ${sizes[size]} ${TIER_STYLES[tier]}`}>
         {tier}
       </div>
       {showLabel && (
-        <span className="font-display uppercase tracking-wider text-sm text-zinc-300">{TIER_LABEL[tier]}</span>
+        <span className="font-display uppercase tracking-wider text-sm text-zinc-300">{t(`tier.${tier}` as const)}</span>
       )}
     </div>
   );
 }
-
-export { TIER_LABEL };

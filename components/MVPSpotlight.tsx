@@ -2,12 +2,14 @@
 import { motion } from 'framer-motion';
 import type { MemberProfile, RankingEntry } from '@/lib/types';
 import { RankBadge } from './RankBadge';
+import { useT } from './I18nProvider';
 
 export function MVPSpotlight({ member, ranking, label }: {
   member: MemberProfile;
   ranking: RankingEntry;
   label: string;
 }) {
+  const t = useT();
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -35,10 +37,10 @@ export function MVPSpotlight({ member, ranking, label }: {
             <RankBadge tier={ranking.tier} size="lg" showLabel />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            <Stat label="PRs merged" value={ranking.breakdown.prsMerged} />
-            <Stat label="Commits" value={ranking.breakdown.commits} />
-            <Stat label="Reviews" value={ranking.breakdown.reviews} />
-            <Stat label="XP" value={Math.round(ranking.xp)} />
+            <Stat label={t('stat.prsMerged')} value={ranking.breakdown.prsMerged} />
+            <Stat label={t('stat.commits')} value={ranking.breakdown.commits} />
+            <Stat label={t('stat.reviews')} value={ranking.breakdown.reviews} />
+            <Stat label={t('stat.xp')} value={Math.round(ranking.xp)} />
           </div>
         </div>
       </div>

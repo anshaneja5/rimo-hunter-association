@@ -2,9 +2,10 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import type { MemberProfile, RankingEntry } from '@/lib/types';
-import { RankBadge, TIER_LABEL } from './RankBadge';
+import { RankBadge } from './RankBadge';
 import { XPBar } from './XPBar';
 import { BadgeChip } from './BadgeChip';
+import { useT } from './I18nProvider';
 
 const TIER_RING: Record<RankingEntry['tier'], string> = {
   S: 'ring-rank-s shadow-glow-s',
@@ -21,6 +22,7 @@ export function HunterCard({ member, ranking, maxXp, size = 'md' }: {
   maxXp: number;
   size?: 'md' | 'lg';
 }) {
+  const t = useT();
   const avatarSize = size === 'lg' ? 'h-32 w-32' : 'h-20 w-20';
   return (
     <motion.div
@@ -50,7 +52,7 @@ export function HunterCard({ member, ranking, maxXp, size = 'md' }: {
             <RankBadge tier={ranking.tier} size="sm" />
           </div>
           <div className="text-xs uppercase tracking-widest text-zinc-500 mb-3">
-            #{ranking.rankNumber} · {TIER_LABEL[ranking.tier]}
+            #{ranking.rankNumber} · {t(`tier.${ranking.tier}` as const)}
           </div>
           <XPBar xp={ranking.xp} max={maxXp} tier={ranking.tier} />
           {ranking.badges.length > 0 && (

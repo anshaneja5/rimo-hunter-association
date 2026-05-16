@@ -5,6 +5,7 @@ import type { MemberProfile, RankingEntry } from '@/lib/types';
 import { RankBadge } from './RankBadge';
 import { XPBar } from './XPBar';
 import { BadgeChip } from './BadgeChip';
+import { useT } from './I18nProvider';
 
 interface Row {
   member: MemberProfile;
@@ -12,17 +13,18 @@ interface Row {
 }
 
 export function LeaderboardTable({ rows, maxXp }: { rows: Row[]; maxXp: number }) {
+  const t = useT();
   return (
     <div className="glass rounded-2xl overflow-hidden">
       <table className="w-full">
         <thead className="text-xs uppercase tracking-widest text-zinc-500 border-b border-neon-purple/10">
           <tr>
-            <th className="text-left px-4 py-3 w-12">#</th>
-            <th className="text-left px-4 py-3">Hunter</th>
-            <th className="text-left px-4 py-3 w-24">Tier</th>
-            <th className="text-left px-4 py-3 w-64">XP</th>
-            <th className="text-left px-4 py-3 hidden md:table-cell">Activity</th>
-            <th className="text-left px-4 py-3 hidden lg:table-cell">Badges</th>
+            <th className="text-left px-4 py-3 w-12">{t('leaderboard.col.rank')}</th>
+            <th className="text-left px-4 py-3">{t('leaderboard.col.hunter')}</th>
+            <th className="text-left px-4 py-3 w-24">{t('leaderboard.col.tier')}</th>
+            <th className="text-left px-4 py-3 w-64">{t('leaderboard.col.xp')}</th>
+            <th className="text-left px-4 py-3 hidden md:table-cell">{t('leaderboard.col.activity')}</th>
+            <th className="text-left px-4 py-3 hidden lg:table-cell">{t('leaderboard.col.badges')}</th>
           </tr>
         </thead>
         <tbody>
