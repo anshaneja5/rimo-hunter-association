@@ -1,4 +1,17 @@
 {
   "include": [],
-  "exclude": []
+  "exclude": [
+    "claude",
+    "claude[bot]",
+    "dependabot",
+    "dependabot[bot]",
+    "renovate",
+    "renovate[bot]",
+    "github-actions",
+    "github-actions[bot]",
+    "rimo-github-actions[bot]",
+    "Copilot",
+    "devin-ai-integration[bot]",
+    "blacksmith-sh[bot]"
+  ]
 }
