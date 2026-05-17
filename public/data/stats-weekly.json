@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-16T18:45:28.506Z",
+  "generatedAt": "2026-05-17T01:51:08.966Z",
   "period": "weekly",
   "windowStart": "2026-05-10T15:00:00.000Z",
   "windowEnd": "2026-05-17T14:59:59.999Z",
@@ -159,12 +159,12 @@
     },
     {
       "login": "spookied",
-      "xp": 315,
+      "xp": 318,
       "tier": "S",
       "rankNumber": 6,
       "breakdown": {
         "prsMerged": 5,
-        "prsOpened": 6,
+        "prsOpened": 7,
         "reviews": 15,
         "issuesClosed": 1,
         "issuesOpened": 0,
@@ -183,7 +183,7 @@
         11,
         51,
         2,
-        0
+        1
       ],
       "currentStreak": 0,
       "longestStreak": 7
@@ -494,15 +494,15 @@
     },
     {
       "login": "anshaneja5",
-      "xp": 159,
+      "xp": 163.5,
       "tier": "A",
       "rankNumber": 17,
       "breakdown": {
         "prsMerged": 4,
-        "prsOpened": 6,
+        "prsOpened": 7,
         "reviews": 6,
         "issuesClosed": 4,
-        "issuesOpened": 1,
+        "issuesOpened": 2,
         "commits": 15,
         "comments": 0
       },
@@ -518,7 +518,7 @@
         12,
         6,
         0,
-        0
+        2
       ],
       "currentStreak": 0,
       "longestStreak": 8
@@ -555,10 +555,41 @@
       "longestStreak": 7
     },
     {
+      "login": "t-sano-kf",
+      "xp": 139.5,
+      "tier": "B",
+      "rankNumber": 19,
+      "breakdown": {
+        "prsMerged": 4,
+        "prsOpened": 4,
+        "reviews": 9,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 18,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk",
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        18,
+        6,
+        4,
+        3,
+        1,
+        1,
+        2
+      ],
+      "currentStreak": 0,
+      "longestStreak": 33
+    },
+    {
       "login": "Dev-the-coder",
       "xp": 136.5,
       "tier": "B",
-      "rankNumber": 19,
+      "rankNumber": 20,
       "breakdown": {
         "prsMerged": 4,
         "prsOpened": 5,
@@ -583,37 +614,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 6
-    },
-    {
-      "login": "t-sano-kf",
-      "xp": 130.5,
-      "tier": "B",
-      "rankNumber": 20,
-      "breakdown": {
-        "prsMerged": 4,
-        "prsOpened": 4,
-        "reviews": 7,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 18,
-        "comments": 0
-      },
-      "badges": [
-        "code-monk",
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        18,
-        6,
-        4,
-        3,
-        1,
-        1,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 33
     },
     {
       "login": "riiiiiisha",
