@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-23T01:51:45.593Z",
+  "generatedAt": "2026-05-23T08:03:19.248Z",
   "period": "weekly",
   "windowStart": "2026-05-17T15:00:00.000Z",
   "windowEnd": "2026-05-24T14:59:59.999Z",
@@ -582,10 +582,41 @@
       "longestStreak": 5
     },
     {
+      "login": "t-sano-kf",
+      "xp": 136.5,
+      "tier": "B",
+      "rankNumber": 20,
+      "breakdown": {
+        "prsMerged": 3,
+        "prsOpened": 5,
+        "reviews": 16,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 3,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk",
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        3,
+        5,
+        2,
+        5,
+        4,
+        8,
+        0
+      ],
+      "currentStreak": 0,
+      "longestStreak": 33
+    },
+    {
       "login": "ChahitKolte2112",
       "xp": 127.5,
       "tier": "B",
-      "rankNumber": 20,
+      "rankNumber": 21,
       "breakdown": {
         "prsMerged": 4,
         "prsOpened": 6,
@@ -614,7 +645,7 @@
       "login": "ishitasancheti29",
       "xp": 126,
       "tier": "B",
-      "rankNumber": 21,
+      "rankNumber": 22,
       "breakdown": {
         "prsMerged": 6,
         "prsOpened": 3,
@@ -644,7 +675,7 @@
       "login": "ryu38",
       "xp": 120,
       "tier": "B",
-      "rankNumber": 22,
+      "rankNumber": 23,
       "breakdown": {
         "prsMerged": 4,
         "prsOpened": 3,
@@ -674,7 +705,7 @@
       "login": "kamalgurjar7",
       "xp": 100.5,
       "tier": "B",
-      "rankNumber": 23,
+      "rankNumber": 24,
       "breakdown": {
         "prsMerged": 3,
         "prsOpened": 4,
@@ -700,37 +731,6 @@
       ],
       "currentStreak": 2,
       "longestStreak": 7
-    },
-    {
-      "login": "t-sano-kf",
-      "xp": 100.5,
-      "tier": "B",
-      "rankNumber": 24,
-      "breakdown": {
-        "prsMerged": 3,
-        "prsOpened": 5,
-        "reviews": 8,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 3,
-        "comments": 0
-      },
-      "badges": [
-        "code-monk",
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        3,
-        5,
-        2,
-        5,
-        4,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 33
     },
     {
       "login": "mosa-rimo",
@@ -3128,7 +3128,7 @@
         0
       ],
       "currentStreak": 0,
-      "longestStreak": 1
+      "longestStreak": 0
     },
     {
       "login": "takeuchi-haruka",
