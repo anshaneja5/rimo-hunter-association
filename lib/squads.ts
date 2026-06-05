@@ -13,6 +13,14 @@ export const GUILD_NAMES = [
   'Golden Shield Society',
   'Twilight Hunters',
   'Eternal Dark Guild',
+  'Red Gate Runners',
+  'Crimson Emperor Order',
+  'Void Walker Corps',
+  'Ashen Blade Society',
+  'Neon Samurai Guild',
+  'Obsidian Fang Clan',
+  'Steel Lotus Order',
+  'Dragon Scale Guild',
 ];
 
 export function computeSquadCount(memberCount: number): number {
@@ -50,7 +58,7 @@ export function buildSquads(
 ): SquadsFile {
   // Same week: preserve assignments, update scores
   if (existing && existing.isoWeek === isoWeek) {
-    const xpByLogin = new Map(weeklyRankings.map((r) => [r.login, r.xp]));
+    const xpByLogin = new Map(weeklyRankings.filter((r) => r.xp > 0).map((r) => [r.login, r.xp]));
     const updated = existing.squads.map((sq) => {
       const members = sq.members.map((m) => ({ login: m.login, weeklyXp: xpByLogin.get(m.login) ?? 0 }));
       return { ...sq, members, totalXp: members.reduce((s, m) => s + m.weeklyXp, 0) };
@@ -58,8 +66,10 @@ export function buildSquads(
     return { generatedAt, isoWeek, weekStart: existing.weekStart, squads: rankSquads(updated) };
   }
 
-  // New week: fresh snake draft
-  const sorted = [...weeklyRankings].sort((a, b) => b.xp - a.xp || a.login.localeCompare(b.login));
+  // New week: fresh snake draft (active members only — 0-XP members sit out)
+  const sorted = [...weeklyRankings]
+    .filter((r) => r.xp > 0)
+    .sort((a, b) => b.xp - a.xp || a.login.localeCompare(b.login));
   const N = computeSquadCount(sorted.length);
   const draftedGroups = snakeDraft(sorted.map((r) => ({ login: r.login, weeklyXp: r.xp })), N);
   const squads: Squad[] = draftedGroups.map((members, draftIndex) => ({
