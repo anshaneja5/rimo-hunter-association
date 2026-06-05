@@ -31,6 +31,7 @@ export function NavHeader() {
             <span className="text-orange-400 text-sm">🔥</span>
             <span className="hidden sm:inline">{t('nav.rising')}</span>
           </Link>
+          <Link href="/squads/" className="hover:text-neon-purple transition-colors whitespace-nowrap">{t('nav.squads')}</Link>
           <Link href="/compare/" className="hover:text-neon-purple transition-colors whitespace-nowrap">{t('nav.compare')}</Link>
           <Link href="/legends/" className="hover:text-neon-purple transition-colors whitespace-nowrap">{t('nav.legends')}</Link>
           <LocaleToggle />
