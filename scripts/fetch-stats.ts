@@ -16,6 +16,8 @@ if (existsSync(envPath)) {
 import { createGithubClient } from '../lib/github';
 import { computeXp, assignTiers } from '../lib/scoring';
 import { computeBadges } from '../lib/badges';
+import { buildSquads } from '../lib/squads';
+import { jstIsoWeek } from '../lib/date';
 import {
   jstDayStart, jstDayEnd,
   jstWeekStart, jstWeekEnd,
@@ -23,7 +25,7 @@ import {
   isWithinWindow,
 } from '../lib/date';
 import type {
-  Period, RawActivityEvent, MembersFile, StatsFile, MVPsFile, RankHistoryFile,
+  Period, RawActivityEvent, MembersFile, StatsFile, MVPsFile, RankHistoryFile, SquadsFile,
   Breakdown, RankingEntry, MemberProfile,
 } from '../lib/types';
 import { EMPTY_BREAKDOWN } from '../lib/types';
@@ -353,6 +355,17 @@ async function main() {
     if (!validLogins.has(login)) delete rankHistory.byLogin[login];
   }
 
+  // Build squads (week-stable: preserve assignments if same ISO week, re-draft otherwise)
+  const isoWeek = jstIsoWeek(now);
+  const existingSquads = await readJson<SquadsFile | undefined>(path.join(DATA_DIR, 'squads.json'), undefined);
+  const squadsFile = buildSquads(
+    weeklyStats.rankings.map((r) => ({ login: r.login, xp: r.xp })),
+    isoWeek,
+    weekStart.toISOString(),
+    now.toISOString(),
+    existingSquads,
+  );
+
   // Write all files
   const membersFile: MembersFile = { generatedAt: now.toISOString(), members };
   await writeJson(path.join(DATA_DIR, 'members.json'), membersFile);
@@ -362,6 +375,7 @@ async function main() {
   await writeJson(path.join(DATA_DIR, 'stats-daily.json'), dailyStats);
   await writeJson(path.join(DATA_DIR, 'mvps.json'), mvps);
   await writeJson(path.join(DATA_DIR, 'rank-history.json'), rankHistory);
+  await writeJson(path.join(DATA_DIR, 'squads.json'), squadsFile);
 
   console.log('[fetch-stats] Done.');
 }

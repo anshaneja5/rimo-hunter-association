@@ -42,6 +42,14 @@ export const translations = {
     'nav.search': 'Search',
     'nav.compare': 'VS',
     'nav.rising': 'Rising',
+    'nav.squads': 'Squads',
+
+    'squads.title.1': 'Hunter',
+    'squads.title.2': 'Squads',
+    'squads.loading': 'Assembling squads...',
+    'squads.weekLabel': 'Week',
+    'squads.totalXp': 'Squad XP',
+    'squads.member.xp': 'XP',
 
     'rising.title.1': 'On',
     'rising.title.2': 'Fire',
@@ -54,6 +62,7 @@ export const translations = {
     'rising.streak.suffix': 'days',
     'rising.streak.peak': 'peak',
 
+    'hunter.squad': 'Squad',
     'hunter.allTimeRank': 'All-time rank',
     'hunter.statBreakdown': 'Stat breakdown (all-time)',
     'hunter.rankHistory': 'Rank history',
@@ -137,6 +146,14 @@ export const translations = {
     'nav.search': '検索',
     'nav.compare': '対戦',
     'nav.rising': '上昇中',
+    'nav.squads': '部隊',
+
+    'squads.title.1': 'ハンター',
+    'squads.title.2': '部隊',
+    'squads.loading': '部隊編成中...',
+    'squads.weekLabel': '第',
+    'squads.totalXp': '部隊XP',
+    'squads.member.xp': 'XP',
 
     'rising.title.1': '燃え',
     'rising.title.2': 'てる',
@@ -149,6 +166,7 @@ export const translations = {
     'rising.streak.suffix': '日',
     'rising.streak.peak': '最長',
 
+    'hunter.squad': '所属部隊',
     'hunter.allTimeRank': '通算ランク',
     'hunter.statBreakdown': 'ステータス内訳（通算）',
     'hunter.rankHistory': 'ランク履歴',

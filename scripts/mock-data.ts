@@ -1,7 +1,8 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { assignTiers } from '../lib/scoring';
-import { jstWeekStart, jstWeekEnd, jstMonthStart, jstMonthEnd, jstDayStart, jstDayEnd } from '../lib/date';
+import { jstWeekStart, jstWeekEnd, jstMonthStart, jstMonthEnd, jstDayStart, jstDayEnd, jstIsoWeek } from '../lib/date';
+import { buildSquads } from '../lib/squads';
 import type {
   MembersFile, StatsFile, MVPsFile, RankHistoryFile, MemberProfile, Period, RankingEntry, BadgeId, Breakdown,
 } from '../lib/types';
@@ -114,6 +115,14 @@ async function main() {
     });
   }
   await writeFile(path.join(DATA_DIR, 'rank-history.json'), JSON.stringify(rankHistory, null, 2));
+
+  const squadsFile = buildSquads(
+    weeklyStats.rankings.map((r) => ({ login: r.login, xp: r.xp })),
+    jstIsoWeek(now),
+    jstWeekStart(now).toISOString(),
+    now.toISOString(),
+  );
+  await writeFile(path.join(DATA_DIR, 'squads.json'), JSON.stringify(squadsFile, null, 2));
 
   console.log('[mock-data] wrote', DATA_DIR);
 }

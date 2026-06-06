@@ -18,6 +18,7 @@ interface Props {
   history: Array<{ weekStart: string; tier: TierLetter; xp: number }>;
   maxXp: { all: number; weekly: number; monthly: number; daily: number };
   orgMax?: Breakdown;
+  currentSquad?: { name: string; rank: number };
 }
 
 const TIER_RING: Record<TierLetter, string> = {
@@ -47,7 +48,7 @@ const TIER_ACCENT: Record<TierLetter, string> = {
   E: 'text-rank-e',
 };
 
-export function HunterProfileView({ member, allTime, weekly, monthly, daily, history, maxXp, orgMax }: Props) {
+export function HunterProfileView({ member, allTime, weekly, monthly, daily, history, maxXp, orgMax, currentSquad }: Props) {
   const t = useT();
   const tier: TierLetter = allTime?.tier ?? 'E';
   const isTopTier = tier === 'S' || tier === 'A';
@@ -131,6 +132,17 @@ export function HunterProfileView({ member, allTime, weekly, monthly, daily, his
               <PeriodStat label={t('periodLabel.thisMonth')} xp={monthly?.xp ?? 0}  tier={monthly?.tier ?? 'E'}  max={maxXp.monthly} />
               <PeriodStat label={t('periodLabel.allTime')}   xp={allTime?.xp ?? 0}  tier={tier}                  max={maxXp.all} highlight />
             </div>
+            {currentSquad && (
+              <div className="glass rounded-xl p-3 flex items-center justify-between gap-3 ring-1 ring-neon-cyan/20">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-display">
+                  {t('hunter.squad')}
+                </div>
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="font-display text-sm truncate text-neon-cyan">{currentSquad.name}</span>
+                  <span className="font-mono text-xs text-zinc-400 shrink-0">#{currentSquad.rank}</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

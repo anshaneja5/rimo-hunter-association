@@ -2,20 +2,21 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { notFound } from 'next/navigation';
 import { HunterProfileView } from '@/components/HunterProfileView';
-import type { MembersFile, StatsFile, RankHistoryFile, Breakdown } from '@/lib/types';
+import type { MembersFile, StatsFile, RankHistoryFile, SquadsFile, Breakdown } from '@/lib/types';
 import { EMPTY_BREAKDOWN } from '@/lib/types';
 
 async function readData() {
   const dir = path.resolve(process.cwd(), 'public/data');
-  const [members, all, weekly, monthly, daily, history] = await Promise.all([
+  const [members, all, weekly, monthly, daily, history, squads] = await Promise.all([
     fs.readFile(path.join(dir, 'members.json'), 'utf8').then((s) => JSON.parse(s) as MembersFile),
     fs.readFile(path.join(dir, 'stats-all.json'), 'utf8').then((s) => JSON.parse(s) as StatsFile),
     fs.readFile(path.join(dir, 'stats-weekly.json'), 'utf8').then((s) => JSON.parse(s) as StatsFile),
     fs.readFile(path.join(dir, 'stats-monthly.json'), 'utf8').then((s) => JSON.parse(s) as StatsFile),
     fs.readFile(path.join(dir, 'stats-daily.json'), 'utf8').then((s) => JSON.parse(s) as StatsFile),
     fs.readFile(path.join(dir, 'rank-history.json'), 'utf8').then((s) => JSON.parse(s) as RankHistoryFile),
+    fs.readFile(path.join(dir, 'squads.json'), 'utf8').then((s) => JSON.parse(s) as SquadsFile).catch(() => null),
   ]);
-  return { members, all, weekly, monthly, daily, history };
+  return { members, all, weekly, monthly, daily, history, squads };
 }
 
 export async function generateStaticParams() {
@@ -44,11 +45,15 @@ function buildOrgMax(stats: StatsFile): Breakdown {
 
 export default async function HunterPage({ params }: { params: Promise<{ username: string }> }) {
   const { username } = await params;
-  const { members, all, weekly, monthly, daily, history } = await readData();
+  const { members, all, weekly, monthly, daily, history, squads } = await readData();
   const member = members.members.find((m) => m.login === username);
   if (!member) notFound();
 
   const orgMax = buildOrgMax(all);
+  const currentSquadData = squads?.squads.find((sq) => sq.members.some((m) => m.login === username));
+  const currentSquad = currentSquadData
+    ? { name: currentSquadData.name, rank: currentSquadData.rank }
+    : undefined;
 
   return (
     <HunterProfileView
@@ -65,6 +70,7 @@ export default async function HunterPage({ params }: { params: Promise<{ usernam
         daily: daily.rankings[0]?.xp ?? 1,
       }}
       orgMax={orgMax}
+      currentSquad={currentSquad}
     />
   );
 }

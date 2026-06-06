@@ -91,3 +91,23 @@ export const EMPTY_BREAKDOWN: Breakdown = {
   commits: 0,
   comments: 0,
 };
+
+export interface SquadMember {
+  login: string;
+  weeklyXp: number;
+}
+
+export interface Squad {
+  index: number;
+  name: string;
+  totalXp: number;
+  rank: number;
+  members: SquadMember[];
+}
+
+export interface SquadsFile {
+  generatedAt: string;
+  isoWeek: number;
+  weekStart: string;
+  squads: Squad[];
+}
