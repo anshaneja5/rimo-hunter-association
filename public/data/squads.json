@@ -1,13 +1,41 @@
 {
-  "generatedAt": "2026-06-07T07:17:19.341Z",
+  "generatedAt": "2026-06-07T12:26:37.175Z",
   "isoWeek": 23,
   "weekStart": "2026-05-31T15:00:00.000Z",
   "squads": [
     {
+      "index": 1,
+      "name": "Silver Arrow Guild",
+      "totalXp": 1377,
+      "rank": 1,
+      "members": [
+        {
+          "login": "spookied",
+          "weeklyXp": 1147.5
+        },
+        {
+          "login": "Natsukix98",
+          "weeklyXp": 123
+        },
+        {
+          "login": "Atharva-Kanherkar",
+          "weeklyXp": 99
+        },
+        {
+          "login": "alok410kr",
+          "weeklyXp": 4.5
+        },
+        {
+          "login": "kavyaNIS",
+          "weeklyXp": 3
+        }
+      ]
+    },
+    {
       "index": 0,
       "name": "Crimson Gate Hunters",
       "totalXp": 1347,
-      "rank": 1,
+      "rank": 2,
       "members": [
         {
           "login": "koolii",
@@ -27,34 +55,6 @@
         },
         {
           "login": "ichibe-tani",
-          "weeklyXp": 3
-        }
-      ]
-    },
-    {
-      "index": 1,
-      "name": "Silver Arrow Guild",
-      "totalXp": 1336.5,
-      "rank": 2,
-      "members": [
-        {
-          "login": "spookied",
-          "weeklyXp": 1107
-        },
-        {
-          "login": "Natsukix98",
-          "weeklyXp": 123
-        },
-        {
-          "login": "Atharva-Kanherkar",
-          "weeklyXp": 99
-        },
-        {
-          "login": "alok410kr",
-          "weeklyXp": 4.5
-        },
-        {
-          "login": "kavyaNIS",
           "weeklyXp": 3
         }
       ]
@@ -88,42 +88,14 @@
       ]
     },
     {
-      "index": 4,
-      "name": "Storm Breakers",
-      "totalXp": 787.5,
+      "index": 9,
+      "name": "Red Gate Runners",
+      "totalXp": 828,
       "rank": 4,
       "members": [
         {
-          "login": "harshit1818",
-          "weeklyXp": 441
-        },
-        {
-          "login": "naoyuki313",
-          "weeklyXp": 250.5
-        },
-        {
-          "login": "Anitesh2004",
-          "weeklyXp": 87
-        },
-        {
-          "login": "bells17",
-          "weeklyXp": 6
-        },
-        {
-          "login": "una115",
-          "weeklyXp": 3
-        }
-      ]
-    },
-    {
-      "index": 9,
-      "name": "Red Gate Runners",
-      "totalXp": 787.5,
-      "rank": 5,
-      "members": [
-        {
           "login": "awakia",
-          "weeklyXp": 522
+          "weeklyXp": 562.5
         },
         {
           "login": "maple-21",
@@ -136,6 +108,34 @@
         {
           "login": "komei2433",
           "weeklyXp": 15
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Storm Breakers",
+      "totalXp": 804,
+      "rank": 5,
+      "members": [
+        {
+          "login": "harshit1818",
+          "weeklyXp": 441
+        },
+        {
+          "login": "naoyuki313",
+          "weeklyXp": 267
+        },
+        {
+          "login": "Anitesh2004",
+          "weeklyXp": 87
+        },
+        {
+          "login": "bells17",
+          "weeklyXp": 6
+        },
+        {
+          "login": "una115",
+          "weeklyXp": 3
         }
       ]
     },
@@ -294,7 +294,7 @@
     {
       "index": 11,
       "name": "Void Walker Corps",
-      "totalXp": 538.5,
+      "totalXp": 556.5,
       "rank": 12,
       "members": [
         {
@@ -307,7 +307,7 @@
         },
         {
           "login": "ryu38",
-          "weeklyXp": 34.5
+          "weeklyXp": 52.5
         },
         {
           "login": "kanba84",
