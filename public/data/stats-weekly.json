@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T18:31:05.660Z",
+  "generatedAt": "2026-06-20T00:25:11.271Z",
   "period": "weekly",
   "windowStart": "2026-06-14T15:00:00.000Z",
   "windowEnd": "2026-06-21T14:59:59.999Z",
@@ -38,16 +38,16 @@
     },
     {
       "login": "koolii",
-      "xp": 1047,
+      "xp": 1093.5,
       "tier": "S",
       "rankNumber": 2,
       "breakdown": {
-        "prsMerged": 22,
+        "prsMerged": 24,
         "prsOpened": 35,
         "reviews": 72,
-        "issuesClosed": 15,
-        "issuesOpened": 6,
-        "commits": 111,
+        "issuesClosed": 16,
+        "issuesOpened": 8,
+        "commits": 115,
         "comments": 0
       },
       "badges": [
@@ -62,10 +62,10 @@
         33,
         87,
         36,
-        3,
+        12,
         0
       ],
-      "currentStreak": 5,
+      "currentStreak": 6,
       "longestStreak": 27
     },
     {
@@ -1183,10 +1183,37 @@
       "longestStreak": 6
     },
     {
+      "login": "blazethunderstorm",
+      "xp": 31.5,
+      "tier": "B",
+      "rankNumber": 41,
+      "breakdown": {
+        "prsMerged": 1,
+        "prsOpened": 2,
+        "reviews": 0,
+        "issuesClosed": 1,
+        "issuesOpened": 2,
+        "commits": 0,
+        "comments": 0
+      },
+      "badges": [],
+      "sparkline": [
+        1,
+        3,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "currentStreak": 0,
+      "longestStreak": 0
+    },
+    {
       "login": "Atharva-Kanherkar",
       "xp": 30,
       "tier": "B",
-      "rankNumber": 41,
+      "rankNumber": 42,
       "breakdown": {
         "prsMerged": 1,
         "prsOpened": 4,
@@ -1215,7 +1242,7 @@
       "login": "stg-rimo",
       "xp": 30,
       "tier": "B",
-      "rankNumber": 42,
+      "rankNumber": 43,
       "breakdown": {
         "prsMerged": 0,
         "prsOpened": 0,
@@ -1232,33 +1259,6 @@
         0,
         0,
         0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 0
-    },
-    {
-      "login": "blazethunderstorm",
-      "xp": 28.5,
-      "tier": "B",
-      "rankNumber": 43,
-      "breakdown": {
-        "prsMerged": 1,
-        "prsOpened": 1,
-        "reviews": 0,
-        "issuesClosed": 1,
-        "issuesOpened": 2,
-        "commits": 0,
-        "comments": 0
-      },
-      "badges": [],
-      "sparkline": [
-        1,
-        3,
-        0,
-        0,
-        1,
         0,
         0
       ],
