@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-06-20T07:13:53.457Z",
+  "generatedAt": "2026-06-20T12:29:37.923Z",
   "period": "monthly",
   "windowStart": "2026-05-31T15:00:00.000Z",
   "windowEnd": "2026-06-30T14:59:59.999Z",
   "rankings": [
     {
       "login": "hosshan",
-      "xp": 7083,
+      "xp": 7120.5,
       "tier": "S",
       "rankNumber": 1,
       "breakdown": {
-        "prsMerged": 130,
+        "prsMerged": 132,
         "prsOpened": 155,
-        "reviews": 75,
+        "reviews": 76,
         "issuesClosed": 506,
         "issuesOpened": 188,
-        "commits": 169,
+        "commits": 171,
         "comments": 0
       },
       "badges": [
@@ -44,7 +44,7 @@
         43,
         25,
         69,
-        2,
+        7,
         0,
         0,
         0,
@@ -56,8 +56,8 @@
         0,
         0
       ],
-      "currentStreak": 27,
-      "longestStreak": 27
+      "currentStreak": 28,
+      "longestStreak": 28
     },
     {
       "login": "koolii",
@@ -442,16 +442,16 @@
     },
     {
       "login": "naoyuki313",
-      "xp": 1071,
+      "xp": 1093.5,
       "tier": "A",
       "rankNumber": 9,
       "breakdown": {
-        "prsMerged": 45,
+        "prsMerged": 46,
         "prsOpened": 52,
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
-        "commits": 160,
+        "commits": 165,
         "comments": 0
       },
       "badges": [
@@ -476,9 +476,9 @@
         26,
         9,
         56,
-        12,
+        15,
         11,
-        0,
+        3,
         0,
         0,
         0,
@@ -490,7 +490,7 @@
         0,
         0
       ],
-      "currentStreak": 5,
+      "currentStreak": 6,
       "longestStreak": 10
     },
     {
@@ -922,13 +922,13 @@
     },
     {
       "login": "simran-261",
-      "xp": 498,
+      "xp": 511.5,
       "tier": "A",
       "rankNumber": 18,
       "breakdown": {
         "prsMerged": 15,
-        "prsOpened": 18,
-        "reviews": 30,
+        "prsOpened": 21,
+        "reviews": 31,
         "issuesClosed": 8,
         "issuesOpened": 1,
         "commits": 15,
@@ -958,7 +958,7 @@
         7,
         6,
         2,
-        0,
+        4,
         0,
         0,
         0,
@@ -2010,10 +2010,63 @@
       "longestStreak": 4
     },
     {
+      "login": "ryu38",
+      "xp": 141,
+      "tier": "B",
+      "rankNumber": 39,
+      "breakdown": {
+        "prsMerged": 5,
+        "prsOpened": 5,
+        "reviews": 8,
+        "issuesClosed": 1,
+        "issuesOpened": 0,
+        "commits": 5,
+        "comments": 0
+      },
+      "badges": [
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        7,
+        0,
+        6,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentStreak": 0,
+      "longestStreak": 17
+    },
+    {
       "login": "HaruhiSaito",
       "xp": 136.5,
       "tier": "B",
-      "rankNumber": 39,
+      "rankNumber": 40,
       "breakdown": {
         "prsMerged": 7,
         "prsOpened": 5,
@@ -2058,59 +2111,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 2
-    },
-    {
-      "login": "ryu38",
-      "xp": 129,
-      "tier": "B",
-      "rankNumber": 40,
-      "breakdown": {
-        "prsMerged": 5,
-        "prsOpened": 4,
-        "reviews": 6,
-        "issuesClosed": 1,
-        "issuesOpened": 0,
-        "commits": 5,
-        "comments": 0
-      },
-      "badges": [
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        1,
-        2,
-        0,
-        0,
-        0,
-        0,
-        7,
-        0,
-        6,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 17
     },
     {
       "login": "ry-itto",
@@ -2267,12 +2267,12 @@
     },
     {
       "login": "blazethunderstorm",
-      "xp": 72,
+      "xp": 75,
       "tier": "B",
       "rankNumber": 44,
       "breakdown": {
         "prsMerged": 1,
-        "prsOpened": 6,
+        "prsOpened": 7,
         "reviews": 5,
         "issuesClosed": 1,
         "issuesOpened": 6,
@@ -2300,7 +2300,7 @@
         0,
         0,
         1,
-        1,
+        2,
         0,
         0,
         0,
