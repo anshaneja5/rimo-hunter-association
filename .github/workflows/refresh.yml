@@ -26,7 +26,7 @@ jobs:
       - name: Fetch stats
         env:
           GITHUB_TOKEN: ${{ secrets.STATS_PAT }}
-          GITHUB_ORG: rimoapp
+          GITHUB_ORG: rimo
         run: npm run fetch-stats
 
       - name: Commit refreshed data

@@ -2,7 +2,7 @@
 
 > *"What if your GitHub activity was an anime power-ranking?"*
 
-A **Solo-Leveling-style leaderboard** for [`rimoapp`](https://github.com/rimoapp) — every Rimo employee ranked into S / A / B / C / D / E tiers based on their GitHub contributions, with weekly + monthly MVPs, achievement badges, and a hunter profile card for every member. Built for fun. Refreshed every 6 hours.
+A **Solo-Leveling-style leaderboard** for [`rimo`](https://github.com/rimo) — every Rimo employee ranked into S / A / B / C / D / E tiers based on their GitHub contributions, with weekly + monthly MVPs, achievement badges, and a hunter profile card for every member. Built for fun. Refreshed every 6 hours.
 
 Bilingual (English / 日本語) — toggle in the header.
 
@@ -10,7 +10,7 @@ Bilingual (English / 日本語) — toggle in the header.
 
 ## ✨ What it does
 
-- **XP scoring** — PRs merged, commits, reviews, issues opened/closed, and comments each have weighted XP values. Activity on `rimoapp` repos gets a 1.5× loyalty multiplier.
+- **XP scoring** — PRs merged, commits, reviews, issues opened/closed, and comments each have weighted XP values. Activity on `rimo` repos gets a 1.5× loyalty multiplier.
 - **Six tier ranks** with anime titles
   | Tier | Title | Population |
   |------|-------|-----------|
@@ -54,7 +54,7 @@ The JSON files **are** the database — version-controlled, free history, no inf
 
 ### Why repo-centric fetching
 
-GitHub's `contributionsCollection` API respects each user's *"Include private contributions on my profile"* setting. Most Rimo employees have it off, which made the obvious user-side approach return zeros. The data pipeline iterates `rimoapp`'s repos directly and groups commits/PRs/reviews/issues by author — repo-level permissions apply instead of per-user privacy.
+GitHub's `contributionsCollection` API respects each user's *"Include private contributions on my profile"* setting. Most Rimo employees have it off, which made the obvious user-side approach return zeros. The data pipeline iterates `rimo`'s repos directly and groups commits/PRs/reviews/issues by author — repo-level permissions apply instead of per-user privacy.
 
 ---
 
@@ -158,4 +158,4 @@ This is a side project. PRs welcome but no obligation to merge. The implementati
 
 ---
 
-*For fun · rimoapp · 🇯🇵 Tokyo*
+*For fun · rimo · 🇯🇵 Tokyo*

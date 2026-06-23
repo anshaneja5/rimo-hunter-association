@@ -55,23 +55,46 @@ export function buildSquads(
   weekStart: string,
   generatedAt: string,
   existing?: SquadsFile,
+  // Roster of members eligible for squads this week. Defaults to the weekly rankings, but the
+  // pipeline passes a trailing-7-day active set so a brand-new week is sized from a full roster
+  // instead of the 2-3 members who happen to have logged activity in the week's first few hours.
+  draftPool?: Array<{ login: string; xp: number }>,
 ): SquadsFile {
-  // Same week: preserve assignments, update scores
-  if (existing && existing.isoWeek === isoWeek) {
-    const xpByLogin = new Map(weeklyRankings.filter((r) => r.xp > 0).map((r) => [r.login, r.xp]));
-    const updated = existing.squads.map((sq) => {
-      const members = sq.members.map((m) => ({ login: m.login, weeklyXp: xpByLogin.get(m.login) ?? 0 }));
-      return { ...sq, members, totalXp: members.reduce((s, m) => s + m.weeklyXp, 0) };
-    });
-    return { generatedAt, isoWeek, weekStart: existing.weekStart, squads: rankSquads(updated) };
-  }
+  const xpByLogin = new Map(weeklyRankings.map((r) => [r.login, r.xp]));
+  const weeklyXp = (login: string): number => xpByLogin.get(login) ?? 0;
 
-  // New week: fresh snake draft (active members only — 0-XP members sit out)
-  const sorted = [...weeklyRankings]
+  // Active roster used for sizing + draft order (trailing window if provided, else this week).
+  const pool = [...(draftPool ?? weeklyRankings)]
     .filter((r) => r.xp > 0)
     .sort((a, b) => b.xp - a.xp || a.login.localeCompare(b.login));
-  const N = computeSquadCount(sorted.length);
-  const draftedGroups = snakeDraft(sorted.map((r) => ({ login: r.login, weeklyXp: r.xp })), N);
+  const targetCount = computeSquadCount(pool.length);
+
+  const sameWeek = !!existing && existing.isoWeek === isoWeek;
+  const outWeekStart = sameWeek ? existing!.weekStart : weekStart;
+
+  // Same week AND the existing squads are still big enough for the roster: keep assignments,
+  // refresh scores, and fold in anyone newly active who isn't on a squad yet. (An undersized
+  // week — e.g. one drafted before most members were active — falls through to a fresh draft.)
+  if (sameWeek && existing && existing.squads.length >= targetCount) {
+    const assigned = new Set(existing.squads.flatMap((sq) => sq.members.map((m) => m.login)));
+    const squads = existing.squads.map((sq) => ({
+      ...sq,
+      members: sq.members.map((m) => ({ login: m.login, weeklyXp: weeklyXp(m.login) })),
+    }));
+    for (const r of pool) {
+      if (assigned.has(r.login)) continue;
+      // place each newcomer on the smallest squad (ties → lowest index) to keep sizes balanced
+      let target = squads[0];
+      for (const sq of squads) if (sq.members.length < target.members.length) target = sq;
+      target.members.push({ login: r.login, weeklyXp: weeklyXp(r.login) });
+      assigned.add(r.login);
+    }
+    const scored = squads.map((sq) => ({ ...sq, totalXp: sq.members.reduce((s, m) => s + m.weeklyXp, 0) }));
+    return { generatedAt, isoWeek, weekStart: outWeekStart, squads: rankSquads(scored) };
+  }
+
+  // Fresh snake draft: new week, no existing squads, or an undersized week that needs repair.
+  const draftedGroups = snakeDraft(pool.map((r) => ({ login: r.login, weeklyXp: weeklyXp(r.login) })), targetCount);
   const squads: Squad[] = draftedGroups.map((members, draftIndex) => ({
     index: draftIndex,
     name: GUILD_NAMES[(draftIndex + isoWeek) % GUILD_NAMES.length],
@@ -79,5 +102,5 @@ export function buildSquads(
     rank: 0,
     members,
   }));
-  return { generatedAt, isoWeek, weekStart, squads: rankSquads(squads) };
+  return { generatedAt, isoWeek, weekStart: outWeekStart, squads: rankSquads(squads) };
 }

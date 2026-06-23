@@ -5,7 +5,7 @@ export const translations = {
     'nav.logo.suffix': 'Assoc.',
     'nav.ladder': 'Ladder',
     'nav.legends': 'Legends',
-    'footer.tagline': 'For fun · rimoapp · stats refresh every 6h',
+    'footer.tagline': 'For fun · rimo · stats refresh every 6h',
 
     'landing.heading.1': 'RIMO',
     'landing.heading.2': 'HUNTER',
@@ -109,7 +109,7 @@ export const translations = {
     'nav.logo.suffix': '協会',
     'nav.ladder': 'ラダー',
     'nav.legends': '殿堂',
-    'footer.tagline': 'ファンプロジェクト · rimoapp · 6時間ごとに更新',
+    'footer.tagline': 'ファンプロジェクト · rimo · 6時間ごとに更新',
 
     'landing.heading.1': 'リモ',
     'landing.heading.2': 'ハンター',

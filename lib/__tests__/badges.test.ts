@@ -7,7 +7,7 @@ function mkEvent(
   occurredAt: string,
   meta?: Record<string, unknown>,
 ): RawActivityEvent {
-  return { type, repoOwner: 'rimoapp', repoName: 'app', occurredAt, meta };
+  return { type, repoOwner: 'rimo', repoName: 'app', occurredAt, meta };
 }
 
 describe('computeBadges', () => {

@@ -30,7 +30,7 @@ import type {
 } from '../lib/types';
 import { EMPTY_BREAKDOWN } from '../lib/types';
 
-const ORG = process.env.GITHUB_ORG ?? 'rimoapp';
+const ORG = process.env.GITHUB_ORG ?? 'rimo';
 const TOKEN = process.env.GITHUB_TOKEN;
 const DATA_DIR = path.resolve(process.cwd(), 'public/data');
 const OVERRIDE_PATH = path.resolve(process.cwd(), 'config/members-override.json');
@@ -358,12 +358,25 @@ async function main() {
   // Build squads (week-stable: preserve assignments if same ISO week, re-draft otherwise)
   const isoWeek = jstIsoWeek(now);
   const existingSquads = await readJson<SquadsFile | undefined>(path.join(DATA_DIR, 'squads.json'), undefined);
+
+  // Draft pool = members active in the trailing 7 days, so a fresh week is sized from a full
+  // roster instead of whoever happened to log activity in the week's first few hours (which
+  // otherwise collapsed every week to a single 2-3 person squad).
+  const trailingStart = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+  const trailingPool = members
+    .map((m) => {
+      const windowed = (eventsByLogin.get(m.login) ?? []).filter((e) => isWithinWindow(e.occurredAt, trailingStart, now));
+      return { login: m.login, xp: computeXp(windowed) };
+    })
+    .filter((r) => r.xp > 0);
+
   const squadsFile = buildSquads(
     weeklyStats.rankings.map((r) => ({ login: r.login, xp: r.xp })),
     isoWeek,
     weekStart.toISOString(),
     now.toISOString(),
     existingSquads,
+    trailingPool,
   );
 
   // Write all files

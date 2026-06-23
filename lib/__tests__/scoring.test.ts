@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { xpForEvent, computeXp, assignTiers, ACTION_XP, RIMO_MULTIPLIER } from '../scoring';
 import type { RawActivityEvent } from '../types';
 
-const RIMO = 'rimoapp';
+const RIMO = 'rimo';
 
 function ev(type: RawActivityEvent['type'], repoOwner = 'someone-else'): RawActivityEvent {
   return { type, repoOwner, repoName: 'repo', occurredAt: '2026-05-16T00:00:00Z' };
@@ -14,7 +14,7 @@ describe('xpForEvent', () => {
     expect(xpForEvent(ev('commits'))).toBe(ACTION_XP.commits);
   });
 
-  it('applies the Rimo multiplier for rimoapp repos', () => {
+  it('applies the Rimo multiplier for rimo repos', () => {
     expect(xpForEvent(ev('prsMerged', RIMO))).toBe(ACTION_XP.prsMerged * RIMO_MULTIPLIER);
     expect(xpForEvent(ev('commits', RIMO))).toBe(ACTION_XP.commits * RIMO_MULTIPLIER);
   });

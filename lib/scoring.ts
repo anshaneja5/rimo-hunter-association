@@ -11,7 +11,7 @@ export const ACTION_XP: Record<keyof Breakdown, number> = {
 };
 
 export const RIMO_MULTIPLIER = 1.5;
-const RIMO_ORG = 'rimoapp';
+const RIMO_ORG = 'rimo';
 
 export function xpForEvent(event: RawActivityEvent): number {
   if (!(event.type in ACTION_XP)) return 0;

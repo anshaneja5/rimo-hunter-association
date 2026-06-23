@@ -140,6 +140,55 @@ describe('buildSquads — determinism', () => {
   });
 });
 
+// ── trailing draft pool (fixes the "stuck at 1 squad" bug) ────────────────────
+
+describe('buildSquads — trailing draft pool', () => {
+  it('sizes squads from the trailing pool, not the sparse current-week rankings', () => {
+    // Only 2 people have logged XP this week so far...
+    const weekly = makeRankings(['a', 'b'], [10, 5]);
+    // ...but 10 members were active in the trailing 7-day window.
+    const pool = Array.from({ length: 10 }, (_, i) => ({ login: `m${i}`, xp: 100 - i }));
+    const r = buildSquads(weekly, 30, WEEK_START, NOW, undefined, pool);
+    expect(r.squads.length).toBe(computeSquadCount(10)); // 2, not 1
+    const allMembers = r.squads.flatMap((s) => s.members.map((m) => m.login));
+    expect(allMembers.length).toBe(10);
+  });
+
+  it('re-drafts mid-week when the existing squad count is too small for the active pool', () => {
+    // Legacy degenerate state: drafted from 2 early-active members → 1 squad.
+    const existing = buildSquads(makeRankings(['a', 'b'], [10, 5]), 30, WEEK_START, NOW);
+    expect(existing.squads.length).toBe(1);
+
+    const pool = Array.from({ length: 12 }, (_, i) => ({ login: `m${i}`, xp: 100 - i }));
+    const repaired = buildSquads(
+      makeRankings(['m0', 'm1'], [50, 40]), 30, WEEK_START, NOW, existing, pool,
+    );
+    expect(repaired.squads.length).toBe(computeSquadCount(12)); // grows to 3
+    expect(repaired.squads.length).toBeGreaterThan(1);
+  });
+
+  it('folds a newly-active member into existing squads when the count is unchanged', () => {
+    const pool9 = Array.from({ length: 9 }, (_, i) => ({ login: `m${i}`, xp: 100 - i }));
+    const weekly9 = pool9.map((p) => ({ login: p.login, xp: p.xp }));
+    const initial = buildSquads(weekly9, 30, WEEK_START, NOW, undefined, pool9);
+    expect(initial.squads.length).toBe(computeSquadCount(9)); // 2
+
+    const pool10 = [...pool9, { login: 'newbie', xp: 70 }];
+    const weekly10 = pool10.map((p) => ({ login: p.login, xp: p.xp }));
+    const updated = buildSquads(weekly10, 30, WEEK_START, NOW, initial, pool10);
+
+    expect(updated.squads.length).toBe(initial.squads.length); // still 2 — no reshuffle
+    const all = updated.squads.flatMap((s) => s.members.map((m) => m.login));
+    expect(all).toContain('newbie');
+    // every member keeps their original squad assignment
+    for (const sq of initial.squads) {
+      const updatedSq = updated.squads.find((s) => s.index === sq.index)!;
+      const updatedLogins = updatedSq.members.map((m) => m.login);
+      for (const m of sq.members) expect(updatedLogins).toContain(m.login);
+    }
+  });
+});
+
 // ── existing squads with missing members ──────────────────────────────────────
 
 describe('buildSquads — member leaves mid-week', () => {
