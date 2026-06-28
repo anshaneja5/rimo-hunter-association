@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T07:14:54.097Z",
+  "generatedAt": "2026-06-28T12:22:24.697Z",
   "period": "weekly",
   "windowStart": "2026-06-21T15:00:00.000Z",
   "windowEnd": "2026-06-28T14:59:59.999Z",
@@ -67,7 +67,7 @@
     },
     {
       "login": "hosshan",
-      "xp": 1134,
+      "xp": 1135.5,
       "tier": "S",
       "rankNumber": 3,
       "breakdown": {
@@ -75,7 +75,7 @@
         "prsOpened": 36,
         "reviews": 86,
         "issuesClosed": 16,
-        "issuesOpened": 40,
+        "issuesOpened": 41,
         "commits": 56,
         "comments": 0
       },
@@ -92,7 +92,7 @@
         32,
         54,
         13,
-        0
+        1
       ],
       "currentStreak": 6,
       "longestStreak": 28
@@ -194,10 +194,40 @@
       "longestStreak": 10
     },
     {
+      "login": "naoyuki313",
+      "xp": 642,
+      "tier": "A",
+      "rankNumber": 7,
+      "breakdown": {
+        "prsMerged": 27,
+        "prsOpened": 27,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 104,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk",
+        "streak-lord"
+      ],
+      "sparkline": [
+        20,
+        34,
+        34,
+        35,
+        10,
+        7,
+        18
+      ],
+      "currentStreak": 7,
+      "longestStreak": 10
+    },
+    {
       "login": "urabe-chihiro",
       "xp": 631.5,
       "tier": "A",
-      "rankNumber": 7,
+      "rankNumber": 8,
       "breakdown": {
         "prsMerged": 10,
         "prsOpened": 11,
@@ -222,36 +252,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 5
-    },
-    {
-      "login": "naoyuki313",
-      "xp": 597,
-      "tier": "A",
-      "rankNumber": 8,
-      "breakdown": {
-        "prsMerged": 25,
-        "prsOpened": 25,
-        "reviews": 0,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 98,
-        "comments": 0
-      },
-      "badges": [
-        "code-monk",
-        "streak-lord"
-      ],
-      "sparkline": [
-        20,
-        34,
-        34,
-        35,
-        9,
-        6,
-        10
-      ],
-      "currentStreak": 7,
-      "longestStreak": 10
     },
     {
       "login": "prernadabi23",
