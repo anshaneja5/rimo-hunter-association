@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T18:15:16.233Z",
+  "generatedAt": "2026-07-19T00:17:41.274Z",
   "period": "weekly",
   "windowStart": "2026-07-12T15:00:00.000Z",
   "windowEnd": "2026-07-19T14:59:59.999Z",
@@ -37,12 +37,12 @@
     },
     {
       "login": "shinji-ikari-01",
-      "xp": 1014,
+      "xp": 1017,
       "tier": "S",
       "rankNumber": 2,
       "breakdown": {
         "prsMerged": 17,
-        "prsOpened": 32,
+        "prsOpened": 33,
         "reviews": 146,
         "issuesClosed": 0,
         "issuesOpened": 0,
@@ -59,7 +59,7 @@
         20,
         21,
         19,
-        0
+        1
       ],
       "currentStreak": 0,
       "longestStreak": 3
@@ -97,16 +97,16 @@
     },
     {
       "login": "piyushaneja30",
-      "xp": 684,
+      "xp": 709.5,
       "tier": "S",
       "rankNumber": 4,
       "breakdown": {
-        "prsMerged": 22,
+        "prsMerged": 23,
         "prsOpened": 9,
         "reviews": 46,
-        "issuesClosed": 0,
+        "issuesClosed": 1,
         "issuesOpened": 0,
-        "commits": 80,
+        "commits": 82,
         "comments": 0
       },
       "badges": [
@@ -119,11 +119,11 @@
         51,
         25,
         21,
-        1,
+        2,
         18,
-        0
+        3
       ],
-      "currentStreak": 0,
+      "currentStreak": 1,
       "longestStreak": 10
     },
     {
@@ -463,10 +463,39 @@
       "longestStreak": 18
     },
     {
+      "login": "lot-koichi",
+      "xp": 261,
+      "tier": "A",
+      "rankNumber": 16,
+      "breakdown": {
+        "prsMerged": 6,
+        "prsOpened": 18,
+        "reviews": 8,
+        "issuesClosed": 2,
+        "issuesOpened": 34,
+        "commits": 10,
+        "comments": 0
+      },
+      "badges": [
+        "awakening"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0,
+        19,
+        35,
+        24
+      ],
+      "currentStreak": 3,
+      "longestStreak": 3
+    },
+    {
       "login": "ishitasancheti29",
       "xp": 249,
       "tier": "A",
-      "rankNumber": 16,
+      "rankNumber": 17,
       "breakdown": {
         "prsMerged": 10,
         "prsOpened": 6,
@@ -497,7 +526,7 @@
       "login": "anujpatel03",
       "xp": 232.5,
       "tier": "A",
-      "rankNumber": 17,
+      "rankNumber": 18,
       "breakdown": {
         "prsMerged": 9,
         "prsOpened": 11,
@@ -529,7 +558,7 @@
       "login": "prernadabi23",
       "xp": 228,
       "tier": "A",
-      "rankNumber": 18,
+      "rankNumber": 19,
       "breakdown": {
         "prsMerged": 6,
         "prsOpened": 10,
@@ -559,7 +588,7 @@
       "login": "spookied",
       "xp": 207,
       "tier": "A",
-      "rankNumber": 19,
+      "rankNumber": 20,
       "breakdown": {
         "prsMerged": 6,
         "prsOpened": 6,
@@ -591,7 +620,7 @@
       "login": "simran-261",
       "xp": 202.5,
       "tier": "A",
-      "rankNumber": 20,
+      "rankNumber": 21,
       "breakdown": {
         "prsMerged": 6,
         "prsOpened": 3,
@@ -620,8 +649,8 @@
     {
       "login": "rimo-asuka-langley",
       "xp": 165,
-      "tier": "A",
-      "rankNumber": 21,
+      "tier": "B",
+      "rankNumber": 22,
       "breakdown": {
         "prsMerged": 8,
         "prsOpened": 10,
@@ -648,7 +677,7 @@
       "login": "adityaghai07",
       "xp": 148.5,
       "tier": "B",
-      "rankNumber": 22,
+      "rankNumber": 23,
       "breakdown": {
         "prsMerged": 5,
         "prsOpened": 5,
@@ -673,35 +702,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 11
-    },
-    {
-      "login": "lot-koichi",
-      "xp": 145.5,
-      "tier": "B",
-      "rankNumber": 23,
-      "breakdown": {
-        "prsMerged": 2,
-        "prsOpened": 10,
-        "reviews": 7,
-        "issuesClosed": 1,
-        "issuesOpened": 29,
-        "commits": 2,
-        "comments": 0
-      },
-      "badges": [
-        "awakening"
-      ],
-      "sparkline": [
-        0,
-        0,
-        0,
-        0,
-        19,
-        32,
-        0
-      ],
-      "currentStreak": 2,
-      "longestStreak": 2
     },
     {
       "login": "KentoMoriwaki",
