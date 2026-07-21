@@ -43,6 +43,8 @@ export const translations = {
     'nav.compare': 'VS',
     'nav.rising': 'Rising',
     'nav.squads': 'Squads',
+    'nav.menu': 'Menu',
+    'nav.menu.close': 'Close menu',
 
     'squads.title.1': 'Hunter',
     'squads.title.2': 'Squads',
@@ -147,6 +149,8 @@ export const translations = {
     'nav.compare': '対戦',
     'nav.rising': '上昇中',
     'nav.squads': '部隊',
+    'nav.menu': 'メニュー',
+    'nav.menu.close': 'メニューを閉じる',
 
     'squads.title.1': 'ハンター',
     'squads.title.2': '部隊',
