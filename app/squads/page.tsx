@@ -2,27 +2,24 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { loadSquads, loadMembers } from '@/lib/loadData';
-import type { SquadsFile, MembersFile, Squad } from '@/lib/types';
-import { useT } from '@/components/I18nProvider';
+import { loadMembers } from '@/lib/loadData';
+import type { MembersFile, MemberProfile } from '@/lib/types';
+import { useLocale } from '@/components/I18nProvider';
+import {
+  SQUADS, RANGER_INDIANS, RANGER_SENIORS, PRODUCT_OWNERS,
+  RANGERS_ACCENT, RANGERS_COPY, PAGE_COPY, tr,
+  type Squad, type Bilingual, type Locale,
+} from '@/lib/org';
 
 export default function SquadsPage() {
-  const t = useT();
-  const [squads, setSquads] = useState<SquadsFile | null>(null);
+  const [locale] = useLocale();
+  const L = (b: Bilingual) => tr(b, locale as Locale);
   const [members, setMembers] = useState<MembersFile | null>(null);
 
-  useEffect(() => { loadSquads().then(setSquads).catch(() => setSquads(null)); }, []);
-  useEffect(() => { loadMembers().then(setMembers); }, []);
+  useEffect(() => { loadMembers().then(setMembers).catch(() => setMembers(null)); }, []);
 
-  if (!squads || !members) {
-    return (
-      <div className="text-center py-24">
-        <div className="font-display tracking-[0.3em] text-zinc-500 animate-pulse">{t('squads.loading')}</div>
-      </div>
-    );
-  }
-
-  const sorted = [...squads.squads].sort((a, b) => a.rank - b.rank);
+  const find = (login: string): MemberProfile | undefined =>
+    members?.members.find((m) => m.login === login);
 
   return (
     <motion.div
@@ -32,128 +29,234 @@ export default function SquadsPage() {
       className="space-y-8 md:space-y-12"
     >
       {/* Header */}
-      <div className="space-y-4 text-center">
-        <div className="flex items-center justify-center gap-3 md:gap-4">
-          <div className="h-px w-12 md:w-24 bg-gradient-to-r from-transparent to-neon-purple/40" />
-          <svg width="32" height="32" viewBox="0 0 32 32" className="text-neon-purple drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">
-            <path d="M16 4 L22 12 L28 8 L24 20 L8 20 L4 8 L10 12 Z" stroke="currentColor" strokeWidth="1.2" fill="currentColor" fillOpacity="0.15" />
-            <rect x="10" y="20" width="12" height="3" rx="1" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.2" />
-            <line x1="16" y1="23" x2="16" y2="28" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-            <line x1="12" y1="28" x2="20" y2="28" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-          </svg>
-          <div className="h-px w-12 md:w-24 bg-gradient-to-l from-transparent to-neon-cyan/40" />
+      <div className="space-y-3 text-center">
+        <div className="font-mono text-[10px] md:text-xs uppercase tracking-[0.35em] text-neon-cyan/70">
+          {L(PAGE_COPY.eyebrow)}
         </div>
         <h1 className="font-display font-black text-4xl md:text-6xl uppercase tracking-[0.08em] leading-none">
-          <span className="text-white">{t('squads.title.1')}</span>{' '}
-          <span className="holo-text">{t('squads.title.2')}</span>
+          <span className="text-white">{L(PAGE_COPY.title1)}</span>{' '}
+          <span className="holo-text">{L(PAGE_COPY.title2)}</span>
         </h1>
-        <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">
-          {t('squads.weekLabel')} {squads.isoWeek}
+        <p className="text-zinc-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+          {L(PAGE_COPY.intro)}
         </p>
       </div>
 
-      {/* Squad cards */}
-      <div className="space-y-4 md:space-y-6">
-        {sorted.map((squad, i) => (
-          <SquadCard key={squad.index} squad={squad} members={members} delay={i * 0.06} />
+      {/* Command-structure diagram */}
+      <OrgDiagram L={L} find={find} />
+
+      {/* Squad detail cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+        {SQUADS.map((sq, i) => (
+          <SquadCard key={sq.id} squad={sq} find={find} L={L} delay={i * 0.05} />
         ))}
+        <RangersCard find={find} L={L} delay={SQUADS.length * 0.05} />
+      </div>
+
+      {/* Legend */}
+      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-mono text-zinc-500">
+        <span><span className="text-rank-s">★</span> {L(PAGE_COPY.legendLead)}</span>
+        <span><span className="text-rank-s">(★)</span> {L(PAGE_COPY.legendSub)}</span>
       </div>
     </motion.div>
   );
 }
 
+/* ----------------------------------------------------------------- diagram */
+
+function OrgDiagram({
+  L, find,
+}: {
+  L: (b: Bilingual) => string;
+  find: (login: string) => MemberProfile | undefined;
+}) {
+  return (
+    <div className="glass rounded-2xl p-5 md:p-8 ring-1 ring-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent 0 12px, rgba(255,255,255,0.6) 12px 13px)' }} />
+
+      {/* PO banner */}
+      <div className="relative flex flex-col items-center">
+        <div className="glass rounded-full px-4 py-2 ring-1 ring-neon-cyan/30 flex items-center gap-3">
+          <div className="flex -space-x-2">
+            {PRODUCT_OWNERS.map((po) => {
+              const m = find(po.login);
+              return m ? (
+                <Link key={po.login} href={`/hunter/${po.login}/`} title={m.name ?? po.login}>
+                  <img src={m.avatarUrl} alt={po.login}
+                    className="h-8 w-8 rounded-full ring-2 ring-base-900 hover:ring-neon-cyan transition-all" />
+                </Link>
+              ) : null;
+            })}
+          </div>
+          <div className="text-[10px] md:text-xs font-display uppercase tracking-[0.15em] text-neon-cyan pr-1">
+            {L(PAGE_COPY.poLabel)}
+          </div>
+        </div>
+        <div className="h-6 w-px bg-gradient-to-b from-neon-cyan/40 to-white/10" />
+      </div>
+
+      {/* Squad rail */}
+      <div className="relative flex flex-wrap items-stretch justify-center gap-2 md:gap-3">
+        {SQUADS.map((sq) => (
+          <a key={sq.id} href={`#squad-${sq.id}`}
+            className="group flex-1 min-w-[120px] max-w-[200px] rounded-xl px-3 py-3 text-center transition-all hover:-translate-y-0.5"
+            style={{ background: `${sq.accent}12`, boxShadow: `inset 0 0 0 1px ${sq.accent}44` }}>
+            <div className="font-display uppercase tracking-[0.12em] text-sm md:text-base" style={{ color: sq.accent }}>
+              {sq.codename}
+            </div>
+            <div className="text-[10px] text-zinc-400 font-mono mt-0.5">{L(sq.domain)}</div>
+          </a>
+        ))}
+      </div>
+
+      {/* Rangers band */}
+      <div className="relative flex flex-col items-center mt-3">
+        <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-2"
+          style={{ color: `${RANGERS_ACCENT}aa` }}>
+          {L(PAGE_COPY.supportsNote)}
+        </div>
+        <div className="rounded-xl px-4 py-2 flex items-center gap-2 flex-wrap justify-center"
+          style={{ background: `${RANGERS_ACCENT}10`, boxShadow: `inset 0 0 0 1px ${RANGERS_ACCENT}44` }}>
+          <span className="font-display uppercase tracking-[0.12em] text-sm" style={{ color: RANGERS_ACCENT }}>
+            {L(PAGE_COPY.rangersLabel)}
+          </span>
+          <div className="flex -space-x-1.5">
+            {RANGER_INDIANS.map((r) => {
+              const m = find(r.login);
+              return m ? (
+                <Link key={r.login} href={`/hunter/${r.login}/`} title={m.name ?? r.login}>
+                  <img src={m.avatarUrl} alt={r.login}
+                    className="h-6 w-6 rounded-full ring-2 ring-base-900 hover:ring-white transition-all" />
+                </Link>
+              ) : null;
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------- squad card */
+
+function MemberChip({
+  login, find, accent, badge,
+}: {
+  login: string;
+  find: (login: string) => MemberProfile | undefined;
+  accent: string;
+  badge?: string;
+}) {
+  const m = find(login);
+  return (
+    <Link href={`/hunter/${login}/`}
+      className="flex items-center gap-2 rounded-lg px-2 py-1.5 bg-white/[0.02] hover:bg-white/[0.06] transition-colors min-w-0">
+      {m
+        ? <img src={m.avatarUrl} alt={login} className="h-7 w-7 rounded-full ring-1 shrink-0" style={{ boxShadow: `0 0 0 1px ${accent}66` }} />
+        : <div className="h-7 w-7 rounded-full bg-white/10 shrink-0" />}
+      <span className="text-sm font-display truncate">{m?.name ?? login}</span>
+      {badge && <span className="text-rank-s text-xs shrink-0">{badge}</span>}
+    </Link>
+  );
+}
+
 function SquadCard({
-  squad,
-  members,
-  delay,
+  squad, find, L, delay,
 }: {
   squad: Squad;
-  members: MembersFile;
+  find: (login: string) => MemberProfile | undefined;
+  L: (b: Bilingual) => string;
   delay: number;
 }) {
-  const t = useT();
-  const isFirst = squad.rank === 1;
-  const rankColor = isFirst
-    ? 'text-rank-s'
-    : squad.rank === 2
-    ? 'text-neon-purple'
-    : 'text-neon-cyan';
-  const ringColor = isFirst
-    ? 'ring-rank-s/30'
-    : squad.rank === 2
-    ? 'ring-neon-purple/20'
-    : 'ring-neon-cyan/10';
-
   return (
     <motion.div
+      id={`squad-${squad.id}`}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.4 }}
-      className={`glass rounded-2xl p-5 md:p-6 ring-1 ${ringColor} relative overflow-hidden`}
+      className="glass rounded-2xl p-5 md:p-6 relative overflow-hidden scroll-mt-24"
+      style={{ boxShadow: `inset 0 0 0 1px ${squad.accent}33` }}
     >
-      {isFirst && (
-        <div className="absolute -top-8 -right-8 font-display font-black text-[120px] leading-none opacity-[0.05] select-none pointer-events-none text-rank-s">
-          #1
-        </div>
-      )}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-        {/* Rank + name */}
-        <div className="flex items-center gap-4 min-w-0">
-          <div className={`font-display font-black text-4xl md:text-5xl leading-none shrink-0 ${rankColor}`}>
-            #{squad.rank}
-          </div>
-          <div className="min-w-0">
-            <div className={`font-display text-lg md:text-2xl uppercase tracking-[0.12em] leading-tight truncate ${isFirst ? 'holo-text' : 'text-white'}`}>
-              {squad.name}
-            </div>
-            <div className="text-zinc-400 font-mono text-xs mt-0.5">
-              {Math.round(squad.totalXp).toLocaleString()} {t('squads.totalXp')}
-            </div>
-          </div>
-        </div>
-
-        {/* Member avatars strip */}
-        <div className="flex items-center gap-1.5 sm:ml-auto flex-wrap">
-          {squad.members.map((m) => {
-            const member = members.members.find((mem) => mem.login === m.login);
-            if (!member) return null;
-            return (
-              <Link key={m.login} href={`/hunter/${m.login}/`} title={member.name ?? m.login}>
-                <img
-                  src={member.avatarUrl}
-                  alt={m.login}
-                  className="h-8 w-8 rounded-full ring-1 ring-white/10 hover:ring-neon-purple/60 transition-all"
-                />
-              </Link>
-            );
-          })}
-        </div>
+      <div className="absolute -top-8 -right-6 font-display font-black text-[110px] leading-none opacity-[0.05] select-none pointer-events-none uppercase"
+        style={{ color: squad.accent }}>
+        {squad.codename.slice(0, 1)}
       </div>
 
-      {/* Member breakdown */}
-      <div className="mt-4 divide-y divide-white/5">
-        {[...squad.members]
-          .sort((a, b) => b.weeklyXp - a.weeklyXp)
-          .map((m, idx) => {
-            const member = members.members.find((mem) => mem.login === m.login);
-            return (
-              <div key={m.login} className="flex items-center gap-3 py-2">
-                <span className="text-zinc-600 font-mono text-[10px] w-4 shrink-0">{idx + 1}</span>
-                {member && (
-                  <img src={member.avatarUrl} alt={m.login} className="h-6 w-6 rounded-full shrink-0" />
-                )}
-                <Link
-                  href={`/hunter/${m.login}/`}
-                  className="flex-1 text-sm font-display truncate hover:text-neon-cyan transition-colors"
-                >
-                  {member?.name ?? m.login}
-                </Link>
-                <span className="font-mono text-xs text-zinc-400 shrink-0">
-                  {Math.round(m.weeklyXp).toLocaleString()} {t('squads.member.xp')}
-                </span>
-              </div>
-            );
-          })}
+      {/* Heading */}
+      <div className="flex items-start justify-between gap-3 mb-1">
+        <h2 className="font-display font-black text-2xl md:text-3xl uppercase tracking-[0.08em]" style={{ color: squad.accent }}>
+          {squad.codename}
+        </h2>
+        <span className="font-mono text-[10px] uppercase tracking-[0.15em] px-2 py-1 rounded-md shrink-0 mt-1"
+          style={{ color: squad.accent, background: `${squad.accent}14` }}>
+          {L(squad.domain)}
+        </span>
+      </div>
+      <p className="text-zinc-400 text-sm mb-4 leading-relaxed">{L(squad.mission)}</p>
+
+      {/* Lead + sub-lead */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
+        <MemberChip login={squad.leadLogin} find={find} accent={squad.accent} badge="★" />
+        {squad.subLeadLogin && <MemberChip login={squad.subLeadLogin} find={find} accent={squad.accent} badge="(★)" />}
+      </div>
+
+      {/* Members */}
+      {squad.memberLogins.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {squad.memberLogins.map((login) => (
+            <MemberChip key={login} login={login} find={find} accent={squad.accent} />
+          ))}
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
+/* ------------------------------------------------------------ rangers card */
+
+function RangersCard({
+  find, L, delay,
+}: {
+  find: (login: string) => MemberProfile | undefined;
+  L: (b: Bilingual) => string;
+  delay: number;
+}) {
+  return (
+    <motion.div
+      id="squad-rangers"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.4 }}
+      className="glass rounded-2xl p-5 md:p-6 relative overflow-hidden scroll-mt-24 lg:col-span-2"
+      style={{ boxShadow: `inset 0 0 0 1px ${RANGERS_ACCENT}33` }}
+    >
+      <div className="flex items-start justify-between gap-3 mb-1">
+        <h2 className="font-display font-black text-2xl md:text-3xl uppercase tracking-[0.08em]" style={{ color: RANGERS_ACCENT }}>
+          Rangers
+        </h2>
+        <span className="font-mono text-[10px] uppercase tracking-[0.15em] px-2 py-1 rounded-md shrink-0 mt-1"
+          style={{ color: RANGERS_ACCENT, background: `${RANGERS_ACCENT}14` }}>
+          {L({ en: 'Solo', ja: '単独' })}
+        </span>
+      </div>
+      <p className="text-zinc-400 text-sm mb-4 leading-relaxed max-w-3xl">{L(RANGERS_COPY)}</p>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        {RANGER_INDIANS.map((r) => (
+          <MemberChip key={r.login} login={r.login} find={find} accent={RANGERS_ACCENT} />
+        ))}
+      </div>
+
+      <div className="pt-3 border-t border-white/5">
+        <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-2">
+          {L(PAGE_COPY.seniorsLabel)}
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {RANGER_SENIORS.map((s) => (
+            <MemberChip key={s.login} login={s.login} find={find} accent="#94a3b8" />
+          ))}
+        </div>
       </div>
     </motion.div>
   );
