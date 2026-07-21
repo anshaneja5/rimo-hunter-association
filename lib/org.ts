@@ -214,3 +214,65 @@ export function getAssignments(login: string): Assignment[] {
 export function getSquad(id: SquadId): Squad {
   return SQUADS.find((s) => s.id === id)!;
 }
+
+/* --------------------------------------------------- weekly meeting rhythm */
+// All times JST (IST = JST − 3.5h). Source: scrum-playbook §3 "Your Week".
+
+export type MeetingMode = 'async' | 'sync' | 'optional' | 'focus';
+
+export interface ScheduleEntry {
+  day: Bilingual;
+  time: string; // e.g. "13:00 JST", or "" when not time-boxed
+  title: Bilingual;
+  mode: MeetingMode;
+}
+
+const E = {
+  daily: { day: { en: 'Daily', ja: '毎日' }, time: '09:00 JST', title: { en: 'AI daily digest — no standup', ja: 'AIデイリーダイジェスト — 朝会なし' }, mode: 'async' } as ScheduleEntry,
+  review: { day: { en: 'Tue', ja: '火' }, time: '13:00 JST', title: { en: 'Sprint Review (all squads)', ja: 'スプリントレビュー（全部隊）' }, mode: 'sync' } as ScheduleEntry,
+  reviewOpt: { day: { en: 'Tue', ja: '火' }, time: '13:00 JST', title: { en: 'Sprint Review — optional', ja: 'スプリントレビュー — 任意' }, mode: 'optional' } as ScheduleEntry,
+  reviewReq: { day: { en: 'Tue', ja: '火' }, time: '13:00 JST', title: { en: 'Sprint Review — required', ja: 'スプリントレビュー — 必須' }, mode: 'sync' } as ScheduleEntry,
+  retro: { day: { en: 'Tue', ja: '火' }, time: '14:00 JST', title: { en: 'Retrospective (your squad)', ja: '振り返り（自部隊）' }, mode: 'sync' } as ScheduleEntry,
+  planning: { day: { en: 'Wed', ja: '水' }, time: '', title: { en: 'Sprint Planning (your squad)', ja: 'スプリント計画（自部隊）' }, mode: 'sync' } as ScheduleEntry,
+  planningOpt: { day: { en: 'Wed', ja: '水' }, time: '', title: { en: 'Sprint Planning — optional (async approve)', ja: 'スプリント計画 — 任意（非同期承認）' }, mode: 'optional' } as ScheduleEntry,
+  devSync: { day: { en: 'Mon', ja: '月' }, time: '15:00 JST', title: { en: 'Dev Sync (leaders + management)', ja: 'Dev Sync（リーダー＋管理層）' }, mode: 'sync' } as ScheduleEntry,
+  devSyncHalf: { day: { en: 'Mon', ja: '月' }, time: '15:00 JST', title: { en: 'Dev Sync — 2nd half, biweekly OK', ja: 'Dev Sync — 後半のみ・隔週でも可' }, mode: 'optional' } as ScheduleEntry,
+  focus: { day: { en: 'Thu', ja: '木' }, time: '', title: { en: 'Focus day — no sync meetings', ja: '集中日 — 同期MTGなし' }, mode: 'focus' } as ScheduleEntry,
+  shadow: { day: { en: 'Async', ja: '非同期' }, time: '', title: { en: 'Shadow reviews (~2–3 PRs/week)', ja: 'シャドーレビュー（週2〜3PR）' }, mode: 'async' } as ScheduleEntry,
+  retroMonthly: { day: { en: 'Monthly', ja: '月1' }, time: '', title: { en: 'Joins a squad Retro as coach', ja: '各部隊の振り返りにコーチとして参加' }, mode: 'optional' } as ScheduleEntry,
+};
+
+export const WEEKLY_SCHEDULE: Record<OrgRole, ScheduleEntry[]> = {
+  member: [E.daily, E.review, E.retro, E.planning, E.focus],
+  lead: [E.daily, E.devSync, E.review, E.retro, E.planning, E.focus],
+  'sub-lead': [E.daily, E.devSync, E.review, E.retro, E.planning, E.focus],
+  ranger: [E.daily, E.devSyncHalf, E.reviewOpt, E.focus],
+  senior: [E.daily, E.devSyncHalf, E.reviewOpt, E.shadow, E.focus],
+  po: [E.daily, E.devSync, E.reviewReq, E.planningOpt, E.retroMonthly],
+};
+
+export const MODE_LABEL: Record<MeetingMode, Bilingual> = {
+  async: { en: 'async', ja: '非同期' },
+  sync: { en: 'attend', ja: '参加' },
+  optional: { en: 'optional', ja: '任意' },
+  focus: { en: 'focus', ja: '集中' },
+};
+
+export const SCHEDULE_COPY = {
+  header: { en: 'Weekly Rhythm', ja: '週間スケジュール' } as Bilingual,
+  note: { en: 'All times JST · IST = JST − 3.5h · sprints run Tue → Tue', ja: '時刻はJST · IST = JST − 3.5時間 · スプリントは火→火' } as Bilingual,
+};
+
+// Highest-involvement role wins when someone holds several (e.g. Piyush: lead + ranger).
+const ROLE_PRIORITY: OrgRole[] = ['po', 'lead', 'sub-lead', 'member', 'ranger', 'senior'];
+
+export function getPrimaryRole(login: string): OrgRole | null {
+  const roles = new Set(getAssignments(login).map((a) => a.role));
+  for (const r of ROLE_PRIORITY) if (roles.has(r)) return r;
+  return null;
+}
+
+export function getSchedule(login: string): ScheduleEntry[] {
+  const role = getPrimaryRole(login);
+  return role ? WEEKLY_SCHEDULE[role] : [];
+}

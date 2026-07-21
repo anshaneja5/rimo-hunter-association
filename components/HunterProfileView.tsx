@@ -9,8 +9,9 @@ import { RankHistoryChart } from './RankHistoryChart';
 import { MagicCircle } from './MagicCircle';
 import type { MemberProfile, RankingEntry, TierLetter, Breakdown } from '@/lib/types';
 import {
-  getAssignments, getSquad, ROLE_INFO, RANGERS_ACCENT, tr,
-  type Assignment, type Bilingual, type Locale,
+  getAssignments, getSquad, getSchedule, ROLE_INFO, RANGERS_ACCENT,
+  MODE_LABEL, SCHEDULE_COPY, tr,
+  type Assignment, type Bilingual, type Locale, type ScheduleEntry, type MeetingMode,
 } from '@/lib/org';
 
 interface Props {
@@ -57,6 +58,7 @@ export function HunterProfileView({ member, allTime, weekly, monthly, daily, his
   const tier: TierLetter = allTime?.tier ?? 'E';
   const isTopTier = tier === 'S' || tier === 'A';
   const assignments = getAssignments(member.login);
+  const schedule = getSchedule(member.login);
 
   return (
     <motion.div
@@ -144,6 +146,11 @@ export function HunterProfileView({ member, allTime, weekly, monthly, daily, his
       {/* SQUAD ASSIGNMENT & ROLE */}
       {assignments.length > 0 && (
         <AssignmentPanel assignments={assignments} locale={locale as Locale} />
+      )}
+
+      {/* WEEKLY MEETING RHYTHM */}
+      {schedule.length > 0 && (
+        <SchedulePanel schedule={schedule} locale={locale as Locale} />
       )}
 
       {/* CHARTS */}
@@ -269,6 +276,45 @@ function AssignmentPanel({ assignments, locale }: { assignments: Assignment[]; l
                   ◇ {tr(a.note, locale)}
                 </p>
               )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+const MODE_COLOR: Record<MeetingMode, string> = {
+  sync: '#22d3ee',      // attend
+  optional: '#fbbf24',  // optional
+  async: '#94a3b8',     // async
+  focus: '#34d399',     // focus day
+};
+
+function SchedulePanel({ schedule, locale }: { schedule: ScheduleEntry[]; locale: Locale }) {
+  return (
+    <div className="glass rounded-2xl p-5 md:p-6">
+      <h2 className="font-display uppercase tracking-[0.25em] text-xs md:text-sm text-zinc-400 mb-1 flex items-center gap-2">
+        <span className="w-1 h-3 bg-neon-cyan rounded-full" />
+        {tr(SCHEDULE_COPY.header, locale)}
+      </h2>
+      <p className="text-[10px] text-zinc-500 mb-4 font-mono">{tr(SCHEDULE_COPY.note, locale)}</p>
+      <div className="divide-y divide-white/5">
+        {schedule.map((e, i) => {
+          const color = MODE_COLOR[e.mode];
+          return (
+            <div key={i} className="flex items-center gap-3 py-2.5">
+              <span className="font-display uppercase text-xs tracking-[0.12em] w-14 shrink-0 text-zinc-300">
+                {tr(e.day, locale)}
+              </span>
+              <span className="font-mono text-[11px] text-zinc-500 w-20 shrink-0 tabular-nums">
+                {e.time || '—'}
+              </span>
+              <span className="flex-1 text-sm text-zinc-200 min-w-0">{tr(e.title, locale)}</span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 rounded shrink-0"
+                style={{ color, background: `${color}18` }}>
+                {tr(MODE_LABEL[e.mode], locale)}
+              </span>
             </div>
           );
         })}
