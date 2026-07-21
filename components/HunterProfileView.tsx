@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useT } from './I18nProvider';
+import { useT, useLocale } from './I18nProvider';
 import { RankBadge } from './RankBadge';
 import { BadgeChip } from './BadgeChip';
 import { XPBar } from './XPBar';
@@ -8,6 +8,10 @@ import { StatRadial } from './StatRadial';
 import { RankHistoryChart } from './RankHistoryChart';
 import { MagicCircle } from './MagicCircle';
 import type { MemberProfile, RankingEntry, TierLetter, Breakdown } from '@/lib/types';
+import {
+  getAssignments, getSquad, ROLE_INFO, RANGERS_ACCENT, tr,
+  type Assignment, type Bilingual, type Locale,
+} from '@/lib/org';
 
 interface Props {
   member: MemberProfile;
@@ -18,7 +22,6 @@ interface Props {
   history: Array<{ weekStart: string; tier: TierLetter; xp: number }>;
   maxXp: { all: number; weekly: number; monthly: number; daily: number };
   orgMax?: Breakdown;
-  currentSquad?: { name: string; rank: number };
 }
 
 const TIER_RING: Record<TierLetter, string> = {
@@ -48,10 +51,12 @@ const TIER_ACCENT: Record<TierLetter, string> = {
   E: 'text-rank-e',
 };
 
-export function HunterProfileView({ member, allTime, weekly, monthly, daily, history, maxXp, orgMax, currentSquad }: Props) {
+export function HunterProfileView({ member, allTime, weekly, monthly, daily, history, maxXp, orgMax }: Props) {
   const t = useT();
+  const [locale] = useLocale();
   const tier: TierLetter = allTime?.tier ?? 'E';
   const isTopTier = tier === 'S' || tier === 'A';
+  const assignments = getAssignments(member.login);
 
   return (
     <motion.div
@@ -132,20 +137,14 @@ export function HunterProfileView({ member, allTime, weekly, monthly, daily, his
               <PeriodStat label={t('periodLabel.thisMonth')} xp={monthly?.xp ?? 0}  tier={monthly?.tier ?? 'E'}  max={maxXp.monthly} />
               <PeriodStat label={t('periodLabel.allTime')}   xp={allTime?.xp ?? 0}  tier={tier}                  max={maxXp.all} highlight />
             </div>
-            {currentSquad && (
-              <div className="glass rounded-xl p-3 flex items-center justify-between gap-3 ring-1 ring-neon-cyan/20">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-display">
-                  {t('hunter.squad')}
-                </div>
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="font-display text-sm truncate text-neon-cyan">{currentSquad.name}</span>
-                  <span className="font-mono text-xs text-zinc-400 shrink-0">#{currentSquad.rank}</span>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
+
+      {/* SQUAD ASSIGNMENT & ROLE */}
+      {assignments.length > 0 && (
+        <AssignmentPanel assignments={assignments} locale={locale as Locale} />
+      )}
 
       {/* CHARTS */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
@@ -217,6 +216,63 @@ function RawStat({ n, label, color, highlight }: { n: number; label: string; col
     <div className={`text-center p-3 rounded-xl ${highlight ? 'glass ring-1 ring-neon-purple/30' : ''}`}>
       <div className={`font-mono font-bold text-2xl md:text-3xl ${color} leading-none`}>{n.toLocaleString()}</div>
       <div className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-zinc-500 mt-2 font-display">{label}</div>
+    </div>
+  );
+}
+
+// Where this hunter sits in the real India dev org (squad + role), driven by lib/org.ts.
+function assignmentVisual(a: Assignment, locale: Locale): { name: string; domain: string; accent: string } {
+  if (a.squadId) {
+    const sq = getSquad(a.squadId);
+    return { name: sq.codename, domain: tr(sq.domain, locale), accent: sq.accent };
+  }
+  const domainOf = (b: Bilingual) => tr(b, locale);
+  if (a.role === 'ranger') return { name: 'Rangers', domain: domainOf({ en: 'Solo project', ja: '単独プロジェクト' }), accent: RANGERS_ACCENT };
+  if (a.role === 'senior') return { name: 'Rangers', domain: domainOf({ en: 'JP support senior', ja: '日本の支援シニア' }), accent: '#94a3b8' };
+  if (a.role === 'po') return { name: domainOf({ en: 'Management', ja: 'マネジメント' }), domain: '', accent: '#22d3ee' };
+  return { name: '', domain: '', accent: '#94a3b8' };
+}
+
+function AssignmentPanel({ assignments, locale }: { assignments: Assignment[]; locale: Locale }) {
+  const header = locale === 'ja' ? '配属・役割' : 'Squad Assignment';
+  return (
+    <div className="glass rounded-2xl p-5 md:p-6">
+      <h2 className="font-display uppercase tracking-[0.25em] text-xs md:text-sm text-zinc-400 mb-4 flex items-center gap-2">
+        <span className="w-1 h-3 rounded-full" style={{ background: assignmentVisual(assignments[0], locale).accent }} />
+        {header}
+      </h2>
+      <div className="space-y-3">
+        {assignments.map((a, i) => {
+          const v = assignmentVisual(a, locale);
+          const role = ROLE_INFO[a.role];
+          return (
+            <div key={i} className="relative rounded-xl p-4 pl-5 overflow-hidden"
+              style={{ background: `${v.accent}0c`, boxShadow: `inset 0 0 0 1px ${v.accent}30` }}>
+              <span className="absolute left-0 top-0 bottom-0 w-1" style={{ background: v.accent }} />
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1.5">
+                <span className="font-display font-black text-lg uppercase tracking-[0.08em]" style={{ color: v.accent }}>
+                  {v.name}
+                </span>
+                {v.domain && (
+                  <span className="font-mono text-[10px] uppercase tracking-[0.15em] px-2 py-0.5 rounded"
+                    style={{ color: v.accent, background: `${v.accent}18` }}>
+                    {v.domain}
+                  </span>
+                )}
+                <span className="font-display text-xs uppercase tracking-[0.15em] text-white ml-auto">
+                  {tr(role.title, locale)}
+                </span>
+              </div>
+              <p className="text-zinc-400 text-sm leading-relaxed">{tr(role.blurb, locale)}</p>
+              {a.note && (
+                <p className="text-[11px] font-mono mt-2" style={{ color: `${v.accent}cc` }}>
+                  ◇ {tr(a.note, locale)}
+                </p>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
