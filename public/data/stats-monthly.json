@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-25T18:14:50.130Z",
+  "generatedAt": "2026-07-26T00:20:17.686Z",
   "period": "monthly",
   "windowStart": "2026-06-30T15:00:00.000Z",
   "windowEnd": "2026-07-31T14:59:59.999Z",
@@ -115,13 +115,13 @@
     },
     {
       "login": "koolii",
-      "xp": 3418.5,
+      "xp": 3436.5,
       "tier": "S",
       "rankNumber": 3,
       "breakdown": {
         "prsMerged": 95,
         "prsOpened": 140,
-        "reviews": 146,
+        "reviews": 150,
         "issuesClosed": 28,
         "issuesOpened": 68,
         "commits": 403,
@@ -159,7 +159,7 @@
         33,
         69,
         37,
-        0,
+        4,
         0,
         0,
         0,
@@ -227,12 +227,12 @@
     },
     {
       "login": "shinji-ikari-01",
-      "xp": 2815.5,
+      "xp": 2818.5,
       "tier": "S",
       "rankNumber": 5,
       "breakdown": {
         "prsMerged": 50,
-        "prsOpened": 82,
+        "prsOpened": 83,
         "reviews": 399,
         "issuesClosed": 0,
         "issuesOpened": 0,
@@ -268,7 +268,7 @@
         22,
         28,
         15,
-        0,
+        1,
         0,
         0,
         0,
@@ -3261,7 +3261,9 @@
         "commits": 0,
         "comments": 0
       },
-      "badges": [],
+      "badges": [
+        "ghost"
+      ],
       "sparkline": [
         0,
         0,
