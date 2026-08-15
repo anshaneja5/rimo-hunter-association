@@ -1,14 +1,45 @@
 {
-  "generatedAt": "2026-08-14T18:15:02.479Z",
+  "generatedAt": "2026-08-15T00:03:50.367Z",
   "period": "weekly",
   "windowStart": "2026-08-09T15:00:00.000Z",
   "windowEnd": "2026-08-16T14:59:59.999Z",
   "rankings": [
     {
+      "login": "lot-koichi",
+      "xp": 1026,
+      "tier": "S",
+      "rankNumber": 1,
+      "breakdown": {
+        "prsMerged": 15,
+        "prsOpened": 29,
+        "reviews": 34,
+        "issuesClosed": 62,
+        "issuesOpened": 37,
+        "commits": 27,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk",
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        25,
+        20,
+        78,
+        40,
+        19,
+        22,
+        0
+      ],
+      "currentStreak": 9,
+      "longestStreak": 9
+    },
+    {
       "login": "harshit1818",
       "xp": 1005,
       "tier": "S",
-      "rankNumber": 1,
+      "rankNumber": 2,
       "breakdown": {
         "prsMerged": 15,
         "prsOpened": 15,
@@ -35,37 +66,6 @@
       ],
       "currentStreak": 11,
       "longestStreak": 11
-    },
-    {
-      "login": "lot-koichi",
-      "xp": 925.5,
-      "tier": "S",
-      "rankNumber": 2,
-      "breakdown": {
-        "prsMerged": 14,
-        "prsOpened": 24,
-        "reviews": 19,
-        "issuesClosed": 62,
-        "issuesOpened": 37,
-        "commits": 25,
-        "comments": 0
-      },
-      "badges": [
-        "code-monk",
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        25,
-        20,
-        78,
-        39,
-        19,
-        0,
-        0
-      ],
-      "currentStreak": 8,
-      "longestStreak": 8
     },
     {
       "login": "naoyuki313",
@@ -195,13 +195,13 @@
     },
     {
       "login": "anshaneja5",
-      "xp": 460.5,
+      "xp": 502.5,
       "tier": "S",
       "rankNumber": 7,
       "breakdown": {
         "prsMerged": 22,
-        "prsOpened": 28,
-        "reviews": 2,
+        "prsOpened": 30,
+        "reviews": 10,
         "issuesClosed": 0,
         "issuesOpened": 0,
         "commits": 25,
@@ -219,7 +219,7 @@
         0,
         24,
         41,
-        12,
+        22,
         0
       ],
       "currentStreak": 3,
@@ -227,12 +227,12 @@
     },
     {
       "login": "shinji-ikari-01",
-      "xp": 390,
+      "xp": 393,
       "tier": "A",
       "rankNumber": 8,
       "breakdown": {
         "prsMerged": 12,
-        "prsOpened": 17,
+        "prsOpened": 18,
         "reviews": 33,
         "issuesClosed": 0,
         "issuesOpened": 0,
@@ -248,7 +248,7 @@
         0,
         17,
         52,
-        0,
+        1,
         0
       ],
       "currentStreak": 2,
@@ -945,10 +945,37 @@
       "longestStreak": 18
     },
     {
+      "login": "shivamshaw23",
+      "xp": 97.5,
+      "tier": "B",
+      "rankNumber": 32,
+      "breakdown": {
+        "prsMerged": 3,
+        "prsOpened": 6,
+        "reviews": 3,
+        "issuesClosed": 2,
+        "issuesOpened": 1,
+        "commits": 3,
+        "comments": 0
+      },
+      "badges": [],
+      "sparkline": [
+        8,
+        0,
+        1,
+        6,
+        0,
+        3,
+        0
+      ],
+      "currentStreak": 0,
+      "longestStreak": 1
+    },
+    {
       "login": "enoki1003",
       "xp": 91.5,
       "tier": "B",
-      "rankNumber": 32,
+      "rankNumber": 33,
       "breakdown": {
         "prsMerged": 0,
         "prsOpened": 3,
@@ -972,33 +999,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 6
-    },
-    {
-      "login": "shivamshaw23",
-      "xp": 88.5,
-      "tier": "B",
-      "rankNumber": 33,
-      "breakdown": {
-        "prsMerged": 3,
-        "prsOpened": 3,
-        "reviews": 3,
-        "issuesClosed": 2,
-        "issuesOpened": 1,
-        "commits": 3,
-        "comments": 0
-      },
-      "badges": [],
-      "sparkline": [
-        8,
-        0,
-        1,
-        6,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 1
     },
     {
       "login": "t-sano-kf",
@@ -1761,7 +1761,9 @@
         "commits": 0,
         "comments": 0
       },
-      "badges": [],
+      "badges": [
+        "ghost"
+      ],
       "sparkline": [
         0,
         0,
@@ -2279,7 +2281,9 @@
         "commits": 0,
         "comments": 0
       },
-      "badges": [],
+      "badges": [
+        "ghost"
+      ],
       "sparkline": [
         0,
         0,
@@ -2770,7 +2774,9 @@
         "commits": 0,
         "comments": 0
       },
-      "badges": [],
+      "badges": [
+        "ghost"
+      ],
       "sparkline": [
         0,
         0,

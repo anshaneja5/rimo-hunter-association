@@ -1,13 +1,41 @@
 {
-  "generatedAt": "2026-08-14T18:15:02.479Z",
+  "generatedAt": "2026-08-15T00:03:50.367Z",
   "isoWeek": 33,
   "weekStart": "2026-08-09T15:00:00.000Z",
   "squads": [
     {
+      "index": 4,
+      "name": "Obsidian Fang Clan",
+      "totalXp": 1308,
+      "rank": 1,
+      "members": [
+        {
+          "login": "lot-koichi",
+          "weeklyXp": 1026
+        },
+        {
+          "login": "awakia",
+          "weeklyXp": 102
+        },
+        {
+          "login": "NishaMe",
+          "weeklyXp": 12
+        },
+        {
+          "login": "ry-itto",
+          "weeklyXp": 168
+        },
+        {
+          "login": "Soichiro5",
+          "weeklyXp": 0
+        }
+      ]
+    },
+    {
       "index": 5,
       "name": "Steel Lotus Order",
       "totalXp": 1246.5,
-      "rank": 1,
+      "rank": 2,
       "members": [
         {
           "login": "hosshan",
@@ -27,34 +55,6 @@
         },
         {
           "login": "moyuko",
-          "weeklyXp": 0
-        }
-      ]
-    },
-    {
-      "index": 4,
-      "name": "Obsidian Fang Clan",
-      "totalXp": 1207.5,
-      "rank": 2,
-      "members": [
-        {
-          "login": "lot-koichi",
-          "weeklyXp": 925.5
-        },
-        {
-          "login": "awakia",
-          "weeklyXp": 102
-        },
-        {
-          "login": "NishaMe",
-          "weeklyXp": 12
-        },
-        {
-          "login": "ry-itto",
-          "weeklyXp": 168
-        },
-        {
-          "login": "Soichiro5",
           "weeklyXp": 0
         }
       ]
@@ -90,7 +90,7 @@
     {
       "index": 12,
       "name": "White Tiger Guild",
-      "totalXp": 1047,
+      "totalXp": 1056,
       "rank": 4,
       "members": [
         {
@@ -107,7 +107,7 @@
         },
         {
           "login": "shivamshaw23",
-          "weeklyXp": 88.5
+          "weeklyXp": 97.5
         },
         {
           "login": "tsuchiya-a11y",
@@ -174,7 +174,7 @@
     {
       "index": 11,
       "name": "Silver Arrow Guild",
-      "totalXp": 882,
+      "totalXp": 924,
       "rank": 7,
       "members": [
         {
@@ -183,7 +183,7 @@
         },
         {
           "login": "anshaneja5",
-          "weeklyXp": 460.5
+          "weeklyXp": 502.5
         },
         {
           "login": "ayushh0311",
@@ -258,12 +258,12 @@
     {
       "index": 2,
       "name": "Ashen Blade Society",
-      "totalXp": 778.5,
+      "totalXp": 781.5,
       "rank": 10,
       "members": [
         {
           "login": "shinji-ikari-01",
-          "weeklyXp": 390
+          "weeklyXp": 393
         },
         {
           "login": "grvup",
