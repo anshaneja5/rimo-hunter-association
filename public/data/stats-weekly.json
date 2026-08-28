@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-08-28T02:30:46.246Z",
+  "generatedAt": "2026-08-28T09:00:34.225Z",
   "period": "weekly",
   "windowStart": "2026-08-23T15:00:00.000Z",
   "windowEnd": "2026-08-30T14:59:59.999Z",
   "rankings": [
     {
       "login": "shinji-ikari-01",
-      "xp": 1779,
+      "xp": 1801.5,
       "tier": "S",
       "rankNumber": 1,
       "breakdown": {
-        "prsMerged": 53,
-        "prsOpened": 69,
+        "prsMerged": 54,
+        "prsOpened": 71,
         "reviews": 155,
         "issuesClosed": 1,
         "issuesOpened": 7,
-        "commits": 41,
+        "commits": 42,
         "comments": 0
       },
       "badges": [
@@ -26,7 +26,7 @@
         48,
         100,
         100,
-        11,
+        15,
         0,
         0
       ],
@@ -35,16 +35,16 @@
     },
     {
       "login": "lot-koichi",
-      "xp": 1618.5,
+      "xp": 1641,
       "tier": "S",
       "rankNumber": 2,
       "breakdown": {
-        "prsMerged": 51,
-        "prsOpened": 83,
+        "prsMerged": 52,
+        "prsOpened": 85,
         "reviews": 65,
         "issuesClosed": 16,
         "issuesOpened": 78,
-        "commits": 50,
+        "commits": 51,
         "comments": 0
       },
       "badges": [
@@ -57,7 +57,7 @@
         71,
         73,
         78,
-        32,
+        36,
         0,
         0
       ],
@@ -66,16 +66,16 @@
     },
     {
       "login": "yyamada12",
-      "xp": 970.5,
+      "xp": 1071,
       "tier": "S",
       "rankNumber": 3,
       "breakdown": {
-        "prsMerged": 20,
+        "prsMerged": 24,
         "prsOpened": 34,
-        "reviews": 102,
+        "reviews": 109,
         "issuesClosed": 6,
         "issuesOpened": 3,
-        "commits": 40,
+        "commits": 46,
         "comments": 0
       },
       "badges": [
@@ -87,26 +87,58 @@
         38,
         68,
         76,
+        21,
         19,
-        4,
         0,
         0
       ],
-      "currentStreak": 0,
+      "currentStreak": 5,
       "longestStreak": 6
     },
     {
-      "login": "kohei-narita-26",
-      "xp": 696,
+      "login": "soliste16",
+      "xp": 742.5,
       "tier": "S",
       "rankNumber": 4,
       "breakdown": {
-        "prsMerged": 33,
-        "prsOpened": 34,
+        "prsMerged": 29,
+        "prsOpened": 28,
+        "reviews": 20,
+        "issuesClosed": 0,
+        "issuesOpened": 6,
+        "commits": 83,
+        "comments": 0
+      },
+      "badges": [
+        "bug-slayer",
+        "code-monk",
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        36,
+        54,
+        28,
+        20,
+        28,
+        0,
+        0
+      ],
+      "currentStreak": 5,
+      "longestStreak": 21
+    },
+    {
+      "login": "kohei-narita-26",
+      "xp": 735,
+      "tier": "S",
+      "rankNumber": 5,
+      "breakdown": {
+        "prsMerged": 35,
+        "prsOpened": 36,
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
-        "commits": 66,
+        "commits": 68,
         "comments": 0
       },
       "badges": [
@@ -117,25 +149,25 @@
         80,
         29,
         24,
-        0,
+        6,
         0,
         0
       ],
-      "currentStreak": 3,
+      "currentStreak": 4,
       "longestStreak": 6
     },
     {
       "login": "hosshan",
-      "xp": 597,
+      "xp": 648,
       "tier": "S",
-      "rankNumber": 5,
+      "rankNumber": 6,
       "breakdown": {
-        "prsMerged": 16,
-        "prsOpened": 21,
-        "reviews": 23,
+        "prsMerged": 17,
+        "prsOpened": 23,
+        "reviews": 29,
         "issuesClosed": 13,
-        "issuesOpened": 23,
-        "commits": 39,
+        "issuesOpened": 24,
+        "commits": 40,
         "comments": 0
       },
       "badges": [
@@ -149,7 +181,7 @@
         51,
         30,
         33,
-        5,
+        16,
         0,
         0
       ],
@@ -157,49 +189,17 @@
       "longestStreak": 28
     },
     {
-      "login": "soliste16",
-      "xp": 552,
-      "tier": "S",
-      "rankNumber": 6,
-      "breakdown": {
-        "prsMerged": 20,
-        "prsOpened": 25,
-        "reviews": 19,
-        "issuesClosed": 0,
-        "issuesOpened": 6,
-        "commits": 55,
-        "comments": 0
-      },
-      "badges": [
-        "bug-slayer",
-        "code-monk",
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        32,
-        54,
-        25,
-        14,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 4,
-      "longestStreak": 21
-    },
-    {
       "login": "ayushh0311",
-      "xp": 520.5,
+      "xp": 568.5,
       "tier": "S",
       "rankNumber": 7,
       "breakdown": {
-        "prsMerged": 10,
+        "prsMerged": 12,
         "prsOpened": 9,
         "reviews": 37,
-        "issuesClosed": 8,
+        "issuesClosed": 10,
         "issuesOpened": 4,
-        "commits": 74,
+        "commits": 76,
         "comments": 0
       },
       "badges": [
@@ -212,7 +212,7 @@
         18,
         41,
         62,
-        5,
+        11,
         0,
         0
       ],
@@ -220,10 +220,71 @@
       "longestStreak": 11
     },
     {
+      "login": "koolii",
+      "xp": 505.5,
+      "tier": "A",
+      "rankNumber": 8,
+      "breakdown": {
+        "prsMerged": 15,
+        "prsOpened": 17,
+        "reviews": 35,
+        "issuesClosed": 4,
+        "issuesOpened": 12,
+        "commits": 16,
+        "comments": 0
+      },
+      "badges": [
+        "bug-slayer",
+        "code-monk",
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        13,
+        33,
+        1,
+        24,
+        28,
+        0,
+        0
+      ],
+      "currentStreak": 2,
+      "longestStreak": 27
+    },
+    {
+      "login": "una115",
+      "xp": 489,
+      "tier": "A",
+      "rankNumber": 9,
+      "breakdown": {
+        "prsMerged": 20,
+        "prsOpened": 22,
+        "reviews": 0,
+        "issuesClosed": 3,
+        "issuesOpened": 4,
+        "commits": 63,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk"
+      ],
+      "sparkline": [
+        0,
+        19,
+        66,
+        22,
+        5,
+        0,
+        0
+      ],
+      "currentStreak": 4,
+      "longestStreak": 6
+    },
+    {
       "login": "spookied",
       "xp": 471,
       "tier": "A",
-      "rankNumber": 8,
+      "rankNumber": 10,
       "breakdown": {
         "prsMerged": 15,
         "prsOpened": 13,
@@ -252,39 +313,41 @@
       "longestStreak": 16
     },
     {
-      "login": "una115",
-      "xp": 469.5,
+      "login": "prernadabi23",
+      "xp": 471,
       "tier": "A",
-      "rankNumber": 9,
+      "rankNumber": 11,
       "breakdown": {
-        "prsMerged": 19,
-        "prsOpened": 21,
-        "reviews": 0,
-        "issuesClosed": 3,
-        "issuesOpened": 4,
-        "commits": 62,
+        "prsMerged": 13,
+        "prsOpened": 12,
+        "reviews": 11,
+        "issuesClosed": 12,
+        "issuesOpened": 0,
+        "commits": 67,
         "comments": 0
       },
       "badges": [
-        "code-monk"
+        "bug-slayer",
+        "code-monk",
+        "reviewer-sensei"
       ],
       "sparkline": [
-        0,
-        19,
-        66,
-        22,
-        2,
+        41,
+        17,
+        24,
+        13,
+        20,
         0,
         0
       ],
-      "currentStreak": 4,
+      "currentStreak": 5,
       "longestStreak": 6
     },
     {
       "login": "harshit1818",
       "xp": 417,
       "tier": "A",
-      "rankNumber": 10,
+      "rankNumber": 12,
       "breakdown": {
         "prsMerged": 9,
         "prsOpened": 12,
@@ -313,73 +376,71 @@
       "longestStreak": 11
     },
     {
-      "login": "koolii",
-      "xp": 382.5,
+      "login": "t-sano-kf",
+      "xp": 391.5,
       "tier": "A",
-      "rankNumber": 11,
+      "rankNumber": 13,
       "breakdown": {
         "prsMerged": 11,
-        "prsOpened": 13,
-        "reviews": 30,
-        "issuesClosed": 1,
-        "issuesOpened": 12,
-        "commits": 12,
+        "prsOpened": 22,
+        "reviews": 18,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 53,
         "comments": 0
       },
       "badges": [
-        "bug-slayer",
         "code-monk",
         "reviewer-sensei",
         "streak-lord"
       ],
       "sparkline": [
-        13,
-        33,
-        1,
-        24,
-        8,
+        14,
+        18,
+        40,
+        20,
+        12,
         0,
         0
       ],
-      "currentStreak": 2,
-      "longestStreak": 27
+      "currentStreak": 5,
+      "longestStreak": 33
     },
     {
-      "login": "prernadabi23",
-      "xp": 349.5,
+      "login": "naoyuki313",
+      "xp": 352.5,
       "tier": "A",
-      "rankNumber": 12,
+      "rankNumber": 14,
       "breakdown": {
-        "prsMerged": 8,
-        "prsOpened": 11,
-        "reviews": 9,
-        "issuesClosed": 12,
-        "issuesOpened": 0,
-        "commits": 44,
+        "prsMerged": 16,
+        "prsOpened": 23,
+        "reviews": 0,
+        "issuesClosed": 1,
+        "issuesOpened": 1,
+        "commits": 23,
         "comments": 0
       },
       "badges": [
-        "bug-slayer",
         "code-monk",
-        "reviewer-sensei"
+        "streak-lord"
       ],
       "sparkline": [
-        41,
-        17,
-        21,
-        5,
-        0,
+        13,
+        11,
+        27,
+        6,
+        7,
         0,
         0
       ],
-      "currentStreak": 0,
-      "longestStreak": 6
+      "currentStreak": 5,
+      "longestStreak": 13
     },
     {
       "login": "HrxSrv",
       "xp": 342,
       "tier": "A",
-      "rankNumber": 13,
+      "rankNumber": 15,
       "breakdown": {
         "prsMerged": 14,
         "prsOpened": 13,
@@ -405,67 +466,6 @@
       ],
       "currentStreak": 6,
       "longestStreak": 12
-    },
-    {
-      "login": "naoyuki313",
-      "xp": 333,
-      "tier": "A",
-      "rankNumber": 14,
-      "breakdown": {
-        "prsMerged": 15,
-        "prsOpened": 22,
-        "reviews": 0,
-        "issuesClosed": 1,
-        "issuesOpened": 1,
-        "commits": 22,
-        "comments": 0
-      },
-      "badges": [
-        "code-monk",
-        "streak-lord"
-      ],
-      "sparkline": [
-        13,
-        11,
-        27,
-        6,
-        4,
-        0,
-        0
-      ],
-      "currentStreak": 5,
-      "longestStreak": 13
-    },
-    {
-      "login": "t-sano-kf",
-      "xp": 315,
-      "tier": "A",
-      "rankNumber": 15,
-      "breakdown": {
-        "prsMerged": 8,
-        "prsOpened": 21,
-        "reviews": 18,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 34,
-        "comments": 0
-      },
-      "badges": [
-        "code-monk",
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        14,
-        18,
-        34,
-        11,
-        4,
-        0,
-        0
-      ],
-      "currentStreak": 5,
-      "longestStreak": 33
     },
     {
       "login": "Dev-the-coder",
@@ -499,10 +499,97 @@
       "longestStreak": 6
     },
     {
+      "login": "kt3k",
+      "xp": 306,
+      "tier": "A",
+      "rankNumber": 17,
+      "breakdown": {
+        "prsMerged": 10,
+        "prsOpened": 16,
+        "reviews": 15,
+        "issuesClosed": 2,
+        "issuesOpened": 3,
+        "commits": 14,
+        "comments": 0
+      },
+      "badges": [],
+      "sparkline": [
+        9,
+        16,
+        3,
+        2,
+        30,
+        0,
+        0
+      ],
+      "currentStreak": 2,
+      "longestStreak": 5
+    },
+    {
+      "login": "mosa-rimo",
+      "xp": 286.5,
+      "tier": "A",
+      "rankNumber": 18,
+      "breakdown": {
+        "prsMerged": 7,
+        "prsOpened": 7,
+        "reviews": 26,
+        "issuesClosed": 2,
+        "issuesOpened": 1,
+        "commits": 18,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk",
+        "reviewer-sensei"
+      ],
+      "sparkline": [
+        20,
+        20,
+        5,
+        8,
+        8,
+        0,
+        0
+      ],
+      "currentStreak": 1,
+      "longestStreak": 5
+    },
+    {
+      "login": "spesnova",
+      "xp": 280.5,
+      "tier": "A",
+      "rankNumber": 19,
+      "breakdown": {
+        "prsMerged": 11,
+        "prsOpened": 11,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 55,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk",
+        "streak-lord"
+      ],
+      "sparkline": [
+        9,
+        57,
+        0,
+        4,
+        7,
+        0,
+        0
+      ],
+      "currentStreak": 2,
+      "longestStreak": 7
+    },
+    {
       "login": "Anitesh2004",
       "xp": 276,
       "tier": "A",
-      "rankNumber": 17,
+      "rankNumber": 20,
       "breakdown": {
         "prsMerged": 11,
         "prsOpened": 9,
@@ -531,7 +618,7 @@
       "login": "shivamshaw23",
       "xp": 256.5,
       "tier": "A",
-      "rankNumber": 18,
+      "rankNumber": 21,
       "breakdown": {
         "prsMerged": 8,
         "prsOpened": 5,
@@ -555,70 +642,105 @@
       "longestStreak": 2
     },
     {
-      "login": "spesnova",
-      "xp": 255,
+      "login": "grvup",
+      "xp": 240,
       "tier": "A",
-      "rankNumber": 19,
+      "rankNumber": 22,
       "breakdown": {
-        "prsMerged": 10,
-        "prsOpened": 10,
-        "reviews": 0,
-        "issuesClosed": 0,
+        "prsMerged": 3,
+        "prsOpened": 3,
+        "reviews": 23,
+        "issuesClosed": 5,
         "issuesOpened": 0,
-        "commits": 50,
+        "commits": 30,
         "comments": 0
       },
       "badges": [
-        "code-monk",
-        "streak-lord"
-      ],
-      "sparkline": [
-        9,
-        57,
-        0,
-        4,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 1,
-      "longestStreak": 7
-    },
-    {
-      "login": "mosa-rimo",
-      "xp": 253.5,
-      "tier": "A",
-      "rankNumber": 20,
-      "breakdown": {
-        "prsMerged": 6,
-        "prsOpened": 6,
-        "reviews": 25,
-        "issuesClosed": 1,
-        "issuesOpened": 1,
-        "commits": 16,
-        "comments": 0
-      },
-      "badges": [
+        "bug-slayer",
         "code-monk",
         "reviewer-sensei"
       ],
       "sparkline": [
-        20,
-        20,
+        11,
+        7,
         5,
-        8,
-        2,
+        20,
+        21,
         0,
         0
       ],
-      "currentStreak": 0,
-      "longestStreak": 5
+      "currentStreak": 5,
+      "longestStreak": 6
+    },
+    {
+      "login": "Altair-05",
+      "xp": 220.5,
+      "tier": "B",
+      "rankNumber": 23,
+      "breakdown": {
+        "prsMerged": 6,
+        "prsOpened": 4,
+        "reviews": 14,
+        "issuesClosed": 1,
+        "issuesOpened": 1,
+        "commits": 31,
+        "comments": 0
+      },
+      "badges": [
+        "bug-slayer",
+        "code-monk",
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        29,
+        11,
+        14,
+        0,
+        3,
+        0,
+        0
+      ],
+      "currentStreak": 1,
+      "longestStreak": 12
+    },
+    {
+      "login": "kamalgurjar7",
+      "xp": 202.5,
+      "tier": "B",
+      "rankNumber": 24,
+      "breakdown": {
+        "prsMerged": 6,
+        "prsOpened": 5,
+        "reviews": 3,
+        "issuesClosed": 3,
+        "issuesOpened": 7,
+        "commits": 34,
+        "comments": 0
+      },
+      "badges": [
+        "bug-slayer",
+        "code-monk",
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        22,
+        5,
+        18,
+        9,
+        4,
+        0,
+        0
+      ],
+      "currentStreak": 19,
+      "longestStreak": 19
     },
     {
       "login": "kesharibhai84",
       "xp": 198,
-      "tier": "A",
-      "rankNumber": 21,
+      "tier": "B",
+      "rankNumber": 25,
       "breakdown": {
         "prsMerged": 5,
         "prsOpened": 9,
@@ -648,8 +770,8 @@
     {
       "login": "ishitasancheti29",
       "xp": 190.5,
-      "tier": "A",
-      "rankNumber": 22,
+      "tier": "B",
+      "rankNumber": 26,
       "breakdown": {
         "prsMerged": 6,
         "prsOpened": 7,
@@ -679,46 +801,14 @@
       "longestStreak": 8
     },
     {
-      "login": "Altair-05",
+      "login": "anshaneja5",
       "xp": 181.5,
       "tier": "B",
-      "rankNumber": 23,
-      "breakdown": {
-        "prsMerged": 5,
-        "prsOpened": 4,
-        "reviews": 14,
-        "issuesClosed": 1,
-        "issuesOpened": 0,
-        "commits": 16,
-        "comments": 0
-      },
-      "badges": [
-        "bug-slayer",
-        "code-monk",
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        22,
-        8,
-        10,
-        0,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 12
-    },
-    {
-      "login": "anshaneja5",
-      "xp": 174,
-      "tier": "B",
-      "rankNumber": 24,
+      "rankNumber": 27,
       "breakdown": {
         "prsMerged": 6,
-        "prsOpened": 6,
-        "reviews": 5,
+        "prsOpened": 7,
+        "reviews": 6,
         "issuesClosed": 4,
         "issuesOpened": 1,
         "commits": 8,
@@ -735,7 +825,7 @@
         4,
         9,
         0,
-        0,
+        2,
         0,
         0
       ],
@@ -743,73 +833,69 @@
       "longestStreak": 14
     },
     {
-      "login": "kamalgurjar7",
+      "login": "simran-261",
       "xp": 168,
       "tier": "B",
-      "rankNumber": 25,
+      "rankNumber": 28,
       "breakdown": {
-        "prsMerged": 5,
-        "prsOpened": 5,
-        "reviews": 3,
-        "issuesClosed": 2,
-        "issuesOpened": 7,
-        "commits": 26,
+        "prsMerged": 3,
+        "prsOpened": 3,
+        "reviews": 22,
+        "issuesClosed": 1,
+        "issuesOpened": 1,
+        "commits": 4,
         "comments": 0
       },
       "badges": [
         "bug-slayer",
-        "code-monk",
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        22,
-        5,
-        17,
-        4,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 18,
-      "longestStreak": 18
-    },
-    {
-      "login": "grvup",
-      "xp": 138,
-      "tier": "B",
-      "rankNumber": 26,
-      "breakdown": {
-        "prsMerged": 1,
-        "prsOpened": 2,
-        "reviews": 12,
-        "issuesClosed": 4,
-        "issuesOpened": 0,
-        "commits": 22,
-        "comments": 0
-      },
-      "badges": [
-        "bug-slayer",
-        "code-monk",
         "reviewer-sensei"
       ],
       "sparkline": [
-        11,
-        7,
-        5,
-        18,
-        0,
+        12,
+        3,
+        1,
+        6,
+        12,
         0,
         0
       ],
-      "currentStreak": 4,
+      "currentStreak": 2,
+      "longestStreak": 5
+    },
+    {
+      "login": "wakamsha",
+      "xp": 120,
+      "tier": "B",
+      "rankNumber": 29,
+      "breakdown": {
+        "prsMerged": 5,
+        "prsOpened": 4,
+        "reviews": 0,
+        "issuesClosed": 1,
+        "issuesOpened": 0,
+        "commits": 17,
+        "comments": 0
+      },
+      "badges": [
+        "reviewer-sensei"
+      ],
+      "sparkline": [
+        0,
+        0,
+        5,
+        20,
+        2,
+        0,
+        0
+      ],
+      "currentStreak": 3,
       "longestStreak": 6
     },
     {
       "login": "piyushaneja30",
       "xp": 118.5,
       "tier": "B",
-      "rankNumber": 27,
+      "rankNumber": 30,
       "breakdown": {
         "prsMerged": 6,
         "prsOpened": 2,
@@ -835,92 +921,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 10
-    },
-    {
-      "login": "kt3k",
-      "xp": 118.5,
-      "tier": "B",
-      "rankNumber": 28,
-      "breakdown": {
-        "prsMerged": 3,
-        "prsOpened": 9,
-        "reviews": 8,
-        "issuesClosed": 0,
-        "issuesOpened": 3,
-        "commits": 4,
-        "comments": 0
-      },
-      "badges": [],
-      "sparkline": [
-        7,
-        16,
-        3,
-        1,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 5
-    },
-    {
-      "login": "simran-261",
-      "xp": 117,
-      "tier": "B",
-      "rankNumber": 29,
-      "breakdown": {
-        "prsMerged": 2,
-        "prsOpened": 2,
-        "reviews": 15,
-        "issuesClosed": 1,
-        "issuesOpened": 1,
-        "commits": 3,
-        "comments": 0
-      },
-      "badges": [
-        "bug-slayer",
-        "reviewer-sensei"
-      ],
-      "sparkline": [
-        12,
-        3,
-        1,
-        6,
-        2,
-        0,
-        0
-      ],
-      "currentStreak": 2,
-      "longestStreak": 5
-    },
-    {
-      "login": "wakamsha",
-      "xp": 99,
-      "tier": "B",
-      "rankNumber": 30,
-      "breakdown": {
-        "prsMerged": 4,
-        "prsOpened": 4,
-        "reviews": 0,
-        "issuesClosed": 1,
-        "issuesOpened": 0,
-        "commits": 13,
-        "comments": 0
-      },
-      "badges": [
-        "reviewer-sensei"
-      ],
-      "sparkline": [
-        0,
-        0,
-        5,
-        17,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 2,
-      "longestStreak": 6
     },
     {
       "login": "adityaghai07",
@@ -1129,10 +1129,40 @@
       "longestStreak": 6
     },
     {
+      "login": "ryu38",
+      "xp": 40.5,
+      "tier": "B",
+      "rankNumber": 38,
+      "breakdown": {
+        "prsMerged": 1,
+        "prsOpened": 1,
+        "reviews": 5,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 0,
+        "comments": 0
+      },
+      "badges": [
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        1,
+        2,
+        0,
+        1,
+        3,
+        0,
+        0
+      ],
+      "currentStreak": 0,
+      "longestStreak": 17
+    },
+    {
       "login": "ChahitKolte2112",
       "xp": 39,
       "tier": "B",
-      "rankNumber": 38,
+      "rankNumber": 39,
       "breakdown": {
         "prsMerged": 1,
         "prsOpened": 1,
@@ -1161,15 +1191,15 @@
     },
     {
       "login": "Abhinav232004",
-      "xp": 37.5,
+      "xp": 39,
       "tier": "B",
-      "rankNumber": 39,
+      "rankNumber": 40,
       "breakdown": {
         "prsMerged": 1,
         "prsOpened": 2,
         "reviews": 0,
         "issuesClosed": 1,
-        "issuesOpened": 4,
+        "issuesOpened": 5,
         "commits": 2,
         "comments": 0
       },
@@ -1179,7 +1209,7 @@
         0,
         1,
         4,
-        0,
+        1,
         0,
         0
       ],
@@ -1190,7 +1220,7 @@
       "login": "Atharva-Kanherkar",
       "xp": 34.5,
       "tier": "B",
-      "rankNumber": 40,
+      "rankNumber": 41,
       "breakdown": {
         "prsMerged": 1,
         "prsOpened": 4,
@@ -1220,7 +1250,7 @@
       "login": "seipan",
       "xp": 30,
       "tier": "B",
-      "rankNumber": 41,
+      "rankNumber": 42,
       "breakdown": {
         "prsMerged": 1,
         "prsOpened": 1,
@@ -1244,10 +1274,66 @@
       "longestStreak": 5
     },
     {
+      "login": "HaruhiSaito",
+      "xp": 28.5,
+      "tier": "B",
+      "rankNumber": 43,
+      "breakdown": {
+        "prsMerged": 1,
+        "prsOpened": 3,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 3,
+        "comments": 0
+      },
+      "badges": [
+        "awakening"
+      ],
+      "sparkline": [
+        5,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "currentStreak": 0,
+      "longestStreak": 3
+    },
+    {
+      "login": "blues5th",
+      "xp": 28.5,
+      "tier": "B",
+      "rankNumber": 44,
+      "breakdown": {
+        "prsMerged": 1,
+        "prsOpened": 2,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 4,
+        "commits": 1,
+        "comments": 0
+      },
+      "badges": [],
+      "sparkline": [
+        2,
+        0,
+        3,
+        0,
+        3,
+        0,
+        0
+      ],
+      "currentStreak": 0,
+      "longestStreak": 4
+    },
+    {
       "login": "enoki1003",
       "xp": 28.5,
       "tier": "B",
-      "rankNumber": 42,
+      "rankNumber": 45,
       "breakdown": {
         "prsMerged": 1,
         "prsOpened": 4,
@@ -1273,69 +1359,10 @@
       "longestStreak": 6
     },
     {
-      "login": "ryu38",
-      "xp": 27,
-      "tier": "B",
-      "rankNumber": 43,
-      "breakdown": {
-        "prsMerged": 1,
-        "prsOpened": 1,
-        "reviews": 2,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 0,
-        "comments": 0
-      },
-      "badges": [
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        1,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 17
-    },
-    {
-      "login": "HaruhiSaito",
-      "xp": 25.5,
-      "tier": "B",
-      "rankNumber": 44,
-      "breakdown": {
-        "prsMerged": 1,
-        "prsOpened": 2,
-        "reviews": 0,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 3,
-        "comments": 0
-      },
-      "badges": [
-        "awakening"
-      ],
-      "sparkline": [
-        5,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 3
-    },
-    {
       "login": "awakia",
       "xp": 22.5,
       "tier": "B",
-      "rankNumber": 45,
+      "rankNumber": 46,
       "breakdown": {
         "prsMerged": 0,
         "prsOpened": 1,
@@ -1361,33 +1388,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 18
-    },
-    {
-      "login": "blues5th",
-      "xp": 22.5,
-      "tier": "B",
-      "rankNumber": 46,
-      "breakdown": {
-        "prsMerged": 1,
-        "prsOpened": 1,
-        "reviews": 0,
-        "issuesClosed": 0,
-        "issuesOpened": 2,
-        "commits": 1,
-        "comments": 0
-      },
-      "badges": [],
-      "sparkline": [
-        2,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 4
     },
     {
       "login": "kiwasaki-ctrl",
@@ -1447,7 +1447,7 @@
     },
     {
       "login": "kinakonari",
-      "xp": 18,
+      "xp": 19.5,
       "tier": "B",
       "rankNumber": 49,
       "breakdown": {
@@ -1455,7 +1455,7 @@
         "prsOpened": 1,
         "reviews": 0,
         "issuesClosed": 0,
-        "issuesOpened": 0,
+        "issuesOpened": 1,
         "commits": 0,
         "comments": 0
       },
@@ -1465,7 +1465,7 @@
         1,
         0,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -1532,7 +1532,7 @@
     },
     {
       "login": "kumarpradeepp",
-      "xp": 9,
+      "xp": 10.5,
       "tier": "B",
       "rankNumber": 52,
       "breakdown": {
@@ -1540,7 +1540,7 @@
         "prsOpened": 0,
         "reviews": 0,
         "issuesClosed": 0,
-        "issuesOpened": 6,
+        "issuesOpened": 7,
         "commits": 0,
         "comments": 0
       },
@@ -1550,7 +1550,7 @@
         0,
         1,
         0,
-        0,
+        1,
         0,
         0
       ],
