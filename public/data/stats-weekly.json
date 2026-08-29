@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-28T21:22:06.434Z",
+  "generatedAt": "2026-08-29T00:03:58.904Z",
   "period": "weekly",
   "windowStart": "2026-08-23T15:00:00.000Z",
   "windowEnd": "2026-08-30T14:59:59.999Z",
   "rankings": [
     {
       "login": "shinji-ikari-01",
-      "xp": 1893,
+      "xp": 1896,
       "tier": "S",
       "rankNumber": 1,
       "breakdown": {
         "prsMerged": 58,
-        "prsOpened": 75,
+        "prsOpened": 76,
         "reviews": 158,
         "issuesClosed": 1,
         "issuesOpened": 7,
@@ -27,7 +27,7 @@
         100,
         100,
         30,
-        0,
+        1,
         0
       ],
       "currentStreak": 5,
@@ -35,16 +35,16 @@
     },
     {
       "login": "lot-koichi",
-      "xp": 1702.5,
+      "xp": 1791,
       "tier": "S",
       "rankNumber": 2,
       "breakdown": {
-        "prsMerged": 54,
-        "prsOpened": 86,
-        "reviews": 69,
+        "prsMerged": 56,
+        "prsOpened": 89,
+        "reviews": 74,
         "issuesClosed": 17,
-        "issuesOpened": 78,
-        "commits": 53,
+        "issuesOpened": 94,
+        "commits": 55,
         "comments": 0
       },
       "badges": [
@@ -58,7 +58,7 @@
         73,
         78,
         36,
-        10,
+        38,
         0
       ],
       "currentStreak": 23,
@@ -189,10 +189,42 @@
       "longestStreak": 21
     },
     {
-      "login": "ayushh0311",
-      "xp": 568.5,
+      "login": "koolii",
+      "xp": 597,
       "tier": "S",
       "rankNumber": 7,
+      "breakdown": {
+        "prsMerged": 19,
+        "prsOpened": 20,
+        "reviews": 37,
+        "issuesClosed": 5,
+        "issuesOpened": 12,
+        "commits": 20,
+        "comments": 0
+      },
+      "badges": [
+        "bug-slayer",
+        "code-monk",
+        "reviewer-sensei",
+        "streak-lord"
+      ],
+      "sparkline": [
+        13,
+        33,
+        1,
+        24,
+        34,
+        8,
+        0
+      ],
+      "currentStreak": 3,
+      "longestStreak": 27
+    },
+    {
+      "login": "ayushh0311",
+      "xp": 568.5,
+      "tier": "A",
+      "rankNumber": 8,
       "breakdown": {
         "prsMerged": 12,
         "prsOpened": 9,
@@ -218,38 +250,6 @@
       ],
       "currentStreak": 11,
       "longestStreak": 11
-    },
-    {
-      "login": "koolii",
-      "xp": 541.5,
-      "tier": "A",
-      "rankNumber": 8,
-      "breakdown": {
-        "prsMerged": 16,
-        "prsOpened": 18,
-        "reviews": 37,
-        "issuesClosed": 5,
-        "issuesOpened": 12,
-        "commits": 17,
-        "comments": 0
-      },
-      "badges": [
-        "bug-slayer",
-        "code-monk",
-        "reviewer-sensei",
-        "streak-lord"
-      ],
-      "sparkline": [
-        13,
-        33,
-        1,
-        24,
-        34,
-        0,
-        0
-      ],
-      "currentStreak": 2,
-      "longestStreak": 27
     },
     {
       "login": "una115",
@@ -437,10 +437,40 @@
       "longestStreak": 13
     },
     {
+      "login": "spesnova",
+      "xp": 349.5,
+      "tier": "A",
+      "rankNumber": 15,
+      "breakdown": {
+        "prsMerged": 13,
+        "prsOpened": 13,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 77,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk",
+        "streak-lord"
+      ],
+      "sparkline": [
+        9,
+        57,
+        0,
+        4,
+        17,
+        16,
+        0
+      ],
+      "currentStreak": 3,
+      "longestStreak": 7
+    },
+    {
       "login": "HrxSrv",
       "xp": 342,
       "tier": "A",
-      "rankNumber": 15,
+      "rankNumber": 16,
       "breakdown": {
         "prsMerged": 14,
         "prsOpened": 13,
@@ -471,7 +501,7 @@
       "login": "Dev-the-coder",
       "xp": 333,
       "tier": "A",
-      "rankNumber": 16,
+      "rankNumber": 17,
       "breakdown": {
         "prsMerged": 5,
         "prsOpened": 3,
@@ -497,36 +527,6 @@
       ],
       "currentStreak": 6,
       "longestStreak": 6
-    },
-    {
-      "login": "spesnova",
-      "xp": 327,
-      "tier": "A",
-      "rankNumber": 17,
-      "breakdown": {
-        "prsMerged": 12,
-        "prsOpened": 12,
-        "reviews": 0,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 74,
-        "comments": 0
-      },
-      "badges": [
-        "code-monk",
-        "streak-lord"
-      ],
-      "sparkline": [
-        9,
-        57,
-        0,
-        4,
-        17,
-        11,
-        0
-      ],
-      "currentStreak": 3,
-      "longestStreak": 7
     },
     {
       "login": "kt3k",
