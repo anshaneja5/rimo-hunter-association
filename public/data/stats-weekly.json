@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T18:02:00.984Z",
+  "generatedAt": "2026-09-13T00:04:45.298Z",
   "period": "weekly",
   "windowStart": "2026-09-06T15:00:00.000Z",
   "windowEnd": "2026-09-13T14:59:59.999Z",
@@ -37,12 +37,12 @@
     },
     {
       "login": "shinji-ikari-01",
-      "xp": 3927,
+      "xp": 3933,
       "tier": "S",
       "rankNumber": 2,
       "breakdown": {
         "prsMerged": 147,
-        "prsOpened": 168,
+        "prsOpened": 170,
         "reviews": 213,
         "issuesClosed": 2,
         "issuesOpened": 22,
@@ -61,7 +61,7 @@
         187,
         139,
         83,
-        0
+        2
       ],
       "currentStreak": 13,
       "longestStreak": 13
@@ -351,10 +351,40 @@
       "longestStreak": 14
     },
     {
+      "login": "kohei-narita-26",
+      "xp": 664.5,
+      "tier": "A",
+      "rankNumber": 12,
+      "breakdown": {
+        "prsMerged": 24,
+        "prsOpened": 24,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 155,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk",
+        "streak-lord"
+      ],
+      "sparkline": [
+        23,
+        55,
+        0,
+        39,
+        36,
+        39,
+        11
+      ],
+      "currentStreak": 4,
+      "longestStreak": 15
+    },
+    {
       "login": "kesharibhai84",
       "xp": 634.5,
       "tier": "A",
-      "rankNumber": 12,
+      "rankNumber": 13,
       "breakdown": {
         "prsMerged": 6,
         "prsOpened": 10,
@@ -385,7 +415,7 @@
       "login": "Altair-05",
       "xp": 562.5,
       "tier": "A",
-      "rankNumber": 13,
+      "rankNumber": 14,
       "breakdown": {
         "prsMerged": 17,
         "prsOpened": 18,
@@ -411,36 +441,6 @@
         0
       ],
       "currentStreak": 0,
-      "longestStreak": 15
-    },
-    {
-      "login": "kohei-narita-26",
-      "xp": 561,
-      "tier": "A",
-      "rankNumber": 14,
-      "breakdown": {
-        "prsMerged": 21,
-        "prsOpened": 21,
-        "reviews": 0,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 122,
-        "comments": 0
-      },
-      "badges": [
-        "code-monk",
-        "streak-lord"
-      ],
-      "sparkline": [
-        23,
-        55,
-        0,
-        38,
-        24,
-        24,
-        0
-      ],
-      "currentStreak": 3,
       "longestStreak": 15
     },
     {
@@ -598,10 +598,39 @@
       "longestStreak": 12
     },
     {
+      "login": "shivamshaw23",
+      "xp": 391.5,
+      "tier": "A",
+      "rankNumber": 20,
+      "breakdown": {
+        "prsMerged": 8,
+        "prsOpened": 10,
+        "reviews": 41,
+        "issuesClosed": 3,
+        "issuesOpened": 3,
+        "commits": 20,
+        "comments": 0
+      },
+      "badges": [
+        "reviewer-sensei"
+      ],
+      "sparkline": [
+        18,
+        12,
+        2,
+        3,
+        0,
+        44,
+        6
+      ],
+      "currentStreak": 1,
+      "longestStreak": 6
+    },
+    {
       "login": "una115",
       "xp": 385.5,
       "tier": "A",
-      "rankNumber": 20,
+      "rankNumber": 21,
       "breakdown": {
         "prsMerged": 17,
         "prsOpened": 19,
@@ -630,7 +659,7 @@
       "login": "simran-261",
       "xp": 382.5,
       "tier": "A",
-      "rankNumber": 21,
+      "rankNumber": 22,
       "breakdown": {
         "prsMerged": 6,
         "prsOpened": 7,
@@ -655,35 +684,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 5
-    },
-    {
-      "login": "shivamshaw23",
-      "xp": 364.5,
-      "tier": "A",
-      "rankNumber": 22,
-      "breakdown": {
-        "prsMerged": 8,
-        "prsOpened": 10,
-        "reviews": 35,
-        "issuesClosed": 3,
-        "issuesOpened": 3,
-        "commits": 20,
-        "comments": 0
-      },
-      "badges": [
-        "reviewer-sensei"
-      ],
-      "sparkline": [
-        18,
-        12,
-        2,
-        3,
-        0,
-        44,
-        0
-      ],
-      "currentStreak": 1,
-      "longestStreak": 6
     },
     {
       "login": "prernadabi23",
