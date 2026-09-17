@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-16T18:01:58.564Z",
+  "generatedAt": "2026-09-17T00:03:54.592Z",
   "period": "monthly",
   "windowStart": "2026-08-31T15:00:00.000Z",
   "windowEnd": "2026-09-30T14:59:59.999Z",
   "rankings": [
     {
       "login": "shinji-ikari-01",
-      "xp": 8817,
+      "xp": 8820,
       "tier": "S",
       "rankNumber": 1,
       "breakdown": {
         "prsMerged": 343,
-        "prsOpened": 446,
+        "prsOpened": 447,
         "reviews": 386,
         "issuesClosed": 2,
         "issuesOpened": 43,
@@ -40,7 +40,7 @@
         70,
         1,
         22,
-        0,
+        1,
         0,
         0,
         0,
@@ -60,16 +60,16 @@
     },
     {
       "login": "lot-koichi",
-      "xp": 8416.5,
+      "xp": 8793,
       "tier": "S",
       "rankNumber": 2,
       "breakdown": {
-        "prsMerged": 237,
-        "prsOpened": 280,
-        "reviews": 712,
+        "prsMerged": 246,
+        "prsOpened": 294,
+        "reviews": 752,
         "issuesClosed": 44,
-        "issuesOpened": 63,
-        "commits": 262,
+        "issuesOpened": 64,
+        "commits": 274,
         "comments": 0
       },
       "badges": [
@@ -92,9 +92,9 @@
         18,
         169,
         144,
-        119,
-        102,
-        0,
+        120,
+        104,
+        73,
         0,
         0,
         0,
@@ -109,7 +109,7 @@
         0,
         0
       ],
-      "currentStreak": 3,
+      "currentStreak": 4,
       "longestStreak": 27
     },
     {
@@ -167,16 +167,16 @@
     },
     {
       "login": "koolii",
-      "xp": 2926.5,
+      "xp": 3147,
       "tier": "S",
       "rankNumber": 4,
       "breakdown": {
-        "prsMerged": 58,
-        "prsOpened": 68,
-        "reviews": 218,
-        "issuesClosed": 48,
-        "issuesOpened": 127,
-        "commits": 214,
+        "prsMerged": 63,
+        "prsOpened": 71,
+        "reviews": 238,
+        "issuesClosed": 53,
+        "issuesOpened": 128,
+        "commits": 219,
         "comments": 0
       },
       "badges": [
@@ -202,7 +202,7 @@
         116,
         53,
         49,
-        11,
+        50,
         0,
         0,
         0,
@@ -496,12 +496,12 @@
     },
     {
       "login": "kohei-narita-26",
-      "xp": 1876.5,
+      "xp": 1879.5,
       "tier": "A",
       "rankNumber": 10,
       "breakdown": {
         "prsMerged": 74,
-        "prsOpened": 74,
+        "prsOpened": 75,
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
@@ -529,7 +529,7 @@
         97,
         22,
         7,
-        0,
+        1,
         0,
         0,
         0,
@@ -874,16 +874,16 @@
     },
     {
       "login": "spookied",
-      "xp": 1014,
+      "xp": 1057.5,
       "tier": "A",
       "rankNumber": 17,
       "breakdown": {
-        "prsMerged": 33,
-        "prsOpened": 29,
+        "prsMerged": 34,
+        "prsOpened": 31,
         "reviews": 25,
         "issuesClosed": 10,
         "issuesOpened": 12,
-        "commits": 151,
+        "commits": 166,
         "comments": 0
       },
       "badges": [
@@ -909,7 +909,7 @@
         32,
         15,
         7,
-        0,
+        18,
         0,
         0,
         0,
@@ -924,7 +924,7 @@
         0,
         0
       ],
-      "currentStreak": 4,
+      "currentStreak": 5,
       "longestStreak": 16
     },
     {
@@ -1511,10 +1511,60 @@
       "longestStreak": 2
     },
     {
+      "login": "rimo-iac-automerge",
+      "xp": 573,
+      "tier": "B",
+      "rankNumber": 29,
+      "breakdown": {
+        "prsMerged": 30,
+        "prsOpened": 41,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 0,
+        "comments": 0
+      },
+      "badges": [],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        20,
+        39,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentStreak": 0,
+      "longestStreak": 0
+    },
+    {
       "login": "rimo-asuka-langley",
       "xp": 568.5,
       "tier": "B",
-      "rankNumber": 29,
+      "rankNumber": 30,
       "breakdown": {
         "prsMerged": 22,
         "prsOpened": 69,
@@ -1562,13 +1612,13 @@
     },
     {
       "login": "Anitesh2004",
-      "xp": 505.5,
+      "xp": 510,
       "tier": "B",
-      "rankNumber": 30,
+      "rankNumber": 31,
       "breakdown": {
         "prsMerged": 17,
         "prsOpened": 21,
-        "reviews": 29,
+        "reviews": 30,
         "issuesClosed": 4,
         "issuesOpened": 1,
         "commits": 17,
@@ -1594,7 +1644,7 @@
         0,
         1,
         0,
-        0,
+        1,
         0,
         0,
         0,
@@ -1611,56 +1661,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 5
-    },
-    {
-      "login": "rimo-iac-automerge",
-      "xp": 501,
-      "tier": "B",
-      "rankNumber": 31,
-      "breakdown": {
-        "prsMerged": 26,
-        "prsOpened": 37,
-        "reviews": 0,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 0,
-        "comments": 0
-      },
-      "badges": [],
-      "sparkline": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        20,
-        39,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 0
     },
     {
       "login": "mosa-rimo",
@@ -2709,7 +2709,7 @@
     },
     {
       "login": "rimo-iac-automerge[bot]",
-      "xp": 39,
+      "xp": 45,
       "tier": "B",
       "rankNumber": 52,
       "breakdown": {
@@ -2718,7 +2718,7 @@
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
-        "commits": 26,
+        "commits": 30,
         "comments": 0
       },
       "badges": [],
@@ -2739,7 +2739,7 @@
         0,
         8,
         16,
-        0,
+        4,
         0,
         0,
         0,
@@ -2754,8 +2754,8 @@
         0,
         0
       ],
-      "currentStreak": 2,
-      "longestStreak": 2
+      "currentStreak": 3,
+      "longestStreak": 3
     },
     {
       "login": "26krkz",
@@ -4504,7 +4504,7 @@
         0
       ],
       "currentStreak": 0,
-      "longestStreak": 1
+      "longestStreak": 0
     },
     {
       "login": "greptile-apps",
