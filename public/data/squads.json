@@ -1,25 +1,81 @@
 {
-  "generatedAt": "2026-09-21T00:04:28.603Z",
+  "generatedAt": "2026-09-21T06:03:34.282Z",
   "isoWeek": 39,
   "weekStart": "2026-09-20T15:00:00.000Z",
   "squads": [
     {
-      "index": 3,
-      "name": "Iron Fang Corps",
-      "totalXp": 51,
+      "index": 1,
+      "name": "Black Blade Guild",
+      "totalXp": 364.5,
       "rank": 1,
       "members": [
         {
+          "login": "shinji-ikari-01",
+          "weeklyXp": 364.5
+        },
+        {
+          "login": "t-sano-kf",
+          "weeklyXp": 0
+        },
+        {
+          "login": "grvup",
+          "weeklyXp": 0
+        },
+        {
+          "login": "ChahitKolte2112",
+          "weeklyXp": 0
+        },
+        {
+          "login": "ry-itto",
+          "weeklyXp": 0
+        }
+      ]
+    },
+    {
+      "index": 0,
+      "name": "Dragon Scale Guild",
+      "totalXp": 177,
+      "rank": 2,
+      "members": [
+        {
+          "login": "lot-koichi",
+          "weeklyXp": 166.5
+        },
+        {
+          "login": "spookied",
+          "weeklyXp": 0
+        },
+        {
+          "login": "kamalgurjar7",
+          "weeklyXp": 10.5
+        },
+        {
+          "login": "KentoMoriwaki",
+          "weeklyXp": 0
+        },
+        {
+          "login": "komei2433",
+          "weeklyXp": 0
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "name": "Iron Fang Corps",
+      "totalXp": 130.5,
+      "rank": 3,
+      "members": [
+        {
           "login": "rimo-iac-automerge",
-          "weeklyXp": 51
+          "weeklyXp": 123
         },
         {
           "login": "Altair-05",
-          "weeklyXp": 0
+          "weeklyXp": 4.5
         },
         {
           "login": "awakia",
-          "weeklyXp": 0
+          "weeklyXp": 3
         },
         {
           "login": "Atharva-Kanherkar",
@@ -34,12 +90,12 @@
     {
       "index": 2,
       "name": "Shadow Monarchs",
-      "totalXp": 31.5,
-      "rank": 2,
+      "totalXp": 61.5,
+      "rank": 4,
       "members": [
         {
           "login": "koolii",
-          "weeklyXp": 31.5
+          "weeklyXp": 61.5
         },
         {
           "login": "spesnova",
@@ -63,7 +119,7 @@
       "index": 9,
       "name": "Phantom Vanguard",
       "totalXp": 10.5,
-      "rank": 3,
+      "rank": 5,
       "members": [
         {
           "login": "soliste16",
@@ -86,8 +142,8 @@
     {
       "index": 5,
       "name": "Silver Arrow Guild",
-      "totalXp": 4.5,
-      "rank": 4,
+      "totalXp": 10.5,
+      "rank": 6,
       "members": [
         {
           "login": "kt3k",
@@ -99,66 +155,10 @@
         },
         {
           "login": "rimo-iac-automerge[bot]",
-          "weeklyXp": 4.5
+          "weeklyXp": 10.5
         },
         {
           "login": "enoki1003",
-          "weeklyXp": 0
-        }
-      ]
-    },
-    {
-      "index": 0,
-      "name": "Dragon Scale Guild",
-      "totalXp": 3,
-      "rank": 5,
-      "members": [
-        {
-          "login": "lot-koichi",
-          "weeklyXp": 3
-        },
-        {
-          "login": "spookied",
-          "weeklyXp": 0
-        },
-        {
-          "login": "kamalgurjar7",
-          "weeklyXp": 0
-        },
-        {
-          "login": "KentoMoriwaki",
-          "weeklyXp": 0
-        },
-        {
-          "login": "komei2433",
-          "weeklyXp": 0
-        }
-      ]
-    },
-    {
-      "index": 1,
-      "name": "Black Blade Guild",
-      "totalXp": 3,
-      "rank": 6,
-      "members": [
-        {
-          "login": "shinji-ikari-01",
-          "weeklyXp": 3
-        },
-        {
-          "login": "t-sano-kf",
-          "weeklyXp": 0
-        },
-        {
-          "login": "grvup",
-          "weeklyXp": 0
-        },
-        {
-          "login": "ChahitKolte2112",
-          "weeklyXp": 0
-        },
-        {
-          "login": "ry-itto",
           "weeklyXp": 0
         }
       ]
