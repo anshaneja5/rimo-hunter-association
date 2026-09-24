@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-23T18:02:04.039Z",
+  "generatedAt": "2026-09-24T00:04:06.254Z",
   "isoWeek": 39,
   "weekStart": "2026-09-20T15:00:00.000Z",
   "squads": [
     {
       "index": 0,
       "name": "Dragon Scale Guild",
-      "totalXp": 1845,
+      "totalXp": 2166,
       "rank": 1,
       "members": [
         {
           "login": "lot-koichi",
-          "weeklyXp": 1795.5
+          "weeklyXp": 2116.5
         },
         {
           "login": "spookied",
@@ -34,12 +34,12 @@
     {
       "index": 1,
       "name": "Black Blade Guild",
-      "totalXp": 1026,
+      "totalXp": 1029,
       "rank": 2,
       "members": [
         {
           "login": "shinji-ikari-01",
-          "weeklyXp": 1020
+          "weeklyXp": 1023
         },
         {
           "login": "t-sano-kf",
@@ -90,12 +90,12 @@
     {
       "index": 2,
       "name": "Shadow Monarchs",
-      "totalXp": 402,
+      "totalXp": 451.5,
       "rank": 4,
       "members": [
         {
           "login": "koolii",
-          "weeklyXp": 232.5
+          "weeklyXp": 282
         },
         {
           "login": "spesnova",
@@ -192,10 +192,34 @@
       ]
     },
     {
+      "index": 5,
+      "name": "Silver Arrow Guild",
+      "totalXp": 100.5,
+      "rank": 8,
+      "members": [
+        {
+          "login": "kt3k",
+          "weeklyXp": 54
+        },
+        {
+          "login": "HrxSrv",
+          "weeklyXp": 9
+        },
+        {
+          "login": "rimo-iac-automerge[bot]",
+          "weeklyXp": 37.5
+        },
+        {
+          "login": "enoki1003",
+          "weeklyXp": 0
+        }
+      ]
+    },
+    {
       "index": 9,
       "name": "Phantom Vanguard",
       "totalXp": 97.5,
-      "rank": 8,
+      "rank": 9,
       "members": [
         {
           "login": "soliste16",
@@ -223,7 +247,7 @@
       "index": 12,
       "name": "Eternal Dark Guild",
       "totalXp": 97.5,
-      "rank": 9,
+      "rank": 10,
       "members": [
         {
           "login": "naoyuki313",
@@ -239,30 +263,6 @@
         },
         {
           "login": "mosa-rimo",
-          "weeklyXp": 0
-        }
-      ]
-    },
-    {
-      "index": 5,
-      "name": "Silver Arrow Guild",
-      "totalXp": 84,
-      "rank": 10,
-      "members": [
-        {
-          "login": "kt3k",
-          "weeklyXp": 37.5
-        },
-        {
-          "login": "HrxSrv",
-          "weeklyXp": 9
-        },
-        {
-          "login": "rimo-iac-automerge[bot]",
-          "weeklyXp": 37.5
-        },
-        {
-          "login": "enoki1003",
           "weeklyXp": 0
         }
       ]
