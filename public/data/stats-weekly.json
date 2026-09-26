@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-09-25T18:02:06.320Z",
+  "generatedAt": "2026-09-26T00:03:57.814Z",
   "period": "weekly",
   "windowStart": "2026-09-20T15:00:00.000Z",
   "windowEnd": "2026-09-27T14:59:59.999Z",
   "rankings": [
     {
       "login": "lot-koichi",
-      "xp": 3421.5,
+      "xp": 4131,
       "tier": "S",
       "rankNumber": 1,
       "breakdown": {
-        "prsMerged": 110,
-        "prsOpened": 109,
-        "reviews": 222,
-        "issuesClosed": 26,
+        "prsMerged": 119,
+        "prsOpened": 163,
+        "reviews": 289,
+        "issuesClosed": 39,
         "issuesOpened": 56,
-        "commits": 111,
+        "commits": 120,
         "comments": 0
       },
       "badges": [
@@ -29,10 +29,10 @@
         255,
         163,
         125,
-        0,
+        152,
         0
       ],
-      "currentStreak": 3,
+      "currentStreak": 4,
       "longestStreak": 27
     },
     {
@@ -99,12 +99,12 @@
     },
     {
       "login": "rimo-iac-automerge",
-      "xp": 1635,
+      "xp": 1653,
       "tier": "S",
       "rankNumber": 4,
       "breakdown": {
-        "prsMerged": 91,
-        "prsOpened": 90,
+        "prsMerged": 92,
+        "prsOpened": 91,
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
@@ -118,7 +118,7 @@
         30,
         8,
         122,
-        2,
+        4,
         0
       ],
       "currentStreak": 0,
@@ -126,16 +126,16 @@
     },
     {
       "login": "koolii",
-      "xp": 832.5,
+      "xp": 876,
       "tier": "S",
       "rankNumber": 5,
       "breakdown": {
-        "prsMerged": 21,
-        "prsOpened": 20,
-        "reviews": 86,
+        "prsMerged": 23,
+        "prsOpened": 22,
+        "reviews": 87,
         "issuesClosed": 3,
         "issuesOpened": 0,
-        "commits": 32,
+        "commits": 34,
         "comments": 0
       },
       "badges": [
@@ -150,10 +150,10 @@
         42,
         21,
         87,
-        0,
+        7,
         0
       ],
-      "currentStreak": 3,
+      "currentStreak": 4,
       "longestStreak": 27
     },
     {
@@ -470,7 +470,7 @@
     },
     {
       "login": "rimo-iac-automerge[bot]",
-      "xp": 136.5,
+      "xp": 138,
       "tier": "A",
       "rankNumber": 16,
       "breakdown": {
@@ -479,7 +479,7 @@
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
-        "commits": 91,
+        "commits": 92,
         "comments": 0
       },
       "badges": [
@@ -492,7 +492,7 @@
         15,
         4,
         61,
-        1,
+        2,
         0
       ],
       "currentStreak": 12,
@@ -709,10 +709,37 @@
       "longestStreak": 6
     },
     {
+      "login": "rimo-asuka-langley",
+      "xp": 91.5,
+      "tier": "B",
+      "rankNumber": 24,
+      "breakdown": {
+        "prsMerged": 1,
+        "prsOpened": 25,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 1,
+        "comments": 0
+      },
+      "badges": [],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0,
+        18,
+        9,
+        0
+      ],
+      "currentStreak": 1,
+      "longestStreak": 5
+    },
+    {
       "login": "wakamsha",
       "xp": 81,
       "tier": "B",
-      "rankNumber": 24,
+      "rankNumber": 25,
       "breakdown": {
         "prsMerged": 3,
         "prsOpened": 2,
@@ -741,7 +768,7 @@
       "login": "HrxSrv",
       "xp": 75,
       "tier": "B",
-      "rankNumber": 25,
+      "rankNumber": 26,
       "breakdown": {
         "prsMerged": 3,
         "prsOpened": 4,
@@ -767,33 +794,6 @@
       ],
       "currentStreak": 2,
       "longestStreak": 12
-    },
-    {
-      "login": "rimo-asuka-langley",
-      "xp": 73.5,
-      "tier": "B",
-      "rankNumber": 26,
-      "breakdown": {
-        "prsMerged": 1,
-        "prsOpened": 19,
-        "reviews": 0,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 1,
-        "comments": 0
-      },
-      "badges": [],
-      "sparkline": [
-        0,
-        0,
-        0,
-        0,
-        18,
-        3,
-        0
-      ],
-      "currentStreak": 1,
-      "longestStreak": 5
     },
     {
       "login": "KentoMoriwaki",
