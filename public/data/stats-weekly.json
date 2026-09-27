@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-26T18:01:50.036Z",
+  "generatedAt": "2026-09-27T00:04:57.773Z",
   "period": "weekly",
   "windowStart": "2026-09-20T15:00:00.000Z",
   "windowEnd": "2026-09-27T14:59:59.999Z",
   "rankings": [
     {
       "login": "lot-koichi",
-      "xp": 4638,
+      "xp": 4680,
       "tier": "S",
       "rankNumber": 1,
       "breakdown": {
         "prsMerged": 125,
-        "prsOpened": 189,
-        "reviews": 362,
+        "prsOpened": 191,
+        "reviews": 370,
         "issuesClosed": 39,
         "issuesOpened": 57,
         "commits": 126,
@@ -30,7 +30,7 @@
         163,
         125,
         264,
-        0
+        10
       ],
       "currentStreak": 4,
       "longestStreak": 27
@@ -126,13 +126,13 @@
     },
     {
       "login": "koolii",
-      "xp": 906,
+      "xp": 933,
       "tier": "S",
       "rankNumber": 5,
       "breakdown": {
         "prsMerged": 24,
         "prsOpened": 25,
-        "reviews": 87,
+        "reviews": 93,
         "issuesClosed": 3,
         "issuesOpened": 0,
         "commits": 38,
@@ -151,7 +151,7 @@
         21,
         87,
         15,
-        0
+        6
       ],
       "currentStreak": 4,
       "longestStreak": 27
@@ -438,10 +438,37 @@
       "longestStreak": 16
     },
     {
+      "login": "rimo-asuka-langley",
+      "xp": 160.5,
+      "tier": "A",
+      "rankNumber": 15,
+      "breakdown": {
+        "prsMerged": 1,
+        "prsOpened": 48,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 1,
+        "comments": 0
+      },
+      "badges": [],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0,
+        18,
+        23,
+        9
+      ],
+      "currentStreak": 0,
+      "longestStreak": 5
+    },
+    {
       "login": "t-sano-kf",
       "xp": 157.5,
       "tier": "A",
-      "rankNumber": 15,
+      "rankNumber": 16,
       "breakdown": {
         "prsMerged": 0,
         "prsOpened": 3,
@@ -467,33 +494,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 28
-    },
-    {
-      "login": "rimo-asuka-langley",
-      "xp": 142.5,
-      "tier": "A",
-      "rankNumber": 16,
-      "breakdown": {
-        "prsMerged": 1,
-        "prsOpened": 42,
-        "reviews": 0,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 1,
-        "comments": 0
-      },
-      "badges": [],
-      "sparkline": [
-        0,
-        0,
-        0,
-        0,
-        18,
-        23,
-        3
-      ],
-      "currentStreak": 0,
-      "longestStreak": 5
     },
     {
       "login": "rimo-iac-automerge[bot]",
@@ -676,10 +676,39 @@
       "longestStreak": 5
     },
     {
-      "login": "grvup",
-      "xp": 94.5,
+      "login": "shivamshaw23",
+      "xp": 96,
       "tier": "A",
       "rankNumber": 23,
+      "breakdown": {
+        "prsMerged": 0,
+        "prsOpened": 5,
+        "reviews": 16,
+        "issuesClosed": 0,
+        "issuesOpened": 6,
+        "commits": 0,
+        "comments": 0
+      },
+      "badges": [
+        "reviewer-sensei"
+      ],
+      "sparkline": [
+        14,
+        5,
+        6,
+        1,
+        0,
+        0,
+        1
+      ],
+      "currentStreak": 0,
+      "longestStreak": 6
+    },
+    {
+      "login": "grvup",
+      "xp": 94.5,
+      "tier": "B",
+      "rankNumber": 24,
       "breakdown": {
         "prsMerged": 2,
         "prsOpened": 1,
@@ -700,35 +729,6 @@
         3,
         9,
         10,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 6
-    },
-    {
-      "login": "shivamshaw23",
-      "xp": 93,
-      "tier": "B",
-      "rankNumber": 24,
-      "breakdown": {
-        "prsMerged": 0,
-        "prsOpened": 4,
-        "reviews": 16,
-        "issuesClosed": 0,
-        "issuesOpened": 6,
-        "commits": 0,
-        "comments": 0
-      },
-      "badges": [
-        "reviewer-sensei"
-      ],
-      "sparkline": [
-        14,
-        5,
-        6,
-        1,
-        0,
         0,
         0
       ],
@@ -1217,10 +1217,39 @@
       "longestStreak": 4
     },
     {
+      "login": "ry-itto",
+      "xp": 12,
+      "tier": "B",
+      "rankNumber": 41,
+      "breakdown": {
+        "prsMerged": 0,
+        "prsOpened": 4,
+        "reviews": 0,
+        "issuesClosed": 0,
+        "issuesOpened": 0,
+        "commits": 0,
+        "comments": 0
+      },
+      "badges": [
+        "reviewer-sensei"
+      ],
+      "sparkline": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "currentStreak": 0,
+      "longestStreak": 5
+    },
+    {
       "login": "26krkz",
       "xp": 9,
       "tier": "B",
-      "rankNumber": 41,
+      "rankNumber": 42,
       "breakdown": {
         "prsMerged": 0,
         "prsOpened": 0,
@@ -1251,7 +1280,7 @@
       "login": "ayushh0311",
       "xp": 9,
       "tier": "B",
-      "rankNumber": 42,
+      "rankNumber": 43,
       "breakdown": {
         "prsMerged": 0,
         "prsOpened": 2,
@@ -1283,7 +1312,7 @@
       "login": "user-ank",
       "xp": 9,
       "tier": "B",
-      "rankNumber": 43,
+      "rankNumber": 44,
       "breakdown": {
         "prsMerged": 0,
         "prsOpened": 0,
@@ -1312,7 +1341,7 @@
       "login": "anujpatel03",
       "xp": 6,
       "tier": "B",
-      "rankNumber": 44,
+      "rankNumber": 45,
       "breakdown": {
         "prsMerged": 0,
         "prsOpened": 0,
@@ -1339,35 +1368,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 7
-    },
-    {
-      "login": "ry-itto",
-      "xp": 6,
-      "tier": "B",
-      "rankNumber": 45,
-      "breakdown": {
-        "prsMerged": 0,
-        "prsOpened": 2,
-        "reviews": 0,
-        "issuesClosed": 0,
-        "issuesOpened": 0,
-        "commits": 0,
-        "comments": 0
-      },
-      "badges": [
-        "reviewer-sensei"
-      ],
-      "sparkline": [
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 5
     },
     {
       "login": "ChahitKolte2112",
