@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T18:02:32.071Z",
+  "generatedAt": "2026-10-12T00:05:12.272Z",
   "isoWeek": 42,
   "weekStart": "2026-10-11T15:00:00.000Z",
   "squads": [
@@ -62,12 +62,12 @@
     {
       "index": 2,
       "name": "Silver Arrow Guild",
-      "totalXp": 9,
+      "totalXp": 27,
       "rank": 3,
       "members": [
         {
           "login": "rimo-asuka-langley",
-          "weeklyXp": 6
+          "weeklyXp": 24
         },
         {
           "login": "ishitasancheti29",
@@ -88,10 +88,38 @@
       ]
     },
     {
+      "index": 6,
+      "name": "Phantom Vanguard",
+      "totalXp": 3,
+      "rank": 4,
+      "members": [
+        {
+          "login": "shinji-ikari-01",
+          "weeklyXp": 3
+        },
+        {
+          "login": "Altair-05",
+          "weeklyXp": 0
+        },
+        {
+          "login": "KentoMoriwaki",
+          "weeklyXp": 0
+        },
+        {
+          "login": "kgsi",
+          "weeklyXp": 0
+        },
+        {
+          "login": "takeuchi-haruka",
+          "weeklyXp": 0
+        }
+      ]
+    },
+    {
       "index": 0,
       "name": "Iron Fang Corps",
       "totalXp": 0,
-      "rank": 4,
+      "rank": 5,
       "members": [
         {
           "login": "rimo-iac-automerge",
@@ -119,7 +147,7 @@
       "index": 3,
       "name": "White Tiger Guild",
       "totalXp": 0,
-      "rank": 5,
+      "rank": 6,
       "members": [
         {
           "login": "kt3k",
@@ -147,7 +175,7 @@
       "index": 5,
       "name": "Storm Breakers",
       "totalXp": 0,
-      "rank": 6,
+      "rank": 7,
       "members": [
         {
           "login": "koolii",
@@ -167,34 +195,6 @@
         },
         {
           "login": "YUKI0919-rimo",
-          "weeklyXp": 0
-        }
-      ]
-    },
-    {
-      "index": 6,
-      "name": "Phantom Vanguard",
-      "totalXp": 0,
-      "rank": 7,
-      "members": [
-        {
-          "login": "shinji-ikari-01",
-          "weeklyXp": 0
-        },
-        {
-          "login": "Altair-05",
-          "weeklyXp": 0
-        },
-        {
-          "login": "KentoMoriwaki",
-          "weeklyXp": 0
-        },
-        {
-          "login": "kgsi",
-          "weeklyXp": 0
-        },
-        {
-          "login": "takeuchi-haruka",
           "weeklyXp": 0
         }
       ]
