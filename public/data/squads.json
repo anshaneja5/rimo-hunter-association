@@ -1,13 +1,41 @@
 {
-  "generatedAt": "2026-10-15T18:02:37.622Z",
+  "generatedAt": "2026-10-16T00:04:08.700Z",
   "isoWeek": 42,
   "weekStart": "2026-10-11T15:00:00.000Z",
   "squads": [
     {
+      "index": 0,
+      "name": "Iron Fang Corps",
+      "totalXp": 1873.5,
+      "rank": 1,
+      "members": [
+        {
+          "login": "rimo-iac-automerge",
+          "weeklyXp": 1530
+        },
+        {
+          "login": "harshit1818",
+          "weeklyXp": 216
+        },
+        {
+          "login": "grvup",
+          "weeklyXp": 61.5
+        },
+        {
+          "login": "HaruhiSaito",
+          "weeklyXp": 0
+        },
+        {
+          "login": "kinakonari",
+          "weeklyXp": 66
+        }
+      ]
+    },
+    {
       "index": 10,
       "name": "Red Gate Runners",
       "totalXp": 1870.5,
-      "rank": 1,
+      "rank": 2,
       "members": [
         {
           "login": "ayushh0311",
@@ -38,12 +66,12 @@
     {
       "index": 6,
       "name": "Phantom Vanguard",
-      "totalXp": 1842,
-      "rank": 2,
+      "totalXp": 1845,
+      "rank": 3,
       "members": [
         {
           "login": "shinji-ikari-01",
-          "weeklyXp": 1549.5
+          "weeklyXp": 1552.5
         },
         {
           "login": "Altair-05",
@@ -64,42 +92,14 @@
       ]
     },
     {
-      "index": 0,
-      "name": "Iron Fang Corps",
-      "totalXp": 1801.5,
-      "rank": 3,
-      "members": [
-        {
-          "login": "rimo-iac-automerge",
-          "weeklyXp": 1458
-        },
-        {
-          "login": "harshit1818",
-          "weeklyXp": 216
-        },
-        {
-          "login": "grvup",
-          "weeklyXp": 61.5
-        },
-        {
-          "login": "HaruhiSaito",
-          "weeklyXp": 0
-        },
-        {
-          "login": "kinakonari",
-          "weeklyXp": 66
-        }
-      ]
-    },
-    {
       "index": 2,
       "name": "Silver Arrow Guild",
-      "totalXp": 1789.5,
+      "totalXp": 1807.5,
       "rank": 4,
       "members": [
         {
           "login": "rimo-asuka-langley",
-          "weeklyXp": 1567.5
+          "weeklyXp": 1585.5
         },
         {
           "login": "ishitasancheti29",
@@ -178,12 +178,12 @@
     {
       "index": 5,
       "name": "Storm Breakers",
-      "totalXp": 1198.5,
+      "totalXp": 1296,
       "rank": 7,
       "members": [
         {
           "login": "koolii",
-          "weeklyXp": 1041
+          "weeklyXp": 1138.5
         },
         {
           "login": "anshaneja5",
@@ -234,7 +234,7 @@
     {
       "index": 7,
       "name": "Golden Shield Society",
-      "totalXp": 979.5,
+      "totalXp": 985.5,
       "rank": 9,
       "members": [
         {
@@ -243,7 +243,7 @@
         },
         {
           "login": "rimo-iac-automerge[bot]",
-          "weeklyXp": 121.5
+          "weeklyXp": 127.5
         },
         {
           "login": "una115",
@@ -260,46 +260,18 @@
       ]
     },
     {
-      "index": 9,
-      "name": "Eternal Dark Guild",
-      "totalXp": 691.5,
+      "index": 1,
+      "name": "Crimson Gate Hunters",
+      "totalXp": 919.5,
       "rank": 10,
       "members": [
         {
-          "login": "Atharva-Kanherkar",
-          "weeklyXp": 253.5
-        },
-        {
-          "login": "Anitesh2004",
-          "weeklyXp": 319.5
-        },
-        {
-          "login": "ryu38",
-          "weeklyXp": 96
-        },
-        {
-          "login": "seipan",
-          "weeklyXp": 18
-        },
-        {
-          "login": "NishaMe",
-          "weeklyXp": 4.5
-        }
-      ]
-    },
-    {
-      "index": 1,
-      "name": "Crimson Gate Hunters",
-      "totalXp": 621,
-      "rank": 11,
-      "members": [
-        {
           "login": "lot-koichi",
-          "weeklyXp": 234
+          "weeklyXp": 475.5
         },
         {
           "login": "wakamsha",
-          "weeklyXp": 22.5
+          "weeklyXp": 79.5
         },
         {
           "login": "kesharibhai84",
@@ -312,6 +284,34 @@
         {
           "login": "Natsukix98",
           "weeklyXp": 6
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "name": "Eternal Dark Guild",
+      "totalXp": 837,
+      "rank": 11,
+      "members": [
+        {
+          "login": "Atharva-Kanherkar",
+          "weeklyXp": 253.5
+        },
+        {
+          "login": "Anitesh2004",
+          "weeklyXp": 319.5
+        },
+        {
+          "login": "ryu38",
+          "weeklyXp": 241.5
+        },
+        {
+          "login": "seipan",
+          "weeklyXp": 18
+        },
+        {
+          "login": "NishaMe",
+          "weeklyXp": 4.5
         }
       ]
     },
