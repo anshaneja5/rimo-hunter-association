@@ -1,17 +1,45 @@
 {
-  "generatedAt": "2026-10-16T00:04:08.700Z",
+  "generatedAt": "2026-10-16T06:02:52.632Z",
   "isoWeek": 42,
   "weekStart": "2026-10-11T15:00:00.000Z",
   "squads": [
     {
-      "index": 0,
-      "name": "Iron Fang Corps",
-      "totalXp": 1873.5,
+      "index": 6,
+      "name": "Phantom Vanguard",
+      "totalXp": 2136,
       "rank": 1,
       "members": [
         {
+          "login": "shinji-ikari-01",
+          "weeklyXp": 1816.5
+        },
+        {
+          "login": "Altair-05",
+          "weeklyXp": 214.5
+        },
+        {
+          "login": "KentoMoriwaki",
+          "weeklyXp": 70.5
+        },
+        {
+          "login": "kgsi",
+          "weeklyXp": 34.5
+        },
+        {
+          "login": "takeuchi-haruka",
+          "weeklyXp": 0
+        }
+      ]
+    },
+    {
+      "index": 0,
+      "name": "Iron Fang Corps",
+      "totalXp": 2134.5,
+      "rank": 2,
+      "members": [
+        {
           "login": "rimo-iac-automerge",
-          "weeklyXp": 1530
+          "weeklyXp": 1782
         },
         {
           "login": "harshit1818",
@@ -19,7 +47,7 @@
         },
         {
           "login": "grvup",
-          "weeklyXp": 61.5
+          "weeklyXp": 70.5
         },
         {
           "login": "HaruhiSaito",
@@ -32,18 +60,46 @@
       ]
     },
     {
+      "index": 2,
+      "name": "Silver Arrow Guild",
+      "totalXp": 1996.5,
+      "rank": 3,
+      "members": [
+        {
+          "login": "rimo-asuka-langley",
+          "weeklyXp": 1738.5
+        },
+        {
+          "login": "ishitasancheti29",
+          "weeklyXp": 180
+        },
+        {
+          "login": "shivamshaw23",
+          "weeklyXp": 9
+        },
+        {
+          "login": "kumarpradeepp",
+          "weeklyXp": 10.5
+        },
+        {
+          "login": "ry-itto",
+          "weeklyXp": 58.5
+        }
+      ]
+    },
+    {
       "index": 10,
       "name": "Red Gate Runners",
-      "totalXp": 1870.5,
-      "rank": 2,
+      "totalXp": 1986,
+      "rank": 4,
       "members": [
         {
           "login": "ayushh0311",
-          "weeklyXp": 577.5
+          "weeklyXp": 667.5
         },
         {
           "login": "soliste16",
-          "weeklyXp": 576
+          "weeklyXp": 601.5
         },
         {
           "login": "kamalgurjar7",
@@ -64,70 +120,14 @@
       ]
     },
     {
-      "index": 6,
-      "name": "Phantom Vanguard",
-      "totalXp": 1845,
-      "rank": 3,
-      "members": [
-        {
-          "login": "shinji-ikari-01",
-          "weeklyXp": 1552.5
-        },
-        {
-          "login": "Altair-05",
-          "weeklyXp": 198
-        },
-        {
-          "login": "KentoMoriwaki",
-          "weeklyXp": 60
-        },
-        {
-          "login": "kgsi",
-          "weeklyXp": 34.5
-        },
-        {
-          "login": "takeuchi-haruka",
-          "weeklyXp": 0
-        }
-      ]
-    },
-    {
-      "index": 2,
-      "name": "Silver Arrow Guild",
-      "totalXp": 1807.5,
-      "rank": 4,
-      "members": [
-        {
-          "login": "rimo-asuka-langley",
-          "weeklyXp": 1585.5
-        },
-        {
-          "login": "ishitasancheti29",
-          "weeklyXp": 148.5
-        },
-        {
-          "login": "shivamshaw23",
-          "weeklyXp": 9
-        },
-        {
-          "login": "kumarpradeepp",
-          "weeklyXp": 6
-        },
-        {
-          "login": "ry-itto",
-          "weeklyXp": 58.5
-        }
-      ]
-    },
-    {
       "index": 3,
       "name": "White Tiger Guild",
-      "totalXp": 1720.5,
+      "totalXp": 1983,
       "rank": 5,
       "members": [
         {
           "login": "kt3k",
-          "weeklyXp": 1660.5
+          "weeklyXp": 1918.5
         },
         {
           "login": "tsuchiya-a11y",
@@ -143,55 +143,27 @@
         },
         {
           "login": "user-ank",
-          "weeklyXp": 22.5
-        }
-      ]
-    },
-    {
-      "index": 4,
-      "name": "Blue Flame Order",
-      "totalXp": 1509,
-      "rank": 6,
-      "members": [
-        {
-          "login": "hosshan",
-          "weeklyXp": 934.5
-        },
-        {
-          "login": "Dev-the-coder",
-          "weeklyXp": 448.5
-        },
-        {
-          "login": "naoyuki313",
-          "weeklyXp": 78
-        },
-        {
-          "login": "saladdays",
-          "weeklyXp": 0
-        },
-        {
-          "login": "spesnova",
-          "weeklyXp": 48
+          "weeklyXp": 27
         }
       ]
     },
     {
       "index": 5,
       "name": "Storm Breakers",
-      "totalXp": 1296,
-      "rank": 7,
+      "totalXp": 1632,
+      "rank": 6,
       "members": [
         {
           "login": "koolii",
-          "weeklyXp": 1138.5
+          "weeklyXp": 1425
         },
         {
           "login": "anshaneja5",
-          "weeklyXp": 67.5
+          "weeklyXp": 85.5
         },
         {
           "login": "HrxSrv",
-          "weeklyXp": 70.5
+          "weeklyXp": 102
         },
         {
           "login": "skimura-stack",
@@ -204,10 +176,94 @@
       ]
     },
     {
+      "index": 4,
+      "name": "Blue Flame Order",
+      "totalXp": 1623,
+      "rank": 7,
+      "members": [
+        {
+          "login": "hosshan",
+          "weeklyXp": 1000.5
+        },
+        {
+          "login": "Dev-the-coder",
+          "weeklyXp": 472.5
+        },
+        {
+          "login": "naoyuki313",
+          "weeklyXp": 102
+        },
+        {
+          "login": "saladdays",
+          "weeklyXp": 0
+        },
+        {
+          "login": "spesnova",
+          "weeklyXp": 48
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "name": "Golden Shield Society",
+      "totalXp": 1296,
+      "rank": 8,
+      "members": [
+        {
+          "login": "yyamada12",
+          "weeklyXp": 652.5
+        },
+        {
+          "login": "rimo-iac-automerge[bot]",
+          "weeklyXp": 148.5
+        },
+        {
+          "login": "una115",
+          "weeklyXp": 451.5
+        },
+        {
+          "login": "Abhinav232004",
+          "weeklyXp": 33
+        },
+        {
+          "login": "kavyaNIS",
+          "weeklyXp": 10.5
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "name": "Crimson Gate Hunters",
+      "totalXp": 1285.5,
+      "rank": 9,
+      "members": [
+        {
+          "login": "lot-koichi",
+          "weeklyXp": 787.5
+        },
+        {
+          "login": "wakamsha",
+          "weeklyXp": 79.5
+        },
+        {
+          "login": "kesharibhai84",
+          "weeklyXp": 394.5
+        },
+        {
+          "login": "SoichiroTanakaRimo",
+          "weeklyXp": 0
+        },
+        {
+          "login": "Natsukix98",
+          "weeklyXp": 24
+        }
+      ]
+    },
+    {
       "index": 11,
       "name": "Crimson Emperor Order",
       "totalXp": 1099.5,
-      "rank": 8,
+      "rank": 10,
       "members": [
         {
           "login": "bitzyyy",
@@ -232,65 +288,9 @@
       ]
     },
     {
-      "index": 7,
-      "name": "Golden Shield Society",
-      "totalXp": 985.5,
-      "rank": 9,
-      "members": [
-        {
-          "login": "yyamada12",
-          "weeklyXp": 369
-        },
-        {
-          "login": "rimo-iac-automerge[bot]",
-          "weeklyXp": 127.5
-        },
-        {
-          "login": "una115",
-          "weeklyXp": 448.5
-        },
-        {
-          "login": "Abhinav232004",
-          "weeklyXp": 33
-        },
-        {
-          "login": "kavyaNIS",
-          "weeklyXp": 7.5
-        }
-      ]
-    },
-    {
-      "index": 1,
-      "name": "Crimson Gate Hunters",
-      "totalXp": 919.5,
-      "rank": 10,
-      "members": [
-        {
-          "login": "lot-koichi",
-          "weeklyXp": 475.5
-        },
-        {
-          "login": "wakamsha",
-          "weeklyXp": 79.5
-        },
-        {
-          "login": "kesharibhai84",
-          "weeklyXp": 358.5
-        },
-        {
-          "login": "SoichiroTanakaRimo",
-          "weeklyXp": 0
-        },
-        {
-          "login": "Natsukix98",
-          "weeklyXp": 6
-        }
-      ]
-    },
-    {
       "index": 9,
       "name": "Eternal Dark Guild",
-      "totalXp": 837,
+      "totalXp": 883.5,
       "rank": 11,
       "members": [
         {
@@ -299,11 +299,11 @@
         },
         {
           "login": "Anitesh2004",
-          "weeklyXp": 319.5
+          "weeklyXp": 330
         },
         {
           "login": "ryu38",
-          "weeklyXp": 241.5
+          "weeklyXp": 259.5
         },
         {
           "login": "seipan",
@@ -311,27 +311,27 @@
         },
         {
           "login": "NishaMe",
-          "weeklyXp": 4.5
+          "weeklyXp": 22.5
         }
       ]
     },
     {
       "index": 8,
       "name": "Twilight Hunters",
-      "totalXp": 531,
+      "totalXp": 681,
       "rank": 12,
       "members": [
         {
           "login": "piyushaneja30",
-          "weeklyXp": 157.5
+          "weeklyXp": 276
         },
         {
           "login": "kohei-narita-26",
-          "weeklyXp": 58.5
+          "weeklyXp": 79.5
         },
         {
           "login": "blues5th",
-          "weeklyXp": 130.5
+          "weeklyXp": 141
         },
         {
           "login": "tetsuhiroyoneda",
@@ -346,12 +346,12 @@
     {
       "index": 12,
       "name": "Void Walker Corps",
-      "totalXp": 189,
+      "totalXp": 202.5,
       "rank": 13,
       "members": [
         {
           "login": "prernadabi23",
-          "weeklyXp": 61.5
+          "weeklyXp": 75
         },
         {
           "login": "simran-261",
