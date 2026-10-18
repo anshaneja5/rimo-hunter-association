@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-17T18:01:46.234Z",
+  "generatedAt": "2026-10-18T00:04:27.431Z",
   "period": "monthly",
   "windowStart": "2026-09-30T15:00:00.000Z",
   "windowEnd": "2026-10-31T14:59:59.999Z",
   "rankings": [
     {
       "login": "rimo-iac-automerge",
-      "xp": 9111,
+      "xp": 9327,
       "tier": "S",
       "rankNumber": 1,
       "breakdown": {
-        "prsMerged": 505,
-        "prsOpened": 512,
+        "prsMerged": 517,
+        "prsOpened": 524,
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
@@ -37,7 +37,7 @@
         78,
         86,
         64,
-        8,
+        32,
         0,
         0,
         0,
@@ -112,12 +112,12 @@
     },
     {
       "login": "shinji-ikari-01",
-      "xp": 6421.5,
+      "xp": 6424.5,
       "tier": "S",
       "rankNumber": 3,
       "breakdown": {
         "prsMerged": 148,
-        "prsOpened": 194,
+        "prsOpened": 195,
         "reviews": 748,
         "issuesClosed": 0,
         "issuesOpened": 34,
@@ -148,7 +148,7 @@
         49,
         102,
         94,
-        0,
+        1,
         0,
         0,
         0,
@@ -222,16 +222,16 @@
     },
     {
       "login": "rimo-asuka-langley",
-      "xp": 4839,
+      "xp": 4956,
       "tier": "S",
       "rankNumber": 5,
       "breakdown": {
-        "prsMerged": 257,
-        "prsOpened": 224,
+        "prsMerged": 263,
+        "prsOpened": 230,
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
-        "commits": 208,
+        "commits": 214,
         "comments": 0
       },
       "badges": [
@@ -256,7 +256,7 @@
         61,
         42,
         56,
-        7,
+        25,
         0,
         0,
         0,
@@ -332,16 +332,16 @@
     },
     {
       "login": "koolii",
-      "xp": 4498.5,
+      "xp": 4525.5,
       "tier": "S",
       "rankNumber": 7,
       "breakdown": {
-        "prsMerged": 95,
-        "prsOpened": 113,
+        "prsMerged": 96,
+        "prsOpened": 116,
         "reviews": 352,
         "issuesClosed": 24,
         "issuesOpened": 19,
-        "commits": 628,
+        "commits": 630,
         "comments": 0
       },
       "badges": [
@@ -367,8 +367,8 @@
         68,
         146,
         126,
-        71,
-        0,
+        72,
+        5,
         0,
         0,
         0,
@@ -383,7 +383,7 @@
         0,
         0
       ],
-      "currentStreak": 13,
+      "currentStreak": 14,
       "longestStreak": 27
     },
     {
@@ -1157,7 +1157,7 @@
     },
     {
       "login": "rimo-iac-automerge[bot]",
-      "xp": 757.5,
+      "xp": 775.5,
       "tier": "A",
       "rankNumber": 22,
       "breakdown": {
@@ -1166,7 +1166,7 @@
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
-        "commits": 505,
+        "commits": 517,
         "comments": 0
       },
       "badges": [
@@ -1191,7 +1191,7 @@
         39,
         43,
         32,
-        4,
+        16,
         0,
         0,
         0,
