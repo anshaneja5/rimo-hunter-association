@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T18:01:41.664Z",
+  "generatedAt": "2026-11-15T00:04:05.734Z",
   "period": "weekly",
   "windowStart": "2026-11-08T15:00:00.000Z",
   "windowEnd": "2026-11-15T14:59:59.999Z",
@@ -128,16 +128,16 @@
     },
     {
       "login": "rimo-asuka-langley",
-      "xp": 2614.5,
+      "xp": 2640,
       "tier": "S",
       "rankNumber": 5,
       "breakdown": {
-        "prsMerged": 135,
-        "prsOpened": 129,
+        "prsMerged": 136,
+        "prsOpened": 132,
         "reviews": 0,
         "issuesClosed": 0,
         "issuesOpened": 0,
-        "commits": 135,
+        "commits": 136,
         "comments": 0
       },
       "badges": [
@@ -151,7 +151,7 @@
         93,
         74,
         72,
-        5
+        10
       ],
       "currentStreak": 7,
       "longestStreak": 18
@@ -1013,10 +1013,40 @@
       "longestStreak": 4
     },
     {
+      "login": "shivamshaw23",
+      "xp": 225,
+      "tier": "B",
+      "rankNumber": 34,
+      "breakdown": {
+        "prsMerged": 1,
+        "prsOpened": 1,
+        "reviews": 40,
+        "issuesClosed": 2,
+        "issuesOpened": 2,
+        "commits": 6,
+        "comments": 0
+      },
+      "badges": [
+        "code-monk",
+        "reviewer-sensei"
+      ],
+      "sparkline": [
+        4,
+        5,
+        17,
+        12,
+        7,
+        6,
+        1
+      ],
+      "currentStreak": 0,
+      "longestStreak": 6
+    },
+    {
       "login": "prernadabi23",
       "xp": 223.5,
       "tier": "B",
-      "rankNumber": 34,
+      "rankNumber": 35,
       "breakdown": {
         "prsMerged": 2,
         "prsOpened": 6,
@@ -1047,7 +1077,7 @@
       "login": "anujpatel03",
       "xp": 223.5,
       "tier": "B",
-      "rankNumber": 35,
+      "rankNumber": 36,
       "breakdown": {
         "prsMerged": 2,
         "prsOpened": 6,
@@ -1074,36 +1104,6 @@
       ],
       "currentStreak": 0,
       "longestStreak": 7
-    },
-    {
-      "login": "shivamshaw23",
-      "xp": 223.5,
-      "tier": "B",
-      "rankNumber": 36,
-      "breakdown": {
-        "prsMerged": 1,
-        "prsOpened": 1,
-        "reviews": 40,
-        "issuesClosed": 2,
-        "issuesOpened": 1,
-        "commits": 6,
-        "comments": 0
-      },
-      "badges": [
-        "code-monk",
-        "reviewer-sensei"
-      ],
-      "sparkline": [
-        4,
-        5,
-        17,
-        12,
-        7,
-        6,
-        0
-      ],
-      "currentStreak": 0,
-      "longestStreak": 6
     },
     {
       "login": "wakamsha",
