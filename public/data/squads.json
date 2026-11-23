@@ -1,13 +1,41 @@
 {
-  "generatedAt": "2026-11-22T18:01:47.423Z",
+  "generatedAt": "2026-11-23T00:03:42.033Z",
   "isoWeek": 48,
   "weekStart": "2026-11-22T15:00:00.000Z",
   "squads": [
     {
+      "index": 1,
+      "name": "Golden Shield Society",
+      "totalXp": 312,
+      "rank": 1,
+      "members": [
+        {
+          "login": "koolii",
+          "weeklyXp": 312
+        },
+        {
+          "login": "HrxSrv",
+          "weeklyXp": 0
+        },
+        {
+          "login": "21Meghana",
+          "weeklyXp": 0
+        },
+        {
+          "login": "NishaMe",
+          "weeklyXp": 0
+        },
+        {
+          "login": "kgsi",
+          "weeklyXp": 0
+        }
+      ]
+    },
+    {
       "index": 7,
       "name": "Ashen Blade Society",
       "totalXp": 67.5,
-      "rank": 1,
+      "rank": 2,
       "members": [
         {
           "login": "hosshan",
@@ -34,12 +62,12 @@
     {
       "index": 4,
       "name": "Red Gate Runners",
-      "totalXp": 25.5,
-      "rank": 2,
+      "totalXp": 60,
+      "rank": 3,
       "members": [
         {
           "login": "rimo-asuka-langley",
-          "weeklyXp": 25.5
+          "weeklyXp": 60
         },
         {
           "login": "prernadabi23",
@@ -62,12 +90,12 @@
     {
       "index": 0,
       "name": "Phantom Vanguard",
-      "totalXp": 18,
-      "rank": 3,
+      "totalXp": 54,
+      "rank": 4,
       "members": [
         {
           "login": "rimo-iac-automerge",
-          "weeklyXp": 18
+          "weeklyXp": 54
         },
         {
           "login": "ryu38",
@@ -88,42 +116,14 @@
       ]
     },
     {
-      "index": 1,
-      "name": "Golden Shield Society",
-      "totalXp": 18,
-      "rank": 4,
-      "members": [
-        {
-          "login": "koolii",
-          "weeklyXp": 18
-        },
-        {
-          "login": "HrxSrv",
-          "weeklyXp": 0
-        },
-        {
-          "login": "21Meghana",
-          "weeklyXp": 0
-        },
-        {
-          "login": "NishaMe",
-          "weeklyXp": 0
-        },
-        {
-          "login": "kgsi",
-          "weeklyXp": 0
-        }
-      ]
-    },
-    {
       "index": 8,
       "name": "Neon Samurai Guild",
-      "totalXp": 9,
+      "totalXp": 22.5,
       "rank": 5,
       "members": [
         {
           "login": "datadog-official",
-          "weeklyXp": 9
+          "weeklyXp": 22.5
         },
         {
           "login": "ishitasancheti29",
@@ -140,10 +140,34 @@
       ]
     },
     {
+      "index": 13,
+      "name": "Shadow Monarchs",
+      "totalXp": 4.5,
+      "rank": 6,
+      "members": [
+        {
+          "login": "rimo-iac-automerge[bot]",
+          "weeklyXp": 4.5
+        },
+        {
+          "login": "blues5th",
+          "weeklyXp": 0
+        },
+        {
+          "login": "kamalgurjar7",
+          "weeklyXp": 0
+        },
+        {
+          "login": "user-ank",
+          "weeklyXp": 0
+        }
+      ]
+    },
+    {
       "index": 5,
       "name": "Crimson Emperor Order",
       "totalXp": 3,
-      "rank": 6,
+      "rank": 7,
       "members": [
         {
           "login": "kt3k",
@@ -163,30 +187,6 @@
         },
         {
           "login": "rei-ayanami-00-ai",
-          "weeklyXp": 0
-        }
-      ]
-    },
-    {
-      "index": 13,
-      "name": "Shadow Monarchs",
-      "totalXp": 1.5,
-      "rank": 7,
-      "members": [
-        {
-          "login": "rimo-iac-automerge[bot]",
-          "weeklyXp": 1.5
-        },
-        {
-          "login": "blues5th",
-          "weeklyXp": 0
-        },
-        {
-          "login": "kamalgurjar7",
-          "weeklyXp": 0
-        },
-        {
-          "login": "user-ank",
           "weeklyXp": 0
         }
       ]
