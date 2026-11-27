@@ -1,45 +1,17 @@
 {
-  "generatedAt": "2026-11-26T18:01:40.153Z",
+  "generatedAt": "2026-11-27T00:03:20.008Z",
   "isoWeek": 48,
   "weekStart": "2026-11-22T15:00:00.000Z",
   "squads": [
     {
-      "index": 0,
-      "name": "Phantom Vanguard",
-      "totalXp": 5374.5,
+      "index": 1,
+      "name": "Golden Shield Society",
+      "totalXp": 5751,
       "rank": 1,
       "members": [
         {
-          "login": "rimo-iac-automerge",
-          "weeklyXp": 4794
-        },
-        {
-          "login": "ryu38",
-          "weeklyXp": 378
-        },
-        {
-          "login": "simran-261",
-          "weeklyXp": 195
-        },
-        {
-          "login": "Istm-27",
-          "weeklyXp": 0
-        },
-        {
-          "login": "kavyaNIS",
-          "weeklyXp": 7.5
-        }
-      ]
-    },
-    {
-      "index": 1,
-      "name": "Golden Shield Society",
-      "totalXp": 5065.5,
-      "rank": 2,
-      "members": [
-        {
           "login": "koolii",
-          "weeklyXp": 4647
+          "weeklyXp": 5332.5
         },
         {
           "login": "HrxSrv",
@@ -56,6 +28,34 @@
         {
           "login": "kgsi",
           "weeklyXp": 87
+        }
+      ]
+    },
+    {
+      "index": 0,
+      "name": "Phantom Vanguard",
+      "totalXp": 5551.5,
+      "rank": 2,
+      "members": [
+        {
+          "login": "rimo-iac-automerge",
+          "weeklyXp": 4956
+        },
+        {
+          "login": "ryu38",
+          "weeklyXp": 393
+        },
+        {
+          "login": "simran-261",
+          "weeklyXp": 195
+        },
+        {
+          "login": "Istm-27",
+          "weeklyXp": 0
+        },
+        {
+          "login": "kavyaNIS",
+          "weeklyXp": 7.5
         }
       ]
     },
@@ -146,12 +146,12 @@
     {
       "index": 3,
       "name": "Eternal Dark Guild",
-      "totalXp": 1969.5,
+      "totalXp": 2100,
       "rank": 6,
       "members": [
         {
           "login": "shinji-ikari-01",
-          "weeklyXp": 1339.5
+          "weeklyXp": 1378.5
         },
         {
           "login": "harshit1818",
@@ -159,7 +159,7 @@
         },
         {
           "login": "shivamshaw23",
-          "weeklyXp": 153
+          "weeklyXp": 244.5
         },
         {
           "login": "yashinrush",
@@ -174,12 +174,12 @@
     {
       "index": 6,
       "name": "Void Walker Corps",
-      "totalXp": 1752,
+      "totalXp": 1755,
       "rank": 7,
       "members": [
         {
           "login": "yyamada12",
-          "weeklyXp": 1207.5
+          "weeklyXp": 1210.5
         },
         {
           "login": "Abhinav232004",
@@ -200,10 +200,38 @@
       ]
     },
     {
+      "index": 2,
+      "name": "Twilight Hunters",
+      "totalXp": 1674,
+      "rank": 8,
+      "members": [
+        {
+          "login": "lot-koichi",
+          "weeklyXp": 1410
+        },
+        {
+          "login": "Atharva-Kanherkar",
+          "weeklyXp": 192
+        },
+        {
+          "login": "that-avg-dev",
+          "weeklyXp": 69
+        },
+        {
+          "login": "HaruhiSaito",
+          "weeklyXp": 3
+        },
+        {
+          "login": "kiwasaki-ctrl",
+          "weeklyXp": 0
+        }
+      ]
+    },
+    {
       "index": 7,
       "name": "Ashen Blade Society",
       "totalXp": 1647,
-      "rank": 8,
+      "rank": 9,
       "members": [
         {
           "login": "hosshan",
@@ -230,12 +258,12 @@
     {
       "index": 8,
       "name": "Neon Samurai Guild",
-      "totalXp": 1512,
-      "rank": 9,
+      "totalXp": 1561.5,
+      "rank": 10,
       "members": [
         {
           "login": "datadog-official",
-          "weeklyXp": 1233
+          "weeklyXp": 1282.5
         },
         {
           "login": "ishitasancheti29",
@@ -252,34 +280,6 @@
         {
           "login": "harshit-mangtani",
           "weeklyXp": 138
-        }
-      ]
-    },
-    {
-      "index": 2,
-      "name": "Twilight Hunters",
-      "totalXp": 1432.5,
-      "rank": 10,
-      "members": [
-        {
-          "login": "lot-koichi",
-          "weeklyXp": 1168.5
-        },
-        {
-          "login": "Atharva-Kanherkar",
-          "weeklyXp": 192
-        },
-        {
-          "login": "that-avg-dev",
-          "weeklyXp": 69
-        },
-        {
-          "login": "HaruhiSaito",
-          "weeklyXp": 3
-        },
-        {
-          "login": "kiwasaki-ctrl",
-          "weeklyXp": 0
         }
       ]
     },
@@ -342,12 +342,12 @@
     {
       "index": 13,
       "name": "Shadow Monarchs",
-      "totalXp": 834,
+      "totalXp": 847.5,
       "rank": 13,
       "members": [
         {
           "login": "rimo-iac-automerge[bot]",
-          "weeklyXp": 397.5
+          "weeklyXp": 411
         },
         {
           "login": "blues5th",
@@ -368,10 +368,34 @@
       ]
     },
     {
+      "index": 10,
+      "name": "Steel Lotus Order",
+      "totalXp": 586.5,
+      "rank": 14,
+      "members": [
+        {
+          "login": "ayushh0311",
+          "weeklyXp": 490.5
+        },
+        {
+          "login": "wakamsha",
+          "weeklyXp": 48
+        },
+        {
+          "login": "awakia",
+          "weeklyXp": 10.5
+        },
+        {
+          "login": "akmt230",
+          "weeklyXp": 37.5
+        }
+      ]
+    },
+    {
       "index": 9,
       "name": "Obsidian Fang Clan",
       "totalXp": 540,
-      "rank": 14,
+      "rank": 15,
       "members": [
         {
           "login": "kohei-narita-26",
@@ -392,30 +416,6 @@
         {
           "login": "Tomoko-Matsuda",
           "weeklyXp": 19.5
-        }
-      ]
-    },
-    {
-      "index": 10,
-      "name": "Steel Lotus Order",
-      "totalXp": 478.5,
-      "rank": 15,
-      "members": [
-        {
-          "login": "ayushh0311",
-          "weeklyXp": 382.5
-        },
-        {
-          "login": "wakamsha",
-          "weeklyXp": 48
-        },
-        {
-          "login": "awakia",
-          "weeklyXp": 10.5
-        },
-        {
-          "login": "akmt230",
-          "weeklyXp": 37.5
         }
       ]
     },
